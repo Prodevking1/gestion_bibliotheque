@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('livres', function (Blueprint $table) {
             $table->id();
+            $table->string('titre');
+            $table->foreignId('categorie_id')->constrained();
+            $table->foreignId('auteur_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('editeur_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('status')->default('Y');
             $table->timestamps();
         });
     }

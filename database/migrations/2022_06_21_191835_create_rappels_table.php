@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('rappels', function (Blueprint $table) {
             $table->id();
+            $table->string('date_retour');
+            $table->string('fine');
             $table->timestamps();
         });
     }
