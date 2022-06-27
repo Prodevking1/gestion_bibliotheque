@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('age');
-            $table->string('genre');
             $table->string('email');
             $table->string('tel');
-            $table->string('adresse');
+            $table->string('genre');
             $table->string('filiere');
-            $table->string('classe');
+            $table->string('niveau');
+            $table->string('adresse');
             $table->timestamps();
         });
     }

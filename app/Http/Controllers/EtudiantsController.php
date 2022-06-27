@@ -12,9 +12,11 @@ class EtudiantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   public function index()
     {
-        return view('etudiants.index');
+        return view('etudiants.index', [
+            'etudiants' => Etudiants::Paginate(5)
+        ]);
     }
 
     /**
@@ -27,6 +29,7 @@ class EtudiantsController extends Controller
         return view('etudiants.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +38,19 @@ class EtudiantsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'age' => 'required',
+            'email' => 'required|email',
+            'tel' => 'required',
+            'genre' => 'required',
+            'filiere' => 'required',
+            'niveau' => 'required',
+            'adresse' => 'required',
+        ]);
+        $etudiants = Etudiants::create($validatedData);
+        return redirect('/etudiants')->with('success', 'Etudiant ajouté avec succès');    
     }
 
     /**
