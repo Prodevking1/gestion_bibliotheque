@@ -68,15 +68,13 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link" href="category.php"><i class="fas fa-list" style="margin-left: 15px"></i> Categories de livres</a>
-                        <a class="nav-link" href="author.php"><i class="fas fa-user fa-fw"></i>Auteur</a>
+                        <a class="nav-link" href="category.php"><i class="fas fa-list" style="margin-right: 15px"></i> Categories de livres</a>
+                        <a class="nav-link" href="author.php"><i class="fas fa-person" style="margin-right: 15px"></i>Auteur</a>
                         <a class="nav-link" href="location_rack.php">Emplacement</a>
                         <a class="nav-link" href="book.php">Livres</a>
                         <a class="nav-link" href="user.php">Utilisateur</a>
                         <a class="nav-link" href="issue_book.php">Emprunt</a>
                         <a class="nav-link" href="logout.php">Deconnexion</a>
-                       
-
 
                     </div>
                 </div>
