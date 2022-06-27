@@ -46,7 +46,7 @@
     <div class="container" style="margin-top: 10%;text-align:center;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card"  style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <div class="card-header" style="text-align: center;text-transform : uppercase; font-family: Stencil Std, fantasy; font-weight: bold; font-size: 200%;">{{ __('Inscription') }}</div>
 
                 <div class="card-body">
