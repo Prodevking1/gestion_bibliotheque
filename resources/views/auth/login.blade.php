@@ -46,7 +46,7 @@
         <div class="col-md-8">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <br>
-                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Stencil Std, fantasy; font-weight: bold; font-size: 200%;">{{ __('Connexion') }}</div>
+                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">{{ __('Connexion') }}</div>
                     <br><br><br>
 
 
@@ -56,7 +56,7 @@
 
                         
 
-                        <div class="row mb-4" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                        <div class="row mb-4" style=" font-family: Lato; font-size: 150%;">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Stencil Std, fantasy; font-size: 130%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 130%;">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -93,7 +93,7 @@
                                         {{ __('Se souvenir de moi') }}
                                     </label>
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}" style="text-decoration: none; font-family: Stencil Std, fantasy; font-size: 90%; margin-left:10%;">
+                                        <a class="btn btn-link" href="{{ route('password.request') }}" style="text-decoration: none; font-family: Lato; font-size: 90%; margin-left:10%;">
                                             {{ __('Mot de passe oublié?') }}
                                         </a>
                                     @endif
@@ -104,11 +104,11 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <a href="{{ route('register') }}">
-                                    <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                                    <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%;">
                                     {{ __('S\'inscrire') }}
                                 </button>
                                 </a>
-                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%; margin-left:10%;">
+                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; margin-left:10%;">
                                     {{ __('Se connecter') }}
                                 </button>
 
