@@ -105,11 +105,13 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" style=" font-family: Stencil Std, fantasy; font-size: 110%; text-align:center; color:blue;background-color:white;">
+                                <button type="submit" class="btn btn-outline-primary" style="font-family: Stencil Std, fantasy; font-size: 110%; text-align:center;">
                                     {{ __("S'Inscrire") }}
                                 </button>
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>
