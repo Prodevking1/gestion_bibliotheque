@@ -8,7 +8,7 @@
 			</ol>
 
 			<div class="card mb-4">
-				<table class="table align-middle mb-0 bg-white">
+<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
       <th>Nom complet</th>
@@ -44,9 +44,11 @@
       </td>
       <td>Neant</td>
       <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Editer
-        </button>
+          <form action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
+            @csrf
+      <button type="submit" class="btn btn-danger">Supprimer</button>
+          </form>
+
       </td>
     </tr>
     @empty
@@ -54,6 +56,7 @@
          <td colspan="8">Aucun etudiant n'a ete trouve !</td>
      </tr>
   </tbody>
+  
   @endforelse
 </table>
 			</div>

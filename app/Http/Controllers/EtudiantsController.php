@@ -61,7 +61,7 @@ class EtudiantsController extends Controller
      */
     public function show(Etudiants $etudiants)
     {
-        //
+
     }
 
     /**
@@ -72,7 +72,8 @@ class EtudiantsController extends Controller
      */
     public function edit(Etudiants $etudiants)
     {
-        //
+        return view('etudiants.edit', compact('etudiants'));
+
     }
 
     /**
@@ -82,9 +83,18 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Etudiants $etudiants)
+    public function update(Request $request, int $id)
     {
-        //
+        $etudiants = Etudiants::find($id);
+        $etudiants->nom = $request->nom;
+        $etudiants->prenom = $request->prenom;
+        $etudiants->age = $request->age;
+        $etudiants->genre = $request->genre;
+        $etudiants->email = $request->email;
+        $etudiants->filiere = $request->filiere;
+        $etudiants->niveau = $request->niveau;
+        $etudiants->adresse = $request->adresse;
+        $etudiants->save();
     }
 
     /**
@@ -93,8 +103,11 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Etudiants $etudiants)
+    public function destroy($id)
     {
-        //
+       $etudiants = Etudiants::where('id', $id);
+       $etudiants->delete();
+        return redirect()->back()->with("Dossier ajouter avec succes");
+
     }
 }

@@ -42,7 +42,7 @@
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Bibliothèque</a>
+        <a class="navbar-brand ps-3" href="index.php">Tableau de bord</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -54,11 +54,11 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                {{-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="profile.php">Profil</a></li>
                     <li><a class="dropdown-item" href="setting.php">Reglages</a></li>
                     <li><a class="dropdown-item" href="logout.php">Deconnexion</a></li>
-                </ul>
+                </ul> --}}
             </li>
         </ul>
     </nav>
@@ -68,13 +68,15 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link" href="category.php">Categorie</a>
-                        <a class="nav-link" href="author.php">Auteur</a>
+                        <a class="nav-link" href="category.php"><i class="fas fa-list" style="margin-left: 15px"></i> Categories de livres</a>
+                        <a class="nav-link" href="author.php"><i class="fas fa-user fa-fw"></i>Auteur</a>
                         <a class="nav-link" href="location_rack.php">Emplacement</a>
                         <a class="nav-link" href="book.php">Livres</a>
                         <a class="nav-link" href="user.php">Utilisateur</a>
                         <a class="nav-link" href="issue_book.php">Emprunt</a>
                         <a class="nav-link" href="logout.php">Deconnexion</a>
+                       
+
 
                     </div>
                 </div>
