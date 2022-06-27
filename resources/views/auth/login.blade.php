@@ -45,9 +45,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                <br>
+                <br><br>
                 <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">{{ __('Connexion') }}</div>
-                    <br><br><br>
+                    <br><br>
 
 
                 <div class="card-body">
@@ -103,12 +103,11 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ route('register') }}">
-                                    <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%;">
-                                    {{ __('S\'inscrire') }}
+                               
+                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%;">
+                                    <a href="{{ route('register') }}" style="text-decoration: none; color:black">{{ __('S\'inscrire') }}</a>
                                 </button>
-                                </a>
-                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; margin-left:10%;">
+                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; margin-left:10%; color:black;">
                                     {{ __('Se connecter') }}
                                 </button>
 
