@@ -12,12 +12,13 @@ class CategoriesController extends Controller
     {
         $categories = Categories::all();
         return view ('categories.index')->with('categories', $categories);
+       
     }
 
     
     public function create()
     {
-        return view('categories.create');
+        return view('categories.create'); 
     }
 
 
@@ -25,7 +26,7 @@ class CategoriesController extends Controller
     {
         $input = $request->all();
         Categories::create($input);
-        return redirect('categories.index')->with('flash_message', 'categorie Addedd!');  
+        return redirect('categories')->with('flash_message', 'categorie Addedd!');  
     }
 
     
@@ -41,7 +42,7 @@ class CategoriesController extends Controller
     {
         $categories = Categories::find($id);
         return view('categories.edit')->with('categories', $categories);
-        return redirect('categories.index')->with('flash_message', 'categorie Updated!'); 
+        return redirect('categories')->with('flash_message', 'categorie Updated!'); 
     }
 
     
@@ -51,7 +52,7 @@ class CategoriesController extends Controller
         $categories = Categories::find($id);
         $input = $request->all();
         $categories->update($input);
-        return redirect('categories.index')->with('flash_message', 'categorie Updated!');  
+        return redirect('categories')->with('flash_message', 'categorie Updated!');  
         
     }
 
@@ -60,7 +61,7 @@ class CategoriesController extends Controller
     public function destroy(Categories $categories, $id)
     {
         Categories::destroy($id);
-        return redirect('categorie')->with('flash_message', 'categorie deleted!');
+        return redirect('categories')->with('flash_message', 'categorie deleted!');
     }
 }
 

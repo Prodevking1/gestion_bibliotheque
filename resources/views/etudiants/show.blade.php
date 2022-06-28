@@ -1,4 +1,4 @@
-@extends('etudiants.layout')
+@extends('layouts.app')
 @section('content')
  
  
@@ -24,3 +24,4 @@
   
   </div>
 </div>
+@endsection
