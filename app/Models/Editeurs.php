@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Editeurs extends Model
 {
-    use HasFactory;
+    protected $table = 'editeurs';
+    protected $primaryKey = 'id';
+    protected $fillable = ['nom', 'address', 'mobile'];
 }

@@ -1,46 +1,68 @@
-
-@extends('layouts.app')
+@extends('etudiants.layout')
 @section('content')
-
-<div class="d-flex align-items-center justify-content-center mt-5 mb-5" style="min-height:700px;">
-	<div class="col-md-6">
-		
-		<div class="card">
-			<div class="card-header">Inscription</div>
-			<div class="card-body">
-				<form method="POST" enctype="multipart/form-data">
-					<div class="mb-3">
-						<label class="form-label">Email</label>
-						<input type="text" name="user_email_address" id="user_email_address" class="form-control" />
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Mot de passe</label>
-						<input type="password" name="user_password" id="user_password" class="form-control" />
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Nom d'utilisateur</label>
-                        <input type="text" name="user_name" class="form-control" id="user_name" value="" />
+    <div class="container" width=100%>
+        <div class="row">
+ 
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Liste des etudiants</h2>
                     </div>
-					<div class="mb-3">
-						<label class="form-label">Téléphone</label>
-						<input type="text" name="user_contact_no" id="user_contact_no" class="form-control" />
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Adresse</label>
-						<textarea name="user_address" id="user_address" class="form-control"></textarea>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Photo</label><br />
-						<input type="file" name="user_profile" id="user_profile" />
-						<br />
-						<span class="text-muted">Seules les images .jpg & .png sont autorisées. La taille doit être égale à 225 x 225</span>
-					</div>
-					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="register_button" class="btn btn-primary" value="Inscription" />
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+                    <div class="card-body">
+                        <a href="{{ url('/etudiants/create') }}" class="btn btn-success btn-sm" title="Add New Student">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        </a>
+                        <br/>
+                        <br/>
+                        <div class="table-responsive">
+                            <table class="table" width=100%>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Age</th>
+                                        <th>Genre</th>
+                                        <th>Email</th>
+                                        <th>Tel</th>
+                                        <th>Adresse</th>
+                                        <th>filiere</th>
+                                        <th>classe</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($etudiants as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->nom }}</td>
+                                        <td>{{ $item->prenom }}</td>
+                                        <td>{{ $item->age }}</td>
+                                        <td>{{ $item->genre }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->tel }}</td>
+                                        <td>{{ $item->adresse }}</td>
+                                        <td>{{ $item->filiere }}</td>
+                                        <td>{{ $item->classe }}</td>
+ 
+                                        <td>
+                                            <a href="{{ url('/etudiants/' . $item->id) }}" title="View categorie"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/etudiants/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+ 
+                                            <form method="POST" action="{{ url('/etudiants' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete etudiant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

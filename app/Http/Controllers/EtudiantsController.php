@@ -14,7 +14,8 @@ class EtudiantsController extends Controller
      */
     public function index()
     {
-        return view('etudiants.index');
+        $etudiants = Etudiants::all();
+        return view ('etudiants.index')->with('etudiants', $etudiants);
     }
 
     /**
@@ -24,7 +25,8 @@ class EtudiantsController extends Controller
      */
     public function create()
     {
-        //
+        return view('etudiants.create');
+        return redirect('etudiant')->with('flash_message', 'etudiant enregistré!'); 
     }
 
     /**
@@ -35,7 +37,9 @@ class EtudiantsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Etudiants::create($input);
+        return redirect('etudiants.index')->with('flash_message', 'etudiant Addedd!'); 
     }
 
     /**
@@ -44,9 +48,10 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function show(Etudiants $etudiants)
+    public function show(Etudiants $etudiants, $id)
     {
-        //
+        $etudiants = Etudiants::find($id);
+        return view('etudiants.show')->with('etudiants', $etudiants);
     }
 
     /**
@@ -55,9 +60,11 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function edit(Etudiants $etudiants)
+    public function edit(Etudiants $etudiants, $id)
     {
-        //
+        $etudiants = Etudiants::find($id);
+        return view('etudiants.edit')->with('etudiants', $etudiants);
+        return redirect('etudiant')->with('flash_message', 'etudiant Updated!'); 
     }
 
     /**
@@ -67,9 +74,12 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Etudiants $etudiants)
+    public function update(Request $request, Etudiants $etudiants, $id)
     {
-        //
+        $etudiants = Etudiants::find($id);
+        $input = $request->all();
+        $etudiants->update($input);
+        return redirect('etudiants')->with('flash_message', 'etudiants Updated!');  
     }
 
     /**
@@ -78,8 +88,9 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Etudiants $etudiants)
+    public function destroy(Etudiants $etudiants, $id)
     {
-        //
+        Etudiants::destroy($id);
+        return redirect('etudiants')->with('flash_message', 'etudiant deleted!');
     }
 }
