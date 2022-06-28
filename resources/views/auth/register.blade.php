@@ -45,6 +45,8 @@
 <body>
     <div class="container" style="margin-top: 10%;text-align:center;">
     <div class="row justify-content-center">
+
+
         <div class="col-md-8">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 
@@ -59,7 +61,7 @@
                         @csrf
 
                         <div class="row mb-3"style=" font-family: Lato; font-size: 150%;">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" required>
@@ -73,7 +75,7 @@
                         </div>
 
                         <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse Email') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse Email') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" required>
@@ -87,7 +89,7 @@
                         </div>
 
                         <div class="row mb-3"style=" font-family: Lato; font-size: 150%;">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" required>
@@ -101,21 +103,31 @@
                         </div>
 
                         <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmez') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmez') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" required>
                             </div>
                         </div>
 
+                        <br>
+
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 mx-auto">
                                 <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; text-align:center; color:black;">
                                     {{ __("S'Inscrire") }}
                                 </button>
                             </div>
                         </div>
 
+                        <br>
+
+                        <div class="row mb-0" style="display: flex; font-family: Lato; font-size: 130%; text-align:center; color:black;">
+                            <div class="col-md-6 offset-md-4 mx-auto">
+                                <p>Vous avez déjà un compte? <a href="{{ route('login') }}" style="text-decoration:none;">{{ __("Connectez-vous ici") }}</a></p>
+                                
+                            </div>
+                        </div>
 
                     </form>
                 </div>
