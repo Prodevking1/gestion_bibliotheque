@@ -26,8 +26,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/etudiants', [EtudiantsController::class, 'index'])->name('etudiants');
 Route::get('/etudiants/create', [EtudiantsController::class, 'create'])->name('etudiants.create');
-Route::get('/etudiants/show{id}', [EtudiantsController::class, 'show'])->name('etudiants.show');
-Route::post('/etudiants/edit/{id}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
+Route::get('/etudiants/edit/{id}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
 Route::post('/etudiants/update/{id}', [EtudiantsController::class, 'update'])->name('etudiants.update');
-Route::post('/etudiants/delete/{id}', [EtudiantsController::class, 'destroy'])->name('etudiants.delete');
+Route::post('/etudiants/delete/{id}', [EtudiantsController::class, 'destroy'])->name('etudiants.destroy');
 Route::post('/etudiants/store/', [EtudiantsController::class, 'store'])->name('etudiants.store');
+
+
+Route::resource('/auteurs', AuteursController::class);
+Route::resource("/categories", CategoriesController::class);
+Route::resource("/etudiants", EtudiantsController::class);
+
+?>

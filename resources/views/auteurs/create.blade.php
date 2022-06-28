@@ -1,4 +1,4 @@
-@extends('auteurs.layout')
+@extends('layouts.app')
 @section('content')
  
 <div class="card">
@@ -15,4 +15,4 @@
   </div>
 </div>
  
-@stop 
+@endsection
