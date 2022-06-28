@@ -20,7 +20,7 @@
 				<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light" width=100%>
     <tr width=100%>
-    <th>#</th>
+    
       <th width=25%>ID</th>
       <th width=40%>Titre</th>
       <th>Actions</th>
