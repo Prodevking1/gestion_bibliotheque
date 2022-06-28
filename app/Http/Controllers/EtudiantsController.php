@@ -12,10 +12,16 @@ class EtudiantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   public function index()
     {
+<<<<<<< HEAD
         $etudiants = Etudiants::all();
         return view ('etudiants.index')->with('etudiants', $etudiants);
+=======
+        return view('etudiants.index', [
+            'etudiants' => Etudiants::Paginate(5)
+        ]);
+>>>>>>> d49333a60e971ce77966a5f17a0ba535bc098b32
     }
 
     /**
@@ -26,8 +32,12 @@ class EtudiantsController extends Controller
     public function create()
     {
         return view('etudiants.create');
+<<<<<<< HEAD
         return redirect('etudiant')->with('flash_message', 'etudiant enregistré!'); 
+=======
+>>>>>>> d49333a60e971ce77966a5f17a0ba535bc098b32
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -37,9 +47,25 @@ class EtudiantsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         $input = $request->all();
         Etudiants::create($input);
         return redirect('etudiants.index')->with('flash_message', 'etudiant Addedd!'); 
+=======
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'age' => 'required',
+            'email' => 'required|email',
+            'tel' => 'required',
+            'genre' => 'required',
+            'filiere' => 'required',
+            'niveau' => 'required',
+            'adresse' => 'required',
+        ]);
+        $etudiants = Etudiants::create($validatedData);
+        return redirect('/etudiants')->with('success', 'Etudiant ajouté avec succès');    
+>>>>>>> d49333a60e971ce77966a5f17a0ba535bc098b32
     }
 
     /**
