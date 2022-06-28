@@ -12,7 +12,7 @@
             <a href="{{ route('categories.create') }}">
             <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
                       {{ __('Ajoutez un Etudiant') }}
-                </button>
+            </button>
             </a>
           </div>
           <br>
@@ -20,7 +20,7 @@
 				<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light" width=100%>
     <tr width=100%>
-    
+    <th></th>
       <th width=25%>ID</th>
       <th width=40%>Titre</th>
       <th>Actions</th>
@@ -48,18 +48,20 @@
       </td>
      
 
-                             <td>
-                                            <a href="{{ url('/categories/' . $categories->id) }}" title="View categorie"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/categories/' . $categories->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
- 
-                                            <form method="POST" action="{{ url('/categories' . '/' . $categories->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-      
+       <td>
+        <div>
+        <a href="{{ url('/categories/' . $categories->id) }}" title="View categorie"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+         <a href="{{ url('/categories/' . $categories->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+          <form method="POST" action="{{ url('/categories' . '/' . $categories->id) }}" accept-charset="UTF-8" style="display:inline">
+         {{ method_field('DELETE') }}
+          {{ csrf_field() }}
+            <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+      </td>
+    </tr>
+        </div>
+        
+     
+     </form> 
     </tr>
     @empty
      <tr>

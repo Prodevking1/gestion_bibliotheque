@@ -18,55 +18,59 @@
           <br>
 			<div class="card mb-4">
 				<table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light" width=100%>
-    <tr width=100%>
-    <th></th>
-      <th width=25%>ID</th>
-      <th width=40%>Nom de l'auteur</th>
-      <th>Actions</th>
+                    <thead class="bg-light" width=100%>
+                        <tr width=100%>
+                        <th></th>
+                        <th width=25%>ID</th>
+                        <th width=40%>Nom de l'auteur</th>
+                        <th>Actions</th>
      
-    </tr>
-  </thead>
-  @forelse($auteurs as $auteurs)
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <th width=25%><p class="fw-bold mb-1">{{ $auteurs->id }}</p></th>
-            <th width=40%><p class="text-muted mb-0">{{$auteurs->nom_prenom}}</p></th>
-          </div>
-        </div>
-      </td>
-        <td>
-            <div>
+                        </tr>
+                            </thead>
+                            @forelse($auteurs as $auteurs)
+                            <tbody>
+                            <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                <img
+                                    src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                    alt=""
+                                    style="width: 45px; height: 45px"
+                                    class="rounded-circle"
+                                    />
+                                <div class="ms-3">
+                                    <th width=25%><p class="fw-bold mb-1">{{ $auteurs->id }}</p></th>
+                                    <th width=40%><p class="text-muted mb-0">{{$auteurs->nom_prenom}}</p></th>
+                                </div>
+                                </div>
+                            </td>
+                                <td>
+                                    <div>
 
-            </div>
-            <a href="{{ url('/auteurs/' . $auteurs->id) }}" title="View categorie"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-            <a href="{{ url('/auteurs/' . $auteurs->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
- 
-              <form method="POST" action="{{ url('/auteurs' . '/' . $auteurs->id) }}" accept-charset="UTF-8" style="display:inline">
-    {{ method_field('DELETE') }}
-    {{ csrf_field() }}
-         <button type="submit" class="btn btn-danger btn-sm" title="Delete auteur" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
-     </form>
-     </td>
-    </tr>
-      
-    </tr>
-    @empty
-     <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
-     </tr>
-  </tbody>
-  @endforelse
-</table>
+                                    </div>
+                                
+                            
+                                    <td>
+                                        <div>
+                                                <a href="{{ url('/auteurs/' . $auteurs->id) }}" title="View auteur"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+                                                <a href="{{ url('/auteurs/' . $auteurs->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+                                                <form method="POST" action="{{ url('/auteurs' . '/' . $auteurs->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </td>
+                                            </tr>
+                                        
+                                             </form> 
+                                            </div>
+                        </tr>
+                                    @empty
+                                <tr>
+                                    <td colspan="8">Aucun auteur n'a ete trouve !</td>
+                                </tr>
+                            </tbody>
+                            @endforelse
+                        </table>
 			</div>
 		</div>
 @endsection
