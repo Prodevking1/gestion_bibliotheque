@@ -10,8 +10,8 @@ class Etudiants extends Model
 
     protected $table = 'etudiants';
     protected $primarykey = 'id';
-    protected $fillable =['nom', 'prenom', 'age', 'genre', 'email', 'tel', 'adresse', 'filiere', 'classe'];
+    protected $fillable =['nom', 'prenom', 'age', 'genre', 'email', 'tel', 'filiere', 'niveau', 'adresse'];
 
-    
+
 }
 
