@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Livres;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,7 @@ class LivresController extends Controller
      */
     public function index()
     {
-        $livres = Livres::all();
-        return view ('livres.index')->with('livres', $livres);
+        return view ('livres.index');
     }
 
     /**
@@ -25,7 +25,8 @@ class LivresController extends Controller
      */
     public function create()
     {
-        return view('livres.create');
+        return view('livres.create',
+         ['categories' => Categories::latest()->get()]);
     }
 
     /**
@@ -36,9 +37,14 @@ class LivresController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Livres::create($input);
-        return redirect('livres')->with('flash_message', 'livre Addedd!');  
+        $validatedData = $request->validate([
+            'titre' => 'required',
+            'categorie_id' => 'required',
+            'auteur_id' => 'required',
+            'editeur_id' => 'required',
+        ]);
+        $etudiants = Livres::create($validatedData);
+        return redirect('/etudiants')->toast('success', 'Livre ajouté avec succès');    
     }
 
 
