@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/etudiants', [EtudiantsController::class, 'index'])->name('etudiants');
 Route::get('/etudiants/create', [EtudiantsController::class, 'create'])->name('etudiants.create');
+Route::get('/etudiants/show{id}', [EtudiantsController::class, 'show'])->name('etudiants.show');
 Route::post('/etudiants/edit/{id}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
 Route::post('/etudiants/update/{id}', [EtudiantsController::class, 'update'])->name('etudiants.update');
 Route::post('/etudiants/delete/{id}', [EtudiantsController::class, 'destroy'])->name('etudiants.delete');

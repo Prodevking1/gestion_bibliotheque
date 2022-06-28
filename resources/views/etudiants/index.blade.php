@@ -59,26 +59,17 @@
 
       </td>
       <td>Neant</td>
-<<<<<<< HEAD
-      <td>
-          <form action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
-            @csrf
-      <button type="submit" class="btn btn-danger">Supprimer</button>
-          </form>
-
-=======
       <td class=""style="color:blue;font-size:120%;">
     
-      <a href='#'>       
+      <a href='{{route('etudiants.show', $etudiant->id)}}' method='POST'>       
           <i class="fas fa-eye"></i>
       </a>
-      <a style="padding-left:15px;"  href='#'>
+      <a style="padding-left:15px;"  href='{{route('etudiants.edit', $etudiant->id)}}' method='POST'>
           <i class="fas fa-edit"></i>
       </a>
-      <a style="padding-left:15px;"  href='#'>
+      <a style="padding-left:15px;"  href='{{route('etudiants.delete', $etudiant->id)}}' method='POST'>
          <i class="fas fa-trash"></i>
       </a>
->>>>>>> 39b077169a430038d6c0bccea301bd5aa225d136
       </td>
     </tr>
     @empty
@@ -142,5 +133,5 @@
             .button-submit::-moz-focus-inner {
                 border: 0;
             }
-            </style>
+</style>
 
