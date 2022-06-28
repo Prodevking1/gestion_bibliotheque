@@ -74,11 +74,11 @@
 						<label class="form-label" style="font-weight: bold;">Filière</label>
 						<select class="form-select" name="filiere" aria-label="Default select example" required>
 							<option value="" selected disabled>Selectionnez votre filière</option>
-							<option value="1">MIAGE</option>
-							<option value="2">ADB</option>
-							<option value="3">CCA</option>
-							<option value="4">ABF</option>
-							<option value="5">MG</option>
+							<option value="MIAGE">MIAGE</option>
+							<option value="ADB">ADB</option>
+							<option value="CCA">CCA</option>
+							<option value="ABF">ABF</option>
+							<option value="MG">MG</option>
 						</select>
 					</div>
 
@@ -88,9 +88,9 @@
 						<label class="form-label" style="font-weight: bold;">Niveau</label>
 						<select class="form-select" name="niveau" aria-label="Default select example" required>
 							<option value="" selected disabled>Selectionnez votre niveau</option>
-							<option value="1">LICENCE 1</option>
-							<option value="2">LICENCE 2</option>
-							<option value="3">LICENCE 3</option>
+							<option value="LICENCE 1">LICENCE 1</option>
+							<option value="LICENCE 2">LICENCE 2</option>
+							<option value="LICENCE 3">LICENCE 3</option>
 						</select>
 					</div>
 

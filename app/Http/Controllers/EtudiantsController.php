@@ -68,6 +68,7 @@ class EtudiantsController extends Controller
      */
     public function show(Etudiants $etudiants, $id)
     {
+
         $etudiants = Etudiants::find($id);
         return view('etudiants.show')->with('etudiants', $etudiants);
     }
@@ -106,9 +107,11 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Etudiants $etudiants, $id)
+    public function destroy($id)
     {
-        Etudiants::destroy($id);
-        return redirect('etudiants')->with('flash_message', 'etudiant deleted!');
+       $etudiants = Etudiants::where('id', $id);
+       $etudiants->delete();
+        return redirect()->back()->with("Dossier ajouter avec succes");
+
     }
 }

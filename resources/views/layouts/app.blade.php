@@ -57,9 +57,13 @@
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Bibliothèque</a>
+<<<<<<< HEAD
+        <a class="navbar-brand ps-3" href="index.php">Tableau de bord</a>
+=======
+        <a class="navbar-brand ps-3" style="color:rgb(0,191,255); font-family: Stencil Std, fantasy;" href="index.php">Bibliothèque</a>
+>>>>>>> 39b077169a430038d6c0bccea301bd5aa225d136
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"  id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
@@ -68,12 +72,17 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+<<<<<<< HEAD
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                {{-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+=======
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw" style="color:rgb(0,191,255);"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+>>>>>>> 39b077169a430038d6c0bccea301bd5aa225d136
                     <li><a class="dropdown-item" href="profile.php">Profil</a></li>
                     <li><a class="dropdown-item" href="setting.php">Reglages</a></li>
                     <li><a class="dropdown-item" href="logout.php">Deconnexion</a></li>
-                </ul>
+                </ul> --}}
             </li>
         </ul>
     </nav>
@@ -83,8 +92,8 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link" href="category.php">Categorie</a>
-                        <a class="nav-link" href="author.php">Auteur</a>
+                        <a class="nav-link" href="category.php"><i class="fas fa-list" style="margin-right: 15px"></i> Categories de livres</a>
+                        <a class="nav-link" href="author.php"><i class="fas fa-person" style="margin-right: 15px"></i>Auteur</a>
                         <a class="nav-link" href="location_rack.php">Emplacement</a>
                         <a class="nav-link" href="book.php">Livres</a>
                         <a class="nav-link" href="user.php">Utilisateur</a>
