@@ -8,12 +8,12 @@
 		
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Stencil Std, fantasy; font-weight: bold; font-size: 200%;">
+			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
 				{{ __('Inscription') }}
 			</div>
 
 			<br>
-			<div class="card-body"  style="text-transform : uppercase; font-family: Stencil Std, fantasy;">
+			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
 				<form method="POST" class="row g-3" action="{{ route('etudiants.store')}}" enctype="multipart/form-data">
 					@csrf
 
@@ -34,7 +34,7 @@
 					<!-- Date de naissance -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="text" name="age" id="age" class="form-control" placeholder="jj/mm/aaaa" required/>
+						<input type="date" name="age" id="age" class="form-control" placeholder="jj/mm/aaaa" required/>
 					</div>
 
 

@@ -14,9 +14,11 @@ class EtudiantsController extends Controller
      */
    public function index()
     {
+        
         return view('etudiants.index', [
             'etudiants' => Etudiants::Paginate(5)
         ]);
+
     }
 
     /**
@@ -27,6 +29,7 @@ class EtudiantsController extends Controller
     public function create()
     {
         return view('etudiants.create');
+
     }
 
 
@@ -38,6 +41,8 @@ class EtudiantsController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $validatedData = $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
@@ -50,8 +55,10 @@ class EtudiantsController extends Controller
             'adresse' => 'required',
         ]);
         $etudiants = Etudiants::create($validatedData);
-        return redirect('/etudiants')->with('success', 'Etudiant ajouté avec succès');    
+        return redirect('/etudiants')->with('success', 'Etudiant ajouté avec succès');  
+
     }
+
 
     /**
      * Display the specified resource.
@@ -59,9 +66,14 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function show(Etudiants $etudiants)
+    public function show(Etudiants $etudiants, $id)
     {
+<<<<<<< HEAD
 
+=======
+        $etudiants = Etudiants::find($id);
+        return view('etudiants.show')->with('etudiants', $etudiants);
+>>>>>>> e0e69f5e3951c3e1f7a7ba4d89042edf35fde967
     }
 
     /**
@@ -70,10 +82,16 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
-    public function edit(Etudiants $etudiants)
+    public function edit(Etudiants $etudiants, $id)
     {
+<<<<<<< HEAD
         return view('etudiants.edit', compact('etudiants'));
 
+=======
+        $etudiants = Etudiants::find($id);
+        return view('etudiants.edit')->with('etudiants', $etudiants);
+        return redirect('etudiant')->with('flash_message', 'etudiant Updated!'); 
+>>>>>>> e0e69f5e3951c3e1f7a7ba4d89042edf35fde967
     }
 
     /**
@@ -83,6 +101,7 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function update(Request $request, int $id)
     {
         $etudiants = Etudiants::find($id);
@@ -95,6 +114,14 @@ class EtudiantsController extends Controller
         $etudiants->niveau = $request->niveau;
         $etudiants->adresse = $request->adresse;
         $etudiants->save();
+=======
+    public function update(Request $request, Etudiants $etudiants, $id)
+    {
+        $etudiants = Etudiants::find($id);
+        $input = $request->all();
+        $etudiants->update($input);
+        return redirect('etudiants')->with('flash_message', 'etudiants Updated!');  
+>>>>>>> e0e69f5e3951c3e1f7a7ba4d89042edf35fde967
     }
 
     /**
@@ -103,11 +130,18 @@ class EtudiantsController extends Controller
      * @param  \App\Models\Etudiants  $etudiants
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function destroy($id)
     {
        $etudiants = Etudiants::where('id', $id);
        $etudiants->delete();
         return redirect()->back()->with("Dossier ajouter avec succes");
 
+=======
+    public function destroy(Etudiants $etudiants, $id)
+    {
+        Etudiants::destroy($id);
+        return redirect('etudiants')->with('flash_message', 'etudiant deleted!');
+>>>>>>> e0e69f5e3951c3e1f7a7ba4d89042edf35fde967
     }
 }

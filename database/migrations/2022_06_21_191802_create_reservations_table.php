@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $$table->id();
+            $table->id();
             $table->foreignId('etudiant_id')->constrained()->onDelete('cascade');
             $table->foreignId('livre_id')->constrained();
             $table->timestamp('date_reservation');

@@ -7,79 +7,60 @@ use Illuminate\Http\Request;
 
 class AuteursController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        //
+        $auteurs = Auteurs::all();
+      return view ('auteurs.index')->with('auteurs', $auteurs);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
-        //
+        return view('auteurs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Auteurs::create($input);
+        return redirect('auteur')->with('flash_message', 'Auteur Addedd!');  
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Auteurs  $auteurs
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Auteurs $auteurs)
+
+    public function show(Auteurs $auteurs, $id)
     {
-        //
+        $auteurs = Auteurs::find($id);
+        return view('auteurs.show')->with('auteurs', $auteurs);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Auteurs  $auteurs
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Auteurs $auteurs)
+ 
+    public function edit(Auteurs $auteurs, $id)
     {
-        //
+        $auteurs = Auteurs::find($id);
+        return view('auteurs.edit')->with('auteurs', $auteurs);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Auteurs  $auteurs
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Auteurs $auteurs)
+
+    public function update(Request $request, Auteurs $auteurs, $id)
     {
-        //
+        
+        $auteurs = Auteurs::find($id);
+        $input = $request->all();
+        $auteurs->update($input);
+        return redirect('auteur')->with('flash_message', 'auteur Updated!');  
+
+
+      
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Auteurs  $auteurs
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Auteurs $auteurs)
+
+    public function destroy(Auteurs $auteurs, $id)
     {
-        //
+        Auteurs::destroy($id);
+        return redirect('auteur')->with('flash_message', 'Auteur deleted!');
     }
 }
+
+?>
