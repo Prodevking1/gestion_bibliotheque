@@ -1,8 +1,8 @@
-@extends('categories.layout')
+@extends('layouts.app')
 @section('content')
  
 <div class="card">
-  <div class="card-header">Les categories</div>
+  <div class="card-header">Ajouter une categoirie</div>
   <div class="card-body">
       
       <form action="{{ url('categories') }}" method="post">
@@ -15,4 +15,4 @@
   </div>
 </div>
  
-@stop
+@endsection

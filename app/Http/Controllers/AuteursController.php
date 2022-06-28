@@ -39,7 +39,7 @@ class AuteursController extends Controller
     public function edit(Auteurs $auteurs, $id)
     {
         $auteurs = Auteurs::find($id);
-        return view('auteurs.edit')->with('auteurs', $auteurs);
+        return view('auteurs')->with('auteurs', $auteurs);
     }
 
 
