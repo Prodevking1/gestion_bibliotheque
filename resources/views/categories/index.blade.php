@@ -3,12 +3,19 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4" style="min-height: 700px;" width=100%>
-			<h1>Gestion des utilisateurs</h1>
+			<h1>categories</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des utilisateurs</li>
 			</ol>
-
+      <div class="" style="">
+            <a href="{{ route('categories.create') }}">
+            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+                      {{ __('Ajoutez un Etudiant') }}
+                </button>
+            </a>
+          </div>
+          <br>
 			<div class="card mb-4">
 				<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light" width=100%>
