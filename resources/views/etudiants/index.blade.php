@@ -44,7 +44,7 @@
       </td>
       <td>Neant</td>
       <td>
-          <form action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
+          <form action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-danger">Supprimer</button>
           </form>
