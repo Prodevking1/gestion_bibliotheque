@@ -14,7 +14,8 @@ class EditeursController extends Controller
      */
     public function index()
     {
-        //
+        $editeurs = Editeurs::all();
+        return view ('editeurs.index')->with('editeurs', $editeurs);
     }
 
     /**
@@ -24,7 +25,7 @@ class EditeursController extends Controller
      */
     public function create()
     {
-        //
+        return view('editeurs.create');
     }
 
     /**
@@ -35,51 +36,95 @@ class EditeursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Editeurs::create($input);
+        return redirect('editeur')->with('flash_message', 'Editeurs Addedd!'); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Editeurs  $editeurs
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show(Editeurs $editeurs)
     {
-        //
+        $editeurs = Editeurs::find($id);
+        return view('editeurs.show')->with('editeurs', $student);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Editeurs  $editeurs
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Editeurs $editeurs)
     {
-        //
+        $editeurs = Editeurs::find($id);
+        return view('editeurs.edit')->with('editeurs', $student);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Editeurs  $editeurs
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Editeurs $editeurs)
     {
-        //
+        $editeurs = Editeurs::find($id);
+        $input = $request->all();
+        $editeurs->update($input);
+        return redirect('editeurs')->with('flash_message', 'editeurs Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Editeurs  $editeurs
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy(Editeurs $editeurs)
     {
-        //
+        Editeurs::destroy($id);
+        return redirect('editeurs')->with('flash_message', 'editeurs deleted!');  
     }
 }
+/*<?php
+ namespace App\Http\Controllers;
+ use Illuminate\Http\Request;
+ use App\Models\Student;
+ 
+class StudentController extends Controller
+{
+    public function index()
+    {
+        $students = Student::all();
+        return view ('students.index')->with('students', $students);
+    }
+ 
+    
+    public function create()
+    {
+        return view('students.create');
+    }
+ 
+   
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        Student::create($input);
+        return redirect('student')->with('flash_message', 'Student Addedd!');  
+    }
+ 
+    
+    public function show($id)
+    {
+        $student = Student::find($id);
+        return view('students.show')->with('students', $student);
+    }
+ 
+    
+    public function edit($id)
+    {
+        $student = Student::find($id);
+        return view('students.edit')->with('students', $student);
+    }
+ 
+  
+    public function update(Request $request, $id)
+    {
+        $student = Student::find($id);
+        $input = $request->all();
+        $student->update($input);
+        return redirect('student')->with('flash_message', 'student Updated!');  
+    }
+ 
+   
+    public function destroy($id)
+    {
+        Student::destroy($id);
+        return redirect('student')->with('flash_message', 'Student deleted!');  
+    }
+}*/

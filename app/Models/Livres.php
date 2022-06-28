@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Livres extends Model
 {
-    use HasFactory;
+    protected $table = 'livres';
+    protected $primaryKey = 'id';
+    protected $foreignKey = 'categorie_id';
+    protected $fillable = ['name', 'address', 'mobile'];
 }

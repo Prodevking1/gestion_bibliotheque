@@ -34,7 +34,7 @@
 					<!-- Date de naissance -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="text" name="age" id="age" class="form-control" placeholder="jj/mm/aaaa" required/>
+						<input type="date" name="age" id="age" class="form-control" placeholder="jj/mm/aaaa" required/>
 					</div>
 
 
