@@ -25,7 +25,7 @@ class AuteursController extends Controller
     {
         $input = $request->all();
         Auteurs::create($input);
-        return redirect('auteur')->with('flash_message', 'Auteur Addedd!');  
+        return redirect('auteurs')->with('flash_message', 'Auteur Addedd!');  
     }
 
 

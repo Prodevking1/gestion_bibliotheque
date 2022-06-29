@@ -1,122 +1,36 @@
-
 @extends('layouts.app')
 @section('content')
+ 
+<div class="card">
+  <div class="card-header">Modification</div>
+  <div class="card-body">
+      <form action="{{ url('etudiants/' .$etudiants->id) }}" method="post">
+        {!! csrf_field() !!}
+        @method("PATCH")
+        <input type="hidden" name="id" id="id" value="{{$etudiants->id}}" id="id" />
+        <label>Nom</label></br>
+        <input type="text" name="nom" id="id" value="{{$etudiants->nom}}" class="form-control"></br>
+        <label>Prenom</label></br>
+        <input type="text" name="prenom" id="id" value="{{$etudiants->prenom}}" class="form-control"></br>
+        <label>Age</label></br>
+        <input type="nombre" name="age" id="id" value="{{$etudiants->age}}" class="form-control"></br>
+        <label>Genre</label></br>
+        <input type="text" name="genre" id="id" value="{{$etudiants->genre}}" class="form-control"></br>
+        <label>Email</label></br>
+        <input type="email" name="email" id="id" value="{{$etudiants->email}}" class="form-control"></br>
+        <label>Contact</label></br>
+        <input type="nombre" name="tel" id="id" value="{{$etudiants->tel}}" class="form-control"></br>
+        <label>Adresse</label></br>
+        <input type="text" name="adresse" id="id" value="{{$etudiants->adresse}}" class="form-control"></br>
+        <label>Filiere</label></br>
+        <input type="text" name="filiere" id="id" value="{{$etudiants->filiere}}" class="form-control"></br>
+        <label>Classe</label></br>
+        <input type="text" name="classe" id="id" value="{{$etudiants->classe}}" class="form-control"></br>
 
-<div class="container" style="margin-top: 2%;text-align:center;">
-    <div class="row justify-content-center">
-	<div class="col-md-8">
-		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Stencil Std, fantasy; font-weight: bold; font-size: 200%;">
-				{{ __('Modification de ') }}
-			</div>
-
-			<br>
-			<div class="card-body"  style="text-transform : uppercase; font-family: Stencil Std, fantasy;">
-				<form method="POST" class="row g-3" action="{{ route('etudiants.update', $etudiants->id)}}" enctype="multipart/form-data">
-					@csrf
-
-					<!-- Input de nom de l'etudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Nom</label>
-						<input type="text" name="nom" id="nom" class="form-control" value="{{$etudiants->nom}}" required/>
-					</div>
-
-
-					<!-- Input de prenom -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Prenom</label>
-						<input type="text" name="prenom" id="prenom" class="form-control" value="{{$etudiants->prenom}}" required/>
-					</div>
-
-
-					<!-- Date de naissance -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="text" name="age" id="age" class="form-control" value="{{$etudiants->age}}" required/>
-					</div>
-
-
-					<!-- Email -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Email</label>
-						<input type="email" name="email" id="email" class="form-control" value="{{$etudiants->email}}" required/>
-					</div>
-
-
-					<!-- Téléphone -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Téléphone</label>
-						<input type="phone" name="tel" id="tel" class="form-control" value="{{$etudiants->tel}}" required/>
-					</div>
-
-
-					<!-- Genre with checkbox -->
-					<div class="col-md-6" style="margin-top: 2%;"> 
-						<label class="form-label" style="font-weight: bold;">Genre</label>
-						<div class="col-md-12 mx-auto" >
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="masculinChoice" value="masculin" {{$etudiants->genre == 'masculin'}} ?? checked>
-								<label class="form-check-label" for="masculinChoice">Masculin</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="femininChoice" value="feminin" {{$etudiants->genre == 'feminin'}} ?? checked>
-								<label class="form-check-label" for="femininChoice">Feminin</label>
-							</div>
-						</div>
-					</div>
-
-
-
-					<!-- Filière with select option -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Filière</label>
-						<select class="form-select" name="filiere" aria-label="Default select example" required>
-							<option value="" selected>Selectionnez votre filière</option>
-							<option value="MIAGE" {{$etudiants->filiere == 'MIAGE'}} ?? selected>MIAGE</option>
-							<option value="ADB" {{$etudiants->filiere == 'ADB'}} ?? selected>ADB</option>
-							<option value="CCA" {{$etudiants->filiere == 'CCA'}} ?? selected>CCA</option>
-							<option value="ABF" {{$etudiants->filiere == 'ABF'}} ?? selected>ABF</option>
-							<option value="MG" {{$etudiants->filiere == 'MG'}} ?? selected>MG</option>
-						</select>
-					</div>
-
-
-					<!-- Niveau d'étude with select option -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Niveau</label>
-						<select class="form-select" name="niveau" aria-label="Default select example" required>
-							<option value="" selected disabled>Selectionnez votre niveau</option>
-							<option value="LICENCE 1" {{$etudiants->niveau == 'LICENCE 1'}} ?? selected>LICENCE 1</option>
-							<option value="LICENCE 2" {{$etudiants->niveau == 'LICENCE 2'}} ?? selected>LICENCE 2</option>
-							<option value="LICENCE 3" {{$etudiants->niveau == 'LICENCE 3'}} ?? selected>LICENCE 3</option>
-						</select>
-					</div>
-
-
-					<!-- Adresse de l'étudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Adresse</label>
-						<input type="text" name="adresse" id="adresse" class="form-control" value="{{$etudiants->adresse}}" required/>
-					</div>
-
-
-					<!-- Mot de passe etudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Mot de passe</label>
-						<input type="password" name="user_password" id="user_password" class="form-control"/>
-					</div>
-
-					<br>
-
-					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="save" class="btn btn-outline-primary btn-lg" value="Enregistrer" />
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+        <input type="submit" value="Update" class="btn btn-success"></br>
+    </form>
+   
+  </div>
 </div>
-</div>
-
+ 
 @endsection

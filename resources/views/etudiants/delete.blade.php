@@ -19,7 +19,7 @@
         <label>Email</label></br>
         <input type="email" name="email" id="id" value="{{$etudiants->email}}" class="form-control"></br>
         <label>Contact</label></br>
-        <input type="text" name="tel" id="id" value="{{$etudiants->tel}}" class="form-control"></br>
+        <input type="nombre" name="tel" id="id" value="{{$etudiants->tel}}" class="form-control"></br>
         <label>Adresse</label></br>
         <input type="text" name="adresse" id="id" value="{{$etudiants->adresse}}" class="form-control"></br>
         <label>Filiere</label></br>
