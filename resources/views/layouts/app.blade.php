@@ -16,6 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+        
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="" sizes="180x180">
     <link rel="icon" href="" sizes="32x32" type="image/png">
@@ -53,7 +54,7 @@
 
 
 
-    
+
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
@@ -80,16 +81,17 @@
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
+            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+                <div class="sb-sidenav-menu" style="font-size: 20px; margin-top: 20px;">
                     <div class="nav">
-                        <a class="nav-link" href="category.php"><i class="fas fa-list" style="margin-right: 15px"></i> Categories de livres</a>
-                        <a class="nav-link" href="author.php"><i class="fas fa-person" style="margin-right: 15px"></i>Auteur</a>
-                        <a class="nav-link" href="location_rack.php">Emplacement</a>
-                        <a class="nav-link" href="book.php">Livres</a>
-                        <a class="nav-link" href="user.php">Utilisateur</a>
-                        <a class="nav-link" href="issue_book.php">Emprunt</a>
-                        <a class="nav-link" href="logout.php">Deconnexion</a>
+                        <a class="nav-link" href="location_rack.php"><i class="fa fa-home" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Acceuil</a>
+                        <a class="nav-link" href="category.php"><i class="fa fa-list-alt" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i></i> Categories</a>
+                        <a class="nav-link" href="author.php"><i class="fas fa-user" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Auteur</a>
+                        <a class="nav-link" href="location_rack.php"> <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Emplacement</a>
+                        <a class="nav-link" href="book.php"><i class="fa fa-book" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Livres</a>
+                        <a class="nav-link" href="user.php"> <i class="fa fa-users" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Utilisateur</a>
+                        <a class="nav-link" href="issue_book.php"><i class="fas fa-exchange-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Emprunt</a>
+                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Deconnexion</a>
 
                     </div>
                 </div>
