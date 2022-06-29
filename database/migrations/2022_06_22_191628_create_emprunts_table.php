@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('emprunts', function (Blueprint $table) {
             $table->id();
+            $table->string('date_emprunt');
+            $table->string('date_retour');
             $table->timestamps();
         });
     }
