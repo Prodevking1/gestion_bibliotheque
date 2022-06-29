@@ -47,16 +47,20 @@ class LivresController extends Controller
     {
         $validatedData = $request->validate([
             'titre' => 'required',
+            'isbn' => 'required',
             'categorie_id' => 'required',
             'auteur_id' => 'required',
             'editeur_id' => 'required',
+            'status' => 'Y'
         ]);
-        $etudiants = Livres::create($validatedData);
+        $livres = Livres::create($validatedData);
         
-        return redirect('/livres', ['categories' => Categories::latest()->get(),
+        return view('livres.index', [
+         'livres' => Livres::latest()->get(),
+         'categories' => Categories::latest()->get(),
          'auteurs' => Auteurs::latest()->get(),
          'editeurs' => Editeurs::latest()->get()
-        ])->with('success', 'Livre ajouté avec succès');    
+        ])->with('success', $livres);    
     }
 
 
@@ -83,8 +87,9 @@ class LivresController extends Controller
 
 
     public function update(Request $request, Livres $livres)
-    {
-        
+    { 
+        $livre = Livres::find($livres->id);
+        $livre->update($request->all());
     }
 
 

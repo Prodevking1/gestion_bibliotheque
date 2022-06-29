@@ -11,6 +11,7 @@
   <thead class="bg-light">
     <tr>
       <th>Titre</th>
+      <th>No ISBN</th>
       <th>Auteur</th>
       <th>Categorie</th>
       <th>Editeur</th>
@@ -35,6 +36,9 @@
             <p class="text-muted mb-0">#{{$livre->id}}</p>
           </div>
         </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ $livre->isbn }}</p>
       </td>
       <td>
         <p class="fw-normal mb-1">{{ $livre->auteur->nom_prenom }}</p>
