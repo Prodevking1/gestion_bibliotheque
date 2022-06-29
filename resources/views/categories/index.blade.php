@@ -11,7 +11,7 @@
       <div class="" style="">
             <a href="{{ route('categories.create') }}">
             <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
-                      {{ __('Ajoutez un Etudiant') }}
+                      {{ __('Ajouter') }}
             </button>
             </a>
           </div>
