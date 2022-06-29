@@ -76,26 +76,31 @@ class LivresController extends Controller
     }
 
 
-    public function edit(Livres $livres)
+    public function edit(int $id)
     {
-        return view('livres.create',
-         ['categories' => Categories::latest()->get(),
-         'auteurs' => Auteurs::latest()->get(),
-         'editeurs' => Editeurs::latest()->get()
+        $livre = Livres::find($id);
+        return view('livres.edit',
+        [   'livre' => $livre,
+            'categories' => Categories::latest()->get(),
+            'auteurs' => Auteurs::latest()->get(),
+            'editeurs' => Editeurs::latest()->get()
         ]);
     }
 
 
-    public function update(Request $request, Livres $livres)
+    public function update(Request $request, Livres $livres, $id)
     { 
-        $livre = Livres::find($livres->id);
-        $livre->update($request->all());
+        $livres = Livres::find($id);
+        $livres->update($request->all());
+        return redirect('/livres')->with('success', 'Livre modifié avec succès');
     }
 
 
-    public function destroy(Livres $livres)
+    public function destroy($id)
     {
-        
+        $livres = Livres::find($id);
+        $livres->delete();
+        return redirect('/livres')->with('success', 'Livre supprimé avec succès');
     }
 }
 
