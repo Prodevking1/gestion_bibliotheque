@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="generator" content="">
     <title>Gestion de Bibliothèque</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />
     <link rel="canonical" href="">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset("assets/css/simple-datatables-style.css") }}" rel="stylesheet" />
@@ -15,8 +16,6 @@
         <script src="{{asset("assets/js/font-awesome-5-all.min.js")}}" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-        
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="" sizes="180x180">
     <link rel="icon" href="" sizes="32x32" type="image/png">
@@ -26,6 +25,13 @@
     <link rel="icon" href="">
     <meta name="theme-color" content="#7952b3">
     <style>
+        .colo{
+            background-color: #f96332;
+        }
+       
+        a.ho:hover{
+            transform: scale(1.04);
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -42,7 +48,7 @@
     </style>
 </head>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Lato;">
 
 
         <!-- Extension jquery -->
@@ -56,11 +62,14 @@
 
 
 
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color:#fff;">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Tableau de bord</a>
+        <a href="index.php" class="brand-link" style=" text-decoration:none;">
+        <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="rounded-circle" data-holder-rendered="true" style="width: 4%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+        <span class="brand-text" style="color: black;">GESBiblio</span>
+      </a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"  id="sidebarToggle" href="#!"><i
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"  id="sidebarToggle" href="#"><i
                 class="fas fa-bars"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 
@@ -81,17 +90,18 @@
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav colo" id="sidenavAccordion">
                 <div class="sb-sidenav-menu" style="font-size: 20px; margin-top: 20px;">
                     <div class="nav">
-                        <a class="nav-link" href="location_rack.php"><i class="fa fa-home" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Acceuil</a>
-                        <a class="nav-link" href="category.php"><i class="fa fa-list-alt" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i></i> Categories</a>
-                        <a class="nav-link" href="author.php"><i class="fas fa-user" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Auteur</a>
-                        <a class="nav-link" href="location_rack.php"> <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Emplacement</a>
-                        <a class="nav-link" href="book.php"><i class="fa fa-book" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Livres</a>
-                        <a class="nav-link" href="user.php"> <i class="fa fa-users" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Utilisateur</a>
-                        <a class="nav-link" href="issue_book.php"><i class="fas fa-exchange-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Emprunt</a>
-                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Deconnexion</a>
+                        <a class="nav-link ho" href="location_rack.php" style="color: #FFFFFF;"><i class="fa fa-home" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Acceuil</a>
+                        <a class="nav-link ho" href="category.php" style="color: #FFFFFF;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
+                        <a class="nav-link ho" href="author.php" style="color: #FFFFFF;" ><i class="fas fa-user" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Auteurs</a>
+                        <a class="nav-link ho" href="location_rack.php" style="color: #FFFFFF;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
+                        <a class="nav-link ho" href="book.php" style="color: #FFFFFF;" ><i class="fa fa-book" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Livres</a>
+                        <a class="nav-link ho" href="user.php" style="color: #FFFFFF;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Utilisateurs</a>
+                        <a class="nav-link ho" href="issue_book.php" style="color: #FFFFFF;" ><i class="fas fa-exchange-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Emprunts</a>
+                        <a class="nav-link ho" href="issue_book.php" style="color: #FFFFFF;" ><i class="fas fa-ticket-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Réservations</a>
+                        <a class="nav-link ho" href="logout.php" style="color: #FFFFFF;" ><i class="fas fa-sign-out-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Deconnexion</a>
 
                     </div>
                 </div>
