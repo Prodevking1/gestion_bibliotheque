@@ -31,7 +31,7 @@
         }
        
         a.ho:hover{
-            transform: scale(1.04);
+            background-color: #5DADE2;
         }
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -58,6 +58,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- Noyau JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    
 
 
   
@@ -68,7 +70,7 @@
         <!-- Navbar Brand-->
         <a href="index.php" class="brand-link" style=" text-decoration:none;">
             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="rounded-circle" data-holder-rendered="true" style="width: 18%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-            <span class="brand-text" style="color: black;">GESBiblio</span>
+            <span class="brand-text" style="color: black;">   GESBiblio</span>
         </a>
 
         <!-- Sidebar Toggle-->
@@ -82,25 +84,25 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="color: black;">
 
         <!-- Alerte icone -->
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" style="margin-left: -70%;">
           <a class="nav-link" data-toggle="dropdown" href="#" style="color: black;">
             <i class="far fa-bell"></i>
             <span class="badge badge-warning navbar-badge"></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header"> alerte de stock</span>
             <div class="dropdown-divider"></div>
 
            
                 <a href="#" class="dropdown-item">
-                  <i class="fas fa-envelope mr-2"></i> Le produit <br><i class="fas fa-enlvelope mr-4"></i> a ateint son stock d'alerte
+                  <i class="fas fa-envelope mr-2"></i> Le produit <br><i class="fas fa-envelope mr-4"></i> a ateint son stock d'alerte
                 </a>
               <div class="dropdown-divider"></div>
 
              
               <div class="dropdown-divider"></div>
                 <a href="input.php" class="dropdown-item dropdown-footer">S'approvisionnez</a>
-              </div>
+              </div> -->
         </li>
 
 
@@ -111,14 +113,15 @@
                 </a>
             </li>
 
+
             <!-- Profile icone -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false" style="color: black;"><i class="fas fa-user fa-fw"></i></a>
-                {{-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="profile.php">Profil</a></li>
-                    <li><a class="dropdown-item" href="setting.php">Reglages</a></li>
-                </ul> --}}
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> Profil</a></li>
+                    <li><a class="dropdown-item" href="setting.php"><i class="fa fa-cog" aria-hidden="true"></i> Reglages</a></li>
+                </ul>
             </li>
         </ul>
     </nav>
