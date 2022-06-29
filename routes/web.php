@@ -5,6 +5,8 @@ use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\LivresController;
 use App\Http\Controllers\AuteursController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\EditeursController;
+use App\Models\Editeurs;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,17 +27,22 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+//routes etudiants
 Route::get('/etudiants', [EtudiantsController::class, 'index'])->name('etudiants');
 Route::get('/etudiants/create', [EtudiantsController::class, 'create'])->name('etudiants.create');
 Route::get('/etudiants/show/{id}', [EtudiantsController::class, 'show'])->name('etudiants.show');
-Route::get('/etudiants/edit/{id}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
+Route::post('/etudiants/edit/{id}', [EtudiantsController::class, 'edit'])->name('etudiants.edit');
 Route::post('/etudiants/update/{id}', [EtudiantsController::class, 'update'])->name('etudiants.update');
 Route::post('/etudiants/delete/{id}', [EtudiantsController::class, 'destroy'])->name('etudiants.delete');
 Route::post('/etudiants/store/', [EtudiantsController::class, 'store'])->name('etudiants.store');
 
+
+// routes livres
 Route::get('/livres', [livresController::class, 'index'])->name('livres');
 Route::get('/livres/create', [livresController::class, 'create'])->name('livres.create');
-Route::get('/livres/edit/{id}', [livresController::class, 'edit'])->name('livres.edit');
+Route::get('/livres/show/{id}', [LivresController::class, 'show'])->name('livres.show');
+Route::post('/livres/edit/{id}', [livresController::class, 'edit'])->name('livres.edit');
 Route::post('/livres/update/{id}', [livresController::class, 'update'])->name('livres.update');
 Route::post('/livres/delete/{id}', [livresController::class, 'destroy'])->name('livres.delete');
 Route::post('/livres/store/', [livresController::class, 'store'])->name('livres.store');
@@ -43,5 +50,6 @@ Route::post('/livres/store/', [livresController::class, 'store'])->name('livres.
 
 Route::resource('/auteurs', AuteursController::class);
 Route::resource("/categories", CategoriesController::class);
+Route::resource("/editeurs", EditeursController::class);
 
 ?>

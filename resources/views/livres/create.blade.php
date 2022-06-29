@@ -14,7 +14,7 @@
 
 			<br>
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="POST" class="row g-3" action="{{ route('etudiants.store')}}" enctype="multipart/form-data">
+				<form method="POST" class="row g-3" action="{{ route('livres.store')}}" enctype="multipart/form-data">
 					@csrf
 
 					<!-- Input titre du livre -->
@@ -23,14 +23,20 @@
 						<input type="text" name="titre" id="titre" class="form-control" placeholder="Anglais technique" required/>
 					</div>
 
+					<!-- Input titre du livre -->
+					<div class="col-md-6">
+						<label class="form-label" style="font-weight: bold;">No ISBN</label>
+						<input type="text" name="isbn" id="isbn" class="form-control" placeholder="" required/>
+					</div>
 
 					<!-- Catégorie with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Catégorie</label>
-						<select class="form-select" name="filiere" required>
+						<select class="form-select" name="categorie_id" required>
+							<option value="" selected disabled>Selectionnez une catégorie </option>
+
                             @foreach($categories as $categorie)
-							<option value="{{ $categorie->titre }}" selected disabled>{{ $categorie->titre }}</option>
-							<option value=""></option>
+							<option value="{{ $categorie->id }}">{{ $categorie->titre }}</option>
                             @endforeach
 						</select>
 					</div>
@@ -38,23 +44,34 @@
                     <!-- Auteur with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Auteur</label>
-						<select class="form-select" name="filiere" required>
+						<select class="form-select" name="auteur_id" required>
 							<option value="" selected disabled>Selectionnez un auteur </option>
-							<option value=""></option>
+                            @foreach($auteurs as $auteur)
+							<option value="{{ $auteur->id}}">{{ $auteur->nom_prenom }}</option>
+                            @endforeach
 						</select>
 					</div>
 
                     <!-- Editeur with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Editeur</label>
-						<select class="form-select" name="filiere" required>
-							<option value="" selected disabled>Selectionnez un auteur </option>
-							<option value=""></option>
+						<select class="form-select" name="editeur_id" required>
+							<option value="" selected disabled>Selectionnez un editeur </option>
+                            @foreach($editeurs as $editeur)
+							<option value="{{ $editeur->id }}">{{ $editeur->nom }}</option>
+                            @endforeach
 						</select>
 					</div>
-                    <div class="text-center mt-4 mb-2">
-						<input type="submit" name="savw" class="btn btn-outline-primary" value="Ajouter ce livre" />
+
+					{{-- Button valider  --}}
+
+					<div class="col-md-6 mt-2">
+						<div class="text-center mt-4 pt-3">
+						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Ajouter ce livre" />
 					</div>
+					</div>
+
+                    
 				</form>
 			</div>
 		</div>

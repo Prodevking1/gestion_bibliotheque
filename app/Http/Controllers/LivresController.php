@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auteurs;
 use App\Models\Categories;
+use App\Models\Editeurs;
 use App\Models\Livres;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,10 @@ class LivresController extends Controller
      */
     public function index()
     {
-        return view ('livres.index');
+        return view('livres.index', [
+            'livres' => Livres::all()
+
+        ]);
     }
 
     /**
@@ -26,7 +31,10 @@ class LivresController extends Controller
     public function create()
     {
         return view('livres.create',
-         ['categories' => Categories::latest()->get()]);
+         ['categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ]);
     }
 
     /**
@@ -44,35 +52,45 @@ class LivresController extends Controller
             'editeur_id' => 'required',
         ]);
         $etudiants = Livres::create($validatedData);
-        return redirect('/etudiants')->toast('success', 'Livre ajouté avec succès');    
+        
+        return redirect('/livres', ['categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ])->with('success', 'Livre ajouté avec succès');    
     }
 
 
-    public function show(Livres $livres)
-    {
-        return view('livres.create');
+    public function show(Livres $livres, int $id)
+    {  
+        $livre = Livres::find($id);
+        return view('livres.show', [
+            'livre' => $livre,
+            'auteurs' => Auteurs::latest()->get(),
+            'categories' => Categories::latest()->get(),
+            'editeurs' => Editeurs::latest()->get()
+        ]);
     }
 
 
     public function edit(Livres $livres)
     {
-        $input = $request->all();
-        Livres::create($input);
-        return redirect('livres')->with('flash_message', 'livre Addedd!');  
+        return view('livres.create',
+         ['categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ]);
     }
 
 
     public function update(Request $request, Livres $livres)
     {
-        $livres = Livres::find($id);
-        return view('livres.show')->with('livres', $livres);
+        
     }
 
 
     public function destroy(Livres $livres)
     {
-        Student::destroy($id);
-        return redirect('livrres')->with('flash_message', 'livre deleted!');  
+        
     }
 }
 
