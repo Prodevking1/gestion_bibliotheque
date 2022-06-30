@@ -1,130 +1,133 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="container-fluid py-4">
+			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
+				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
+				<li class="breadcrumb-item active">Gestion des Etudiants</li>
+			</ol>
 
-<div class="container" style="margin-top: 2%;text-align:center;">
-    <div class="row justify-content-center">
-	<div class="col-md-8">
-		
-		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-				{{ __('Inscription') }}
-			</div>
+<div class="card mb-4">
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>Nom Complet</th>
+      <th>Dte_Naiss</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Genre</th>
+      <th>Filiere</th>
+	  <th>Niveau</th>
+	  <th>Adresse</th>
+	  <th>Date_creation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+	  <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+		@csrf
 
-			<br>
-			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="POST" class="row g-3" action="{{ route('etudiants.store')}}" enctype="multipart/form-data">
-					@csrf
+          <div class="ms-3">
+            <p class="fw-bold mb-1">{{ $etudiants->nom}} {{ $etudiants->prenom}}</p>			
+            <p class="text-muted mb-0">#{{$etudiants->id}}</p>
+          </div>
+		</div> 
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ $etudiants->age }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ $etudiants->email }}</p>
+      </td>
+      <td>
+            <p class="fw-normal mb-1">{{ $etudiants->tel }}</p>
 
-					<!-- Input de nom de l'etudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Nom</label>
-						<input type="text" name="nom" id="nom" class="form-control" value="{{$etudiants->nom}}" placeholder="OUEDRAOGO" disabled/>
-					</div>
+      </td>
+	  <td>
+            <p class="fw-normal mb-1">{{ $etudiants->genre }}</p>
 
+      </td>
+      <td>
+	  </td>
+	  <td>
+            <p class="fw-normal mb-1">{{ $etudiants->filiere }}</p>
 
-					<!-- Input de prenom -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Prenom</label>
-						<input type="text" name="prenom" id="prenom" class="form-control" value="{{$etudiants->prenom}}" placeholder="Nasser" disabled/>
-					</div>
+      </td>
+	  <td>
+            <p class="fw-normal mb-1">{{ $etudiants->adresse }}</p>
 
+      </td>
+  
+	  <td>
+            <p class="fw-normal mb-1">{{ $etudiants->created_at }}</p>
 
-					<!-- Date de naissance -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="date" name="age" id="age" class="form-control" value="{{$etudiants->age}}" placeholder="jj/mm/aaaa" disabled/>
-					</div>
-
-
-					<!-- Email -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Email</label>
-						<input type="email" name="email" id="email" class="form-control" value="{{$etudiants->email}}" placeholder="nasserodg60@gmail.com" disabled/>
-					</div>
-
-
-					<!-- Téléphone -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Téléphone</label>
-						<input type="phone" name="tel" id="tel" class="form-control" value="{{$etudiants->tel}}" placeholder="Ex: +226 60558128" disabled/>
-					</div>
-
-
-					<!-- Genre with checkbox -->
-					<div class="col-md-6" style="margin-top: 2%;"> 
-						<label class="form-label" style="font-weight: bold;">Genre</label>
-						<div class="col-md-12 mx-auto" >
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="masculinChoice" value="{{$etudiants->genre}}" value="masculin" disabled>
-								<label class="form-check-label" for="inlineRadio1">Masculin</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="femininChoice" value="{{$etudiants->genre}}" value="feminin"  disabled>
-								<label class="form-check-label" for="inlineRadio2">Feminin</label>
-							</div>
-						</div>
-					</div>
-
-
-
-					<!-- Filière with select option -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Filière</label>
-						<select class="form-select" name="filiere" value="{{$etudiants->filiere}}" aria-label="Default select example" disabled>
-							<option value="" selected disabledd>Selectionnez votre filière</option>
-							<option value="MIAGE">MIAGE</option>
-							<option value="ADB">ADB</option>
-							<option value="CCA">CCA</option>
-							<option value="ABF">ABF</option>
-							<option value="MG">MG</option>
-						</select>
-					</div>
-
-
-					<!-- Niveau d'étude with select option -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Niveau</label>
-						<select class="form-select" name="niveau" value="{{$etudiants->niveau}}" aria-label="Default select example" disabled>
-							<option value="" selected disabledd>Selectionnez votre niveau</option>
-							<option value="LICENCE 1">LICENCE 1</option>
-							<option value="LICENCE 2">LICENCE 2</option>
-							<option value="LICENCE 3">LICENCE 3</option>
-						</select>
-					</div>
-
-
-					<!-- Adresse de l'étudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Adresse</label>
-						<input type="text" name="adresse" id="adresse" class="form-control"  value="{{$etudiants->adresse}}" placeholder="Ex: Saaba" disabled/>
-					</div>
-
-
-					<!-- Mot de passe etudiant -->
-					<div class="col-md-6">
-						<label class="form-label" style="font-weight: bold;">Mot de passe</label>
-						<input type="password" name="user_password" id="user_password" class="form-control" value="{{$etudiants->user_password}}" placeholder="Entrez votre mot de passe" disabled/>
-					</div>
-
-					<br>
-
-					<!-- Upload photo etudiant -->
-					<div class="mb-3">
-						<label class="form-label" style="font-weight: bold;">Photo</label><br />
-						<input type="file" name="user_profile"  value="{{$etudiants->user_profile}}" id="user_profile" disabled/>
-						<br />
-						<span class="text-muted">Seules les images .jpg & .png sont autorisées. La taille doit être égale à 225 x 225</span>
-					</div>
-					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="savw" class="btn btn-outline-primary" value="Inscription" />
-					</div>
-				</form>
+      </td>
+      
+    </tr>
+  </tbody>
+  
+</table>
 			</div>
 		</div>
-	</div>
-</div>
-</div>
-
 @endsection
+<style>
+            .searchbox {
+                background: url(http://3.bp.blogspot.com/-g-zH25_DoxI/VD1BuatkgII/AAAAAAAAAgc/00hxspfvv3s/s1600/searchbar.png) no-repeat;
+                width: 208px;
+                height: 29px;
+                
+            }
+            input:focus::-webkit-input-placeholder {
+                color: transparent;
+            }
+            input:focus:-moz-placeholder {
+                color: transparent;
+            }
+            input:focus::-moz-placeholder {
+                color: transparent;
+            }
+            .searchbox input {
+                outline: none;
+            }
+            .searchbox input[type="text"] {
+                background: transparent;
+                margin: 3px 0px 0px 20px;
+                padding: 5px 0px 5px 0px;
+                border-width: 0px;
+                font-family: Arial Narrow, Arial, sans-serif;
+                font-size: 12px;
+                color: #828282;
+                width: 70%;
+                display: inline-table;
+                vertical-align: top;
+            }
+            .button-submit {
+                background: url(http://4.bp.blogspot.com/-OcDQ6Z9ojlQ/VD1KnwJjFOI/AAAAAAAAAgs/cu_pKN6bpL8/s1600/magnifier.png) no-repeat;
+                border-width: 0px;
+                cursor: pointer;
+                margin-left: 10px;
+                margin-top: 4px;
+                width: 21px;
+                height: 22px;
+            }
+            .button-submit:hover {
+                background: url(http://2.bp.blogspot.com/-4-xFDFGKJrA/VD1Kn04f9TI/AAAAAAAAAgw/2ta84QY1x9A/s1600/magnifier-hover.png) no-repeat;
+            }
+            .button-submit:active {
+                background: url(http://2.bp.blogspot.com/-4-xFDFGKJrA/VD1Kn04f9TI/AAAAAAAAAgw/2ta84QY1x9A/s1600/magnifier-hover.png) no-repeat;
+                outline: none;
+            }
+            .button-submit::-moz-focus-inner {
+                border: 0;
+            }
+</style>
+
+
+
