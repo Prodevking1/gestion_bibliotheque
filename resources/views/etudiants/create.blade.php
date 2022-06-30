@@ -113,7 +113,7 @@
 					<!-- Upload photo etudiant -->
 					<div class="mb-3">
 						<label class="form-label" style="font-weight: bold;">Photo</label><br />
-						<input type="file" name="user_profile" id="user_profile" required/>
+						<input type="file" name="user_profile" id="user_profile"/>
 						<br />
 						<span class="text-muted">Seules les images .jpg & .png sont autorisées. La taille doit être égale à 225 x 225</span>
 					</div>
