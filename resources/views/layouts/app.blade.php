@@ -49,7 +49,7 @@
     </style>
 </head>
 
-<body class="sb-nav-fixed" style="font-family: Lato;">
+<body class="sb-nav-fixed" style="font-family: Arial;">
 
 
         <!-- Extension jquery -->

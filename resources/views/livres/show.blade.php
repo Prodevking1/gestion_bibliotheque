@@ -15,6 +15,7 @@
       <th>Auteur</th>
       <th>Categorie</th>
       <th>Editeur</th>
+      <th>Exemplaires</th>
       <th>Statut</th>
       <th>Date d'ajout</th>
     </tr>
@@ -49,6 +50,10 @@
       </td>
 	  <td>
             <p class="fw-normal mb-1">{{ $livre->editeur->nom }}</p>
+
+      </td>
+      <td>
+            <p class="fw-normal mb-1">{{ $livre->exemplaire }}</p>
 
       </td>
       <td>

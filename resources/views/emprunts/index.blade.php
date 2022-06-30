@@ -75,19 +75,17 @@
       </td>
       <td class="row" style="color:blue;font-size:120%;">
 
-      <div>
-        <form class="col-md-6" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
+        <form class="col-md-2" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
-      </div>
 
       <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
+      <form class="col-md-2" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>

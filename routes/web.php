@@ -5,6 +5,7 @@ use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\AuteursController;
 use App\Http\Controllers\LivresController;
 use App\Http\Controllers\EmpruntsController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EditeursController;
 use App\Models\Editeurs;
@@ -57,6 +58,10 @@ Route::post('/emprunts/edit/{id}', [EmpruntsController::class, 'edit'])->name('e
 Route::post('/emprunts/update/{id}', [EmpruntsController::class, 'update'])->name('emprunts.update');
 Route::post('/emprunts/delete/{id}', [EmpruntsController::class, 'destroy'])->name('emprunts.delete');
 Route::post('/emprunts/store/', [EmpruntsController::class, 'store'])->name('emprunts.store');
+
+// routes notifications
+Route::get('/notifications/emprunts', [NotificationsController::class, 'emprunts'])->name('notifications.emprunts');
+Route::get('/notifications/reservations', [NotificationsController::class, 'reservation'])->name('notifications.reservation');
 
 // routes ressources
 Route::resource('/auteurs', AuteursController::class);

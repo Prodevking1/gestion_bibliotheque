@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('isbn');
             $table->foreignId('categorie_id')->constrained();
             $table->foreignId('auteur_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('editeur_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('editeur_id');
             $table->string('status')->default('Y');
+            $table->integer('exemplaire')->default('1');
             $table->timestamps();
         });
     }
