@@ -81,7 +81,7 @@
         </ul>
         
         <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="color: black;">
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="color: black; font-size:15px">
 
         <!-- Alerte icone -->
         <li class="nav-item dropdown" style="margin-left: -70%;">
@@ -132,13 +132,14 @@
                 <div class="sb-sidenav-menu" style="font-size: 20px; margin-top: 20px;">
                     <div class="nav">
                         <a class="nav-link ho" href="location_rack.php" style="color: black;"><i class="fa fa-home" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Acceuil</a>
-                        <a class="nav-link ho" href="category.php" style="color: black;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
-                        <a class="nav-link ho" href="author.php" style="color: black;" ><i class="fas fa-user" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Auteurs</a>
-                        <a class="nav-link ho" href="location_rack.php" style="color: black;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
                         <a class="nav-link ho" href="book.php" style="color: black;" ><i class="fa fa-book" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Livres</a>
-                        <a class="nav-link ho" href="user.php" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Utilisateurs</a>
+                        <a class="nav-link ho" href="author.php" style="color: black;" ><i class="fas fa-user" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Auteurs</a>
                         <a class="nav-link ho" href="issue_book.php" style="color: black;" ><i class="fas fa-exchange-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Emprunts</a>
                         <a class="nav-link ho" href="issue_book.php" style="color: black;" ><i class="fas fa-ticket-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Réservations</a>
+                        <a class="nav-link ho" href="issue_book.php" style="color: black;" ><i class="fa fa-history" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Rappels</a>
+                        <a class="nav-link ho" href="category.php" style="color: black;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
+                        <a class="nav-link ho" href="location_rack.php" style="color: black;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
+                        <a class="nav-link ho" href="user.php" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Utilisateurs</a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -146,6 +147,18 @@
                 </div>
             </nav>
         </div>
+
+<div class="fixed-bottom p-4" style="height:7%; position:center; background-color:#fff;">
+<footer class="main-footer" style="margin-left: 13%;">
+      <strong>Copyright &copy; <a href="https://github.com/Prodevking1/gestion_bibliotheque">2021-2022 GESBiblio-Miage2/IBAM</a> </strong>
+      Tous droits reservés
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 0.0.1
+      </div>
+    </footer>
+</div>
+
+
         <div id="layoutSidenav_content">
             @yield('content')
         </div>
