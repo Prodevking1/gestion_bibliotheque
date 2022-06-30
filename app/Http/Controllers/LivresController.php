@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auteurs;
+use App\Models\Categories;
+use App\Models\Editeurs;
 use App\Models\Livres;
 use Illuminate\Http\Request;
 
@@ -14,8 +17,10 @@ class LivresController extends Controller
      */
     public function index()
     {
-        $livres = Livres::all();
-        return view ('livres.index')->with('livres', $livres);
+        return view('livres.index', [
+            'livres' => Livres::all()
+
+        ]);
     }
 
     /**
@@ -25,7 +30,11 @@ class LivresController extends Controller
      */
     public function create()
     {
-        return view('livres.create');
+        return view('livres.create',
+         ['categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ]);
     }
 
     /**
@@ -36,37 +45,62 @@ class LivresController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Livres::create($input);
-        return redirect('livres')->with('flash_message', 'livre Addedd!');  
+        $validatedData = $request->validate([
+            'titre' => 'required',
+            'isbn' => 'required',
+            'categorie_id' => 'required',
+            'auteur_id' => 'required',
+            'editeur_id' => 'required',
+            'status' => 'Y'
+        ]);
+        $livres = Livres::create($validatedData);
+        
+        return view('livres.index', [
+         'livres' => Livres::latest()->get(),
+         'categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ])->with('success', $livres);    
     }
 
 
-    public function show(Livres $livres)
+    public function show(Livres $livres, int $id)
+    {  
+        $livre = Livres::find($id);
+        return view('livres.show', [
+            'livre' => $livre,
+            'auteurs' => Auteurs::latest()->get(),
+            'categories' => Categories::latest()->get(),
+            'editeurs' => Editeurs::latest()->get()
+        ]);
+    }
+
+
+    public function edit(int $id)
     {
-        return view('livres.create');
+        $livre = Livres::find($id);
+        return view('livres.edit',
+        [   'livre' => $livre,
+            'categories' => Categories::latest()->get(),
+            'auteurs' => Auteurs::latest()->get(),
+            'editeurs' => Editeurs::latest()->get()
+        ]);
     }
 
 
-    public function edit(Livres $livres)
-    {
-        $input = $request->all();
-        Livres::create($input);
-        return redirect('livres')->with('flash_message', 'livre Addedd!');  
+    public function update(Request $request, Livres $livres, $id)
+    { 
+        $livres = Livres::find($id);
+        $livres->update($request->all());
+        return redirect('/livres')->with('success', 'Livre modifié avec succès');
     }
 
 
-    public function update(Request $request, Livres $livres)
+    public function destroy($id)
     {
         $livres = Livres::find($id);
-        return view('livres.show')->with('livres', $livres);
-    }
-
-
-    public function destroy(Livres $livres)
-    {
-        Student::destroy($id);
-        return redirect('livrres')->with('flash_message', 'livre deleted!');  
+        $livres->delete();
+        return redirect('/livres')->with('success', 'Livre supprimé avec succès');
     }
 }
 

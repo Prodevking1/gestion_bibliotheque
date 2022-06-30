@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestion des livres</h1>
+			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des emprunts</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Gestion des livres</li>
+				<li class="breadcrumb-item active">emprunteurs</li>
+
 			</ol>
           <div class="" style="">
-            <a href="{{ route('livres.create') }}">
+            <a href="{{ route('emprunts.create') }}">
             <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
                       {{ __('Ajouter') }}
                 </button>
@@ -16,7 +17,7 @@
                         
         <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
-                  <input name="q" type= "text" size="15" placeholder="Rechercher un livre" />
+                  <input name="q" type= "text" size="15" placeholder="Rechercher un emprunt" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
            
@@ -27,15 +28,15 @@
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
-      <th>Titre</th>
-      <th>No ISBN</th>
-      <th>Auteur</th>
-      <th>Categorie</th>
-      <th>Status</th>
+      <th>Emprunteur</th>
+      <th>Titre du livre</th>
+      <th>Date d'emprunt</th>
+      <th>Date de retour</th>
+      <th>Statut</th>
       <th>Actions</th>
     </tr>
   </thead>
-  @forelse($livres as $livre)
+  @forelse($emprunts as $emprunt)
   <tbody>
     <tr>
       <td>
@@ -47,43 +48,43 @@
               class="rounded-circle"
               />
           <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $livre->titre }}</p>
-            <p class="text-muted mb-0">#{{$livre->id}}</p>
+            <p class="fw-bold mb-1">{{ $emprunt->etudiant->nom }} {{ $emprunt->etudiant->nom }}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{$livre->isbn}}</p>
+        <p class="fw-normal mb-1">{{$emprunt->livre->titre}}</p>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{$livre->auteur->nom_prenom}}</p>
-      </td>
-      <td>
-                <p class="fw-normal mb-1">{{$livre->categorie->titre}}</p>
+                <p class="fw-normal mb-1">{{$emprunt->date_emprunt}}</p>
 
       </td>
       <td>
-        @if ($livre->status == 'Y')
-             <span class='badge badge-success'>disponible</span>
+                <p class="fw-normal mb-1">{{$emprunt->date_retour}}</p>
+
+      </td>
+      <td>
+        @if ($emprunt->status == 'N')
+             <span class='badge badge-success'>emprunté</span>
         @else
-             <span class='badge badge-danger'>indisponible</span>
+             <span class='badge badge-danger'>non retourné</span>
         @endif
       </td>
-      <td class="row g-3" style="color:blue;font-size:120%;">
+      <td class="row" style="color:blue;font-size:120%;">
 
       <div>
-        <form class="col-md-6" action="{{route('livres.show', $livre->id)}}" method="get">
+        <form class="col-md-6" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
       </div>
 
-      <form class="col-md-6" action="{{route('livres.edit', $livre->id)}}" method="post">
+      <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('livres.delete', $livre->id)}}" method="post">
+      <form class="col-md-6" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>
@@ -92,7 +93,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun livre n'a ete trouve !</td>
+         <td colspan="8">Aucun emprunteur n'a ete trouve !</td>
      </tr>
   </tbody>
   

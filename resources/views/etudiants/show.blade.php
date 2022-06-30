@@ -20,7 +20,11 @@
 					<!-- Input de nom de l'etudiant -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Nom</label>
+<<<<<<< HEAD
 						<input type="text" name="nom" id="nom" class="form-control" value="{{$etudiants->nom}}" placeholder="OUEDRAOGO" disabled/>
+=======
+						<input type="text" name="nom" id="nom" class="form-control" value="{{$etudiants->nom}}"disabled/>
+>>>>>>> 0d47d43e830ed08f15ea4ad0e0adfc0888941598
 					</div>
 
 

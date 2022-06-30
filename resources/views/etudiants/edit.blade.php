@@ -71,13 +71,13 @@
 					<!-- Filière with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Filière</label>
-						<select class="form-select" name="filiere" aria-label="Default select example" required>
-							<option value="" selected>Selectionnez votre filière</option>
-							<option value="MIAGE" {{$etudiants->filiere == 'MIAGE'}} ?? selected>MIAGE</option>
-							<option value="ADB" {{$etudiants->filiere == 'ADB'}} ?? selected>ADB</option>
-							<option value="CCA" {{$etudiants->filiere == 'CCA'}} ?? selected>CCA</option>
-							<option value="ABF" {{$etudiants->filiere == 'ABF'}} ?? selected>ABF</option>
-							<option value="MG" {{$etudiants->filiere == 'MG'}} ?? selected>MG</option>
+						<select class="form-select" name="filiere" aria-label="Default select example" >
+							<option value="" selected>{{$etudiants->filiere}}</option>
+							<option value="MIAGE">MIAGE</option>
+							<option value="ADB" >ADB</option>
+							<option value="CCA">CCA</option>
+							<option value="ABF">ABF</option>
+							<option value="MG">MG</option>
 						</select>
 					</div>
 
@@ -85,11 +85,11 @@
 					<!-- Niveau d'étude with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Niveau</label>
-						<select class="form-select" name="niveau" aria-label="Default select example" required>
-							<option value="" selected disabled>Selectionnez votre niveau</option>
-							<option value="LICENCE 1" {{$etudiants->niveau == 'LICENCE 1'}} ?? selected>LICENCE 1</option>
-							<option value="LICENCE 2" {{$etudiants->niveau == 'LICENCE 2'}} ?? selected>LICENCE 2</option>
-							<option value="LICENCE 3" {{$etudiants->niveau == 'LICENCE 3'}} ?? selected>LICENCE 3</option>
+						<select class="form-select" name="niveau" aria-label="Default select example" >
+							<option value="" selected disabled>{{$etudiants->niveau}}</option>
+							<option value="LICENCE 1" >LICENCE 1</option>
+							<option value="LICENCE 2" >LICENCE 2</option>
+							<option value="LICENCE 3" ></option>LICENCE 3</option>
 						</select>
 					</div>
 
@@ -97,7 +97,7 @@
 					<!-- Adresse de l'étudiant -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Adresse</label>
-						<input type="text" name="adresse" id="adresse" class="form-control" value="{{$etudiants->adresse}}" required/>
+						<input type="text" name="adresse" id="adresse" class="form-control" value="{{$etudiants->adresse}}" />
 					</div>
 
 

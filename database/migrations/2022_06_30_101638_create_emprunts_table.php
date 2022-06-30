@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('emprunts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('etudiant_id')->constrained()->onDelete('cascade');
+            $table->foreignId('livre_id')->constrained();
+            $table->string('date_emprunt');
+            $table->string('date_retour');
+            $table->string('status')->default('N');
             $table->timestamps();
         });
     }
