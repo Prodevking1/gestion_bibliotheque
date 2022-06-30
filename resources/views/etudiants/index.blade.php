@@ -52,28 +52,26 @@
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{$etudiant->email}}</p>
+        <p class="fw-bold m-2">{{$etudiant->email}}</p>
       </td>
       <td>
-                <p class="fw-normal mb-1">{{$etudiant->tel}}</p>
+                <p class="fw-bold mb-1">{{$etudiant->tel}}</p>
 
       </td>
       <td>Neant</td>
-      <td class="row g-3" style="color:blue;font-size:120%;">
+      <td class="row" style="color:blue;font-size:120%;">
 
-      <div>
-        <form class="col-md-6" action="{{route('etudiants.show', $etudiant->id)}}" method="get">
+        <form class="col-md-2" action="{{route('etudiants.show', $etudiant->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
-      </div>
 
-      <form class="col-md-6" action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
+      <form class="col-md-2" action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
+      <form class="col-md-2" action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>

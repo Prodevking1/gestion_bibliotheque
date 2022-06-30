@@ -31,6 +31,7 @@
       <th>No ISBN</th>
       <th>Auteur</th>
       <th>Categorie</th>
+      <th>Exemplaires</th>
       <th>Status</th>
       <th>Actions</th>
     </tr>
@@ -63,27 +64,29 @@
 
       </td>
       <td>
+                <p class="fw-normal mb-1">{{$livre->exemplaire}}</p>
+
+      </td>
+      <td>
         @if ($livre->status == 'Y')
              <span class='badge badge-success'>disponible</span>
         @else
              <span class='badge badge-danger'>indisponible</span>
         @endif
       </td>
-      <td class="row g-3" style="color:blue;font-size:120%;">
+      <td class="row">
 
-      <div>
-        <form class="col-md-6" action="{{route('livres.show', $livre->id)}}" method="get">
+        <form class="col-md-2" action="{{route('livres.show', $livre->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
-      </div>
 
-      <form class="col-md-6" action="{{route('livres.edit', $livre->id)}}" method="post">
+      <form class="col-md-2" action="{{route('livres.edit', $livre->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('livres.delete', $livre->id)}}" method="post">
+      <form class="col-md-2" action="{{route('livres.delete', $livre->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>
