@@ -82,7 +82,7 @@ class EtudiantsController extends Controller
     {
         $etudiants = Etudiants::find($id);
         return view('etudiants.edit')->with('etudiants', $etudiants);
-        return redirect('etudiant')->with('flash_message', 'etudiant Updated!'); 
+        return redirect('etudiants')->with('flash_message', 'etudiant Updated!'); 
     }
 
     /**

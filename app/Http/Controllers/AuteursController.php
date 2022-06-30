@@ -39,7 +39,8 @@ class AuteursController extends Controller
     public function edit(Auteurs $auteurs, $id)
     {
         $auteurs = Auteurs::find($id);
-        return view('auteurs')->with('auteurs', $auteurs);
+        return view('auteurs.edit')->with('auteurs', $auteurs);
+        return redirect('auteurs')->with('flash_message', 'auteur Updated!');  
     }
 
 
@@ -49,7 +50,7 @@ class AuteursController extends Controller
         $auteurs = Auteurs::find($id);
         $input = $request->all();
         $auteurs->update($input);
-        return redirect('auteur')->with('flash_message', 'auteur Updated!');  
+        return redirect('auteurs')->with('flash_message', 'auteur Updated!');  
 
 
       
@@ -59,7 +60,7 @@ class AuteursController extends Controller
     public function destroy(Auteurs $auteurs, $id)
     {
         Auteurs::destroy($id);
-        return redirect('auteur')->with('flash_message', 'Auteur deleted!');
+        return redirect('auteurs')->with('flash_message', 'Auteur deleted!');
     }
 }
 
