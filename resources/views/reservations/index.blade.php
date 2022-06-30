@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestion des Reservations</h1>
+			<h1 style="font-family: Stencil Std, fantasy;">Gestion des reservation</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Gestion des Reservations</li>
+				<li class="breadcrumb-item active">Gestion des reservation</li>
 			</ol>
           <div class="" style="">
-            <a href="{{ route('etudiants.create') }}">
+            <a href="{{ route('reservations.create') }}">
             <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
-                      {{ __('Ajoutez une reservation') }}
+                      {{ __('Ajouter') }}
                 </button>
             </a>
           </div>
                         
         <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
-                  <input name="q" type= "text" size="15" placeholder="Rechercher un Etudiant" />
+                  <input name="q" type= "text" size="15" placeholder="Rechercher un livre" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
            
@@ -28,53 +28,69 @@
   <thead class="bg-light">
     <tr>
       <th>N° de reservation</th>
-      <th>id et nom de l'etudiant</th>
-      <th>id et nom du livre </th>
-      <th>date de reservation</th>
+      <th>Etudiant</th>
+      <th>Livre</th>
+      <th>Date de reservation</th>
+      <th>Status</th>
       <th>Actions</th>
     </tr>
   </thead>
-  @forelse($reservation as $reservations)
+  @forelse($reservations as $reservation)
   <tbody>
     <tr>
-        <td>
-        <p class="fw-normal mb-1">{{$reservations->id}}</p>
-        </td>
       <td>
         <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
           <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $etudiant->nom }} {{ $etudiant->prenom }}</p>
-            <p class="text-muted mb-0">#{{$reservation->etudiant_id}}</p>
+            <p class="fw-bold mb-1">#{{$reservation->id}}</p>
+            
           </div>
         </div>
       </td>
       <td>
-      <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $livres->nom }} </p>
-            <p class="text-muted mb-0">#{{$livre->id}}</p>
-          </div>
+        <p class="fw-normal mb-1">{{$reservation->etudiant->nom}}{{$reservation->etudiant->prenom}}</p>
+        <p class="text-muted mb-0">#{{$etudiant->id}}</p>
       </td>
       <td>
-                <p class="fw-normal mb-1">{{$reservations->date_reservation}}</p>
+                <p class="fw-normal mb-1">{{$reservation->date_reservation}}</p>
 
       </td>
-      <td>Neant</td>
-      <td class=""style="color:blue;font-size:120%;">
-    
-      <a href='{{route('etudiants.show', $etudiant->id)}}' method='POST'>       
-          <i class="fas fa-eye"></i>
-      </a>
-      <a style="padding-left:15px;"  href='{{route('etudiants.edit', $etudiant->id)}}' method='POST'>
-          <i class="fas fa-edit"></i>
-      </a>
-      <a style="padding-left:15px;"  href='{{route('etudiants.delete', $etudiant->id)}}' method='POST'>
-         <i class="fas fa-trash"></i>
-      </a>
+      <td>
+        @if ($livre->status == 'Y')
+             <span class='badge badge-success'>disponible</span>
+        @else
+             <span class='badge badge-danger'>indisponible</span>
+        @endif
+      </td>
+      <td class="row g-3" style="color:blue;font-size:120%;">
+
+      <div>
+        <form class="col-md-6" action="{{route('reservations.show', $reservation->id)}}" method="get">
+            @csrf
+        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
+      </form>
+      </div>
+
+      <form class="col-md-6" action="{{route('reservations.edit', $reservation->id)}}" method="post">
+            @csrf
+        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
+      </form>
+      
+      <form class="col-md-6" action="{{route('reservations.delete', $reservation->id)}}" method="post">
+            @csrf
+      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
+      </form>
+
       </td>
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+         <td colspan="8">Aucun livre n'a ete trouve !</td>
      </tr>
   </tbody>
   
@@ -134,4 +150,5 @@
                 border: 0;
             }
 </style>
+
 

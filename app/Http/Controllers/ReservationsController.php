@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservations;
+use App\Models\Auteurs;
+use App\Models\Etudiants;
+use App\Models\Categories;
+use App\Models\Editeurs;
+use App\Models\Livres;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
@@ -14,17 +19,20 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        //
+        return view('reservations.index', [
+            'reservations' => Reservations::all()
+
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('reservations.create',
+        ['etudiants' => Etudiants::latest()->get(),
+       
+        'livres' => Livres::latest()->get()
+       ]);
     }
 
     /**
@@ -35,51 +43,38 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Reservations::create($input);
+        return redirect('reservations')->with('flash_message', 'reservation Addedd!'); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reservations  $reservations
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Reservations $reservations)
+  
+    public function show(Reservations $reservations, $id)
     {
-        //
+        $editeurs = Editeurs::find($id);
+        return view('reservations.show')->with('reservations', $student);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Reservations  $reservations
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Reservations $reservations)
+    
+    public function edit(Reservations $reservations, $id)
     {
-        //
+        $reservations = Reservations::find($id);
+        return view('reservations.edit')->with('reservations', $reservations);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reservations  $reservations
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Reservations $reservations)
+    
+    public function update(Request $request, Reservations $reservations, $id)
     {
-        //
+        $reservations = Reservations::find($id);
+        $input = $request->all();
+        $reservations->update($input);
+        return redirect('reservations')->with('flash_message', 'editeurs Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reservations  $reservations
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Reservations $reservations)
+ 
+    public function destroy(Reservations $reservations, $id)
     {
-        //
+        Reservations::destroy($id);
+        return redirect('reservations')->with('flash_message', 'reservations deleted!');  
     }
 }

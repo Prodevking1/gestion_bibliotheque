@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="generator" content="">
     <title>Gestion de Bibliothèque</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}" />
     <link rel="canonical" href="">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset("assets/css/simple-datatables-style.css") }}" rel="stylesheet" />
@@ -15,8 +16,6 @@
         <script src="{{asset("assets/js/font-awesome-5-all.min.js")}}" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-        
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="" sizes="180x180">
     <link rel="icon" href="" sizes="32x32" type="image/png">
@@ -26,6 +25,14 @@
     <link rel="icon" href="">
     <meta name="theme-color" content="#7952b3">
     <style>
+        .colo{
+            background-color: #eee;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+       
+        a.ho:hover{
+            background-color: #5DADE2;
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -42,7 +49,7 @@
     </style>
 </head>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: Lato;">
 
 
         <!-- Extension jquery -->
@@ -51,48 +58,87 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- Noyau JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    
 
 
+  
+    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color:#fff;">
 
+        
 
-
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Tableau de bord</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"  id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <a href="index.php" class="brand-link" style=" text-decoration:none;">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="rounded-circle" data-holder-rendered="true" style="width: 18%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+            <span class="brand-text" style="color: black;">   GESBiblio</span>
+        </a>
 
-        </form>
+        <!-- Sidebar Toggle-->
+        <ul class="navbar-nav" style="margin-right: 77%;">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button" style="color: black;"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+        
         <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="color: black;">
+
+        <!-- Alerte icone -->
+        <li class="nav-item dropdown" style="margin-left: -70%;">
+          <a class="nav-link" data-toggle="dropdown" href="#" style="color: black;">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge"></span>
+          </a>
+          <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header"> alerte de stock</span>
+            <div class="dropdown-divider"></div>
+
+           
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-envelope mr-2"></i> Le produit <br><i class="fas fa-envelope mr-4"></i> a ateint son stock d'alerte
+                </a>
+              <div class="dropdown-divider"></div>
+
+             
+              <div class="dropdown-divider"></div>
+                <a href="input.php" class="dropdown-item dropdown-footer">S'approvisionnez</a>
+              </div> -->
+        </li>
+
+
+        <!-- Deconnexion icone -->
+            <li class="nav-item">
+                <a class="nav-link" href="pages/tables/logout.php" role="button" style="color: black;">
+                <i class="fas fa-power-off"></i>
+                </a>
+            </li>
+
+
+            <!-- Profile icone -->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                {{-- <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="profile.php">Profil</a></li>
-                    <li><a class="dropdown-item" href="setting.php">Reglages</a></li>
-                    <li><a class="dropdown-item" href="logout.php">Deconnexion</a></li>
-                </ul> --}}
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="color: black;"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> Profil</a></li>
+                    <li><a class="dropdown-item" href="setting.php"><i class="fa fa-cog" aria-hidden="true"></i> Reglages</a></li>
+                </ul>
             </li>
         </ul>
     </nav>
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav colo" id="sidenavAccordion">
                 <div class="sb-sidenav-menu" style="font-size: 20px; margin-top: 20px;">
                     <div class="nav">
-                        <a class="nav-link" href="location_rack.php"><i class="fa fa-home" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Acceuil</a>
-                        <a class="nav-link" href="category.php"><i class="fa fa-list-alt" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i></i> Categories</a>
-                        <a class="nav-link" href="author.php"><i class="fas fa-user" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Auteur</a>
-                        <a class="nav-link" href="location_rack.php"> <i class="fa fa-map-marker" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Emplacement</a>
-                        <a class="nav-link" href="book.php"><i class="fa fa-book" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i>Livres</a>
-                        <a class="nav-link" href="user.php"> <i class="fa fa-users" aria-hidden="true" style="margin-right: 10px; margin-bottom: 4px;"></i> Utilisateur</a>
-                        <a class="nav-link" href="issue_book.php"><i class="fas fa-exchange-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Emprunt</a>
-                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt" style="margin-right: 10px; margin-bottom: 4px;"></i> Deconnexion</a>
-
+                        <a class="nav-link ho" href="location_rack.php" style="color: black;"><i class="fa fa-home" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Acceuil</a>
+                        <a class="nav-link ho" href="category.php" style="color: black;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
+                        <a class="nav-link ho" href="author.php" style="color: black;" ><i class="fas fa-user" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Auteurs</a>
+                        <a class="nav-link ho" href="location_rack.php" style="color: black;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
+                        <a class="nav-link ho" href="book.php" style="color: black;" ><i class="fa fa-book" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Livres</a>
+                        <a class="nav-link ho" href="user.php" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Utilisateurs</a>
+                        <a class="nav-link ho" href="issue_book.php" style="color: black;" ><i class="fas fa-exchange-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Emprunts</a>
+                        <a class="nav-link ho" href="issue_book.php" style="color: black;" ><i class="fas fa-ticket-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Réservations</a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -103,5 +149,11 @@
         <div id="layoutSidenav_content">
             @yield('content')
         </div>
+
+
+      
+
+
+
 
     </body>
