@@ -63,6 +63,12 @@
 						</select>
 					</div>
 
+					<!-- Input Exemplaire livre -->
+					<div class="col-md-6">
+						<label class="form-label" style="font-weight: bold;">Nombre Exemplaire</label>
+						<input type="number" name="exemplaire" id="exemplaire" class="form-control" placeholder="07" required/>
+					</div>
+
 					{{-- Button valider  --}}
 
 					<div class="col-md-6 mt-2">
