@@ -26,7 +26,6 @@
         </div>
 
 
-<<<<<<< HEAD
         <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
             <div class="row justify-content-center">
               <div class="col-md-12">
@@ -133,86 +132,6 @@
                       
                       @endforelse
                     </table>
-=======
-			<div class="card mb-4">
-<table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light">
-    <tr>
-      <th>Titre</th>
-      <th>No ISBN</th>
-      <th>Auteur</th>
-      <th>Categorie</th>
-      <th>Exemplaires</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  @forelse($livres as $livre)
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $livre->titre }}</p>
-            <p class="text-muted mb-0">#{{$livre->id}}</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{$livre->isbn}}</p>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{$livre->auteur->nom_prenom}}</p>
-      </td>
-      <td>
-                <p class="fw-normal mb-1">{{$livre->categorie->titre}}</p>
-
-      </td>
-      <td>
-                <p class="fw-normal mb-1">{{$livre->exemplaire}}</p>
-
-      </td>
-      <td>
-        @if ($livre->status == 'Y')
-             <span class='badge badge-success'>disponible</span>
-        @else
-             <span class='badge badge-danger'>indisponible</span>
-        @endif
-      </td>
-      <td class="row">
-
-        <form class="col-md-2" action="{{route('livres.show', $livre->id)}}" method="get">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
-      </form>
-
-      <form class="col-md-2" action="{{route('livres.edit', $livre->id)}}" method="post">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
-      </form>
-      
-      <form class="col-md-2" action="{{route('livres.delete', $livre->id)}}" method="post">
-            @csrf
-      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
-      </form>
-
-      </td>
-    </tr>
-    @empty
-     <tr>
-         <td colspan="8">Aucun livre n'a ete trouve !</td>
-     </tr>
-  </tbody>
-  
-  @endforelse
-</table>
->>>>>>> fb35059f8b36c975c8553df35295114ce8a17b9d
 			</div>
 		</div>
 @endsection
