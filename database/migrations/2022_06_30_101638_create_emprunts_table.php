@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('date_retour');
             $table->string('status')->default('N');
             $table->timestamps();
+            
         });
     }
 
