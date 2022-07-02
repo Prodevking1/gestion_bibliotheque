@@ -2,15 +2,18 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container" style="margin-top: 2%;text-align:center;">
+<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
     <div class="row justify-content-center">
 	<div class="col-md-8">
+
+		<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
+			{{ __('Ajout de livre') }}
+		</div>
+		<br><br>
 		
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-				{{ __('Ajout de livre') }}
-			</div>
+			
 
 			<br>
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
@@ -64,16 +67,16 @@
 					</div>
 
 					<!-- Input Exemplaire livre -->
-					<div class="col-md-6">
+					<div class="col-md-6 ">
 						<label class="form-label" style="font-weight: bold;">Nombre Exemplaire</label>
 						<input type="number" name="exemplaire" id="exemplaire" class="form-control" placeholder="07" required/>
 					</div>
 
 					{{-- Button valider  --}}
 
-					<div class="col-md-6 mt-2">
+					<div class="col-md-6 mt-2 mx-auto">
 						<div class="text-center mt-4 pt-3">
-						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Ajouter ce livre" />
+						<input type="submit" name="savw" class="btn btn-outline-primary " value="Ajouter" style="color: black; font-size:large;">
 					</div>
 					</div>
 

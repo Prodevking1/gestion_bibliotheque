@@ -159,7 +159,7 @@
 </div>
 
 
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="background-color:#eee;">
             @yield('content')
         </div>
 
