@@ -17,10 +17,12 @@ class NotificationsController extends Controller
         //
     }
 
+
+
     public function emprunts (){
         return view('notifications.emprunts', 
         [
-            'etudiants' => Etudiants::all(),
+            'etudiants' => Etudiants::latest()->get(),
         ]);
     }
 

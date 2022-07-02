@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\AuteursController;
 use App\Http\Controllers\LivresController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EditeursController;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Editeurs;
+use App\Models\Etudiants;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,4 +84,17 @@ Route::resource('/auteurs', AuteursController::class);
 Route::resource("/categories", CategoriesController::class);
 Route::resource("/editeurs", EditeursController::class);
 
+
+// route to send mail
+Route::get('notifications/send-emprunt/{id}', function () {
+   
+  $details = [
+      'title' => 'Mail from Online Web Tutor',
+      'body' => 'Test mail sent by Laravel 9 using SMTP.'
+  ];
+ 
+  Mail::to('ici2sans26@gmail.com')->send(new \App\Mail\EmpruntNotificationMail($details));
+ 
+  dd("Email is Sent, please check your inbox.");
+});
 ?>
