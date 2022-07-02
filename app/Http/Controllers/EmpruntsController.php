@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Emprunts;
+use App\Models\Livres;
+use App\Models\Etudiants;
+
 use Illuminate\Http\Request;
 
 class EmpruntsController extends Controller
@@ -14,7 +17,10 @@ class EmpruntsController extends Controller
      */
     public function index()
     {
-        //
+        $emprunts = Emprunts::all();
+        return view('emprunts.index', [
+            'emprunts' => Emprunts::Paginate(5)
+        ]);
     }
 
     /**
@@ -24,7 +30,12 @@ class EmpruntsController extends Controller
      */
     public function create()
     {
-        //
+        return view('emprunts.create',
+    [
+        'livres' => Livres::where('status', 'Y')->get(),
+        'etudiants' => Etudiants::latest()->get(),
+    ]);
+
     }
 
     /**
@@ -35,7 +46,18 @@ class EmpruntsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'etudiant_id' => 'required',
+            'livre_id' => 'required',
+            'date_emprunt' => 'required',
+            'date_retour' => 'required',
+            'status' => 'N',
+        ]);
+        $emprunts = Emprunts::create($validatedData);
+        $livre = Livres::find($request->livre_id);
+        $livre->status = 'N';
+        $livre->save();
+        return redirect('/emprunts');
     }
 
     /**

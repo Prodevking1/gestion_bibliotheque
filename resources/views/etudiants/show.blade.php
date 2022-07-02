@@ -27,28 +27,28 @@
 					<!-- Input de prenom -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Prenom</label>
-						<input type="text" name="prenom" id="prenom" class="form-control" placeholder="Nasser" required/>
+						<input type="text" name="prenom" id="prenom" class="form-control" value="{{$etudiants->prenom}}"disabled/>
 					</div>
 
 
 					<!-- Date de naissance -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="date" name="age" id="age" class="form-control" placeholder="jj/mm/aaaa" required/>
+						<input type="date" name="age" id="age" class="form-control" value="{{$etudiants->age}}"disabled/>
 					</div>
 
 
 					<!-- Email -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Email</label>
-						<input type="email" name="email" id="email" class="form-control" placeholder="nasserodg60@gmail.com" required/>
+						<input type="email" name="email" id="email" class="form-control" value="{{$etudiants->email}}"disabled/>
 					</div>
 
 
 					<!-- Téléphone -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Téléphone</label>
-						<input type="phone" name="tel" id="tel" class="form-control" placeholder="Ex: +226 60558128" required/>
+						<input type="phone" name="tel" id="tel" class="form-control" value="{{$etudiants->tel}}"disabled/>
 					</div>
 
 
@@ -57,11 +57,11 @@
 						<label class="form-label" style="font-weight: bold;">Genre</label>
 						<div class="col-md-12 mx-auto" >
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="masculinChoice" value="masculin" checked>
+								<input class="form-check-input" type="radio" name="genre" id="masculinChoice" value="{{$etudiants->genre}}"disabled>
 								<label class="form-check-label" for="inlineRadio1">Masculin</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="genre" id="femininChoice" value="feminin">
+								<input class="form-check-input" type="radio" name="genre" id="femininChoice" value="{{$etudiants->genre}}"disabled>
 								<label class="form-check-label" for="inlineRadio2">Feminin</label>
 							</div>
 						</div>
@@ -72,7 +72,7 @@
 					<!-- Filière with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Filière</label>
-						<select class="form-select" name="filiere" aria-label="Default select example" required>
+						<select class="form-select" name="filiere" value="{{$etudiants->filiere}}"disabled>
 							<option value="" selected disabled>Selectionnez votre filière</option>
 							<option value="MIAGE">MIAGE</option>
 							<option value="ADB">ADB</option>
@@ -86,7 +86,7 @@
 					<!-- Niveau d'étude with select option -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Niveau</label>
-						<select class="form-select" name="niveau" aria-label="Default select example" required>
+						<select class="form-select" name="niveau" value="{{$etudiants->niveau}}"disabled>
 							<option value="" selected disabled>Selectionnez votre niveau</option>
 							<option value="LICENCE 1">LICENCE 1</option>
 							<option value="LICENCE 2">LICENCE 2</option>
@@ -98,7 +98,7 @@
 					<!-- Adresse de l'étudiant -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Adresse</label>
-						<input type="text" name="adresse" id="adresse" class="form-control" placeholder="Ex: Saaba" required/>
+						<input type="text" name="adresse" id="adresse" class="form-control" value="{{$etudiants->adresse}}"disabled/>
 					</div>
 
 

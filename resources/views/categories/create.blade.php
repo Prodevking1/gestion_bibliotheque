@@ -2,7 +2,7 @@
 @section('content')
  
 <div class="card">
-  <div class="card-header">Ajouter une categoirie</div>
+  <div class="card-header">Ajouter une Categorie</div>
   <div class="card-body">
       
       <form action="{{ url('categories') }}" method="post">

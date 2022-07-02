@@ -9,22 +9,27 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Reservations extends Model
 {
     use HasFactory;
-     protected $guarded = [];
- 
-     /**
-      * Get the auther that owns the book 
-      *
-      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-      */
-     public function etudiants(): BelongsTo
-     {
-         return $this->belongsTo(Etudiant::class,'etudiant_id','id');
-     }
+    protected $guarded = [];
 
-     public function livres(): BelongsTo
-     {
-         return $this->belongsTo(Livre::class,'livre_id','id');
-     }
- 
- 
+    /**
+     * Get the student that owns the book_issue
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function etudiant(): BelongsTo
+    {
+        return $this->belongsTo(Etudiants::class, 'etudiant_id', 'id');
+    }
+
+    /**
+     * Get the book that owns the book_issue
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function livre(): BelongsTo
+    {
+        return $this->belongsTo(Livres::class, 'livre_id', 'id');
+    }
+
+
 }

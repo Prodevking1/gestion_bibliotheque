@@ -9,12 +9,12 @@
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
 			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-				{{ __('Reserver un livre') }}
+				{{ __('Emprunt de livre') }}
 			</div>
 
 			<br>
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="POST" class="row g-3" action="{{ route('reservations.store')}}" enctype="multipart/form-data">
+				<form method="POST" class="row g-3" action="{{ route('emprunts.store')}}" enctype="multipart/form-data">
 					@csrf
 
 					<div class="col-md-6">
@@ -38,8 +38,8 @@
 					</div>
 
                     <div class="col-md-6">
-						<label class="form-label" for="date_reservation" style="font-weight: bold;">Date de reservation</label>
-						<input type="date" name="date_reservation" id="date_reservation" class="form-control" required/>
+						<label class="form-label" for="date_emprunt" style="font-weight: bold;">Date d'emprunt</label>
+						<input type="date" name="date_emprunt" id="date_emprunt" class="form-control" required/>
 					</div>
 
                     <div class="col-md-6">

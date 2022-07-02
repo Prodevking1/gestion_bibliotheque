@@ -3,10 +3,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4" style="min-height: 700px;" width=100%>
-			<h1>categories</h1>
+			<h1>Les Categories</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Gestion des utilisateurs</li>
+				<li class="breadcrumb-item active">Liste des categories</li>
 			</ol>
       <div class="" style="">
             <a href="{{ route('categories.create') }}">
@@ -20,9 +20,9 @@
 				<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light" width=100%>
     <tr width=100%>
-    <th></th>
-      <th width=25%>ID</th>
-      <th width=40%>Titre</th>
+ <th></th>
+      <th width=30%>ID</th>
+      <th width=45%>Titre</th>
       <th>Actions</th>
      
     </tr>
@@ -30,22 +30,17 @@
   @forelse($categories as $categories)
   <tbody>
     <tr>
-      <td>
+      
         <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
+        <th></th>
           <div class="ms-3">
-            <th width=25%><p class="fw-bold mb-1">{{ $categories->id }}</p></th>
+            <th width=25%><p class="fw-bold mb-1">#{{ $categories->id }}</p></th>
             <th width=40%><p class="text-muted mb-0">{{$categories->titre}}</p></th>
         
            
           </div>
         </div>
-      </td>
+      
      
 
        <td>
@@ -65,7 +60,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+         <td colspan="8">Aucune categorie n'a ete trouve !</td>
      </tr>
   </tbody>
   @endforelse

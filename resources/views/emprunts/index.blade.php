@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des reservations</h1>
+			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des emprunts</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Lecteurs</li>
+				<li class="breadcrumb-item active">emprunteurs</li>
 
 			</ol>
           <div class="" style="">
-            <a href="{{ route('reservations.create') }}">
+            <a href="{{ route('emprunts.create') }}">
             <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
                       {{ __('Ajouter') }}
                 </button>
@@ -17,7 +17,7 @@
                         
         <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
-                  <input name="q" type= "text" size="15" placeholder="Rechercher un reservation" />
+                  <input name="q" type= "text" size="15" placeholder="Rechercher un emprunt" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
            
@@ -28,15 +28,15 @@
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
-      <th>Lecteurs</th>
+      <th>Emprunteur</th>
       <th>Titre du livre</th>
-      <th>Date de reservation</th>
+      <th>Date d'emprunt</th>
       <th>Date de retour</th>
       <th>Statut</th>
       <th>Actions</th>
     </tr>
   </thead>
-  @forelse($reservations as $reservation)
+  @forelse($emprunts as $emprunt)
   <tbody>
     <tr>
       <td>
@@ -48,57 +48,52 @@
               class="rounded-circle"
               />
           <div class="ms-3">
-            <p class="fw-bold mb-1"> {{ $reservation->etudiant->nom }} {{ $reservation->etudiant->prenom }}</p>
-            <p class="text-muted mb-0">#{{ $reservation->etudiant->id }} </p>
+            <p class="fw-bold mb-1">{{ $emprunt->etudiant->nom }} {{ $emprunt->etudiant->nom }}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{$reservation->livre->titre}}</p>
-        <p class="text-muted mb-0">#{{ $reservation->livre->id }} </p>
+        <p class="fw-normal mb-1">{{$emprunt->livre->titre}}</p>
       </td>
       <td>
-                <p class="fw-normal mb-1">{{$reservation->date_reservation}}</p>
+                <p class="fw-normal mb-1">{{$emprunt->date_emprunt}}</p>
 
       </td>
       <td>
-                <p class="fw-normal mb-1">{{$reservation->date_retour}}</p>
+                <p class="fw-normal mb-1">{{$emprunt->date_retour}}</p>
 
       </td>
       <td>
-        @if ($reservation->status == 'N')
-             <span class='badge badge-success'>reservé</span>
+        @if ($emprunt->status == 'N')
+             <span class='badge badge-success'>emprunté</span>
         @else
              <span class='badge badge-danger'>non retourné</span>
         @endif
       </td>
       <td class="row" style="color:blue;font-size:120%;">
-        <div class="bg">
-            <div>
-      
-        <form class="col-md-6" action="{{route('reservations.show', $reservation->id)}}" method="get">
+
+      <div>
+        <form class="col-md-6" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
       </div>
-      <div>
-      <form class="col-md-6" action="{{route('reservations.edit', $reservation->id)}}" method="post">
+
+      <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
-      </div>
-      <div>
-      <form class="col-md-6" action="{{route('reservations.delete', $reservation->id)}}" method="post">
+      
+      <form class="col-md-6" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
-      </form></div>
-        </div>
+      </form>
+
       </td>
-    
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun reservationeur n'a ete trouve !</td>
+         <td colspan="8">Aucun emprunteur n'a ete trouve !</td>
      </tr>
   </tbody>
   
@@ -157,15 +152,6 @@
             .button-submit::-moz-focus-inner {
                 border: 0;
             }
-            .bg{
-                width: 30px;
-               display: flex; 
-               margin: 0;
-               padding: 0;
-               position: left;
-               border: 0px;
-            }
-
 </style>
 
 

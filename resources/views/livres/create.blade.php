@@ -26,7 +26,7 @@
 					<!-- Input titre du livre -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">No ISBN</label>
-						<input type="text" name="isbn" id="isbn" class="form-control" placeholder="" required/>
+						<input type="number" name="isbn" id="isbn" class="form-control" placeholder="0725 1023 0212" required/>
 					</div>
 
 					<!-- Catégorie with select option -->

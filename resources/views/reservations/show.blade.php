@@ -10,11 +10,10 @@
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
-      <th>Titre</th>
-      <th>No ISBN</th>
-      <th>Auteur</th>
-      <th>Categorie</th>
-      <th>Editeur</th>
+      <th>N° de reservation</th>
+      <th>Etudiant</th>
+      <th>Livre</th>
+      <th>Dade de reservation</th>
       <th>Statut</th>
       <th>Date d'ajout</th>
     </tr>
