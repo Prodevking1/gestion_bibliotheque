@@ -1,15 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid py-4">
+<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
 			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des emprunts</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">emprunteurs</li>
 
 			</ol>
-          <div class="" style="">
+      <br><br>
+          <div class="">
             <a href="{{ route('emprunts.create') }}">
-            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 120%;border-color:none;color:black; margin-right:90%;">
                       {{ __('Ajouter') }}
                 </button>
             </a>
@@ -72,19 +75,17 @@
       </td>
       <td class="row" style="color:blue;font-size:120%;">
 
-      <div>
-        <form class="col-md-6" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
+        <form class="col-md-2" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
-      </div>
 
       <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
+      <form class="col-md-2" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>

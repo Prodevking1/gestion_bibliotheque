@@ -49,7 +49,7 @@
     </style>
 </head>
 
-<body class="sb-nav-fixed" style="font-family: Lato;">
+<body class="sb-nav-fixed" style="font-family: Arial;">
 
 
         <!-- Extension jquery -->
@@ -159,7 +159,7 @@
 </div>
 
 
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="background-color:#eee;">
             @yield('content')
         </div>
 

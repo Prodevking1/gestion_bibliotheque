@@ -1,15 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestion des Etudiants</h1>
+<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+			<h1 style="font-family: Lato;">Gestion des Etudiants</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des Etudiants</li>
 			</ol>
-          <div class="" style="">
+      <br><br>
+          <div class="">
             <a href="{{ route('etudiants.create') }}">
-            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
-                      {{ __('Ajoutez un Etudiant') }}
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 120%;border-color:none;color:black; margin-right:90%;">
+                      {{ __('Ajouter') }}
                 </button>
             </a>
           </div>
@@ -52,28 +55,26 @@
         </div>
       </td>
       <td>
-        <p class="fw-normal mb-1">{{$etudiant->email}}</p>
+        <p class="fw-bold m-2">{{$etudiant->email}}</p>
       </td>
       <td>
-                <p class="fw-normal mb-1">{{$etudiant->tel}}</p>
+                <p class="fw-bold mb-1">{{$etudiant->tel}}</p>
 
       </td>
       <td>Neant</td>
-      <td class="row g-3" style="color:blue;font-size:120%;">
+      <td class="row" style="color:blue;font-size:120%;">
 
-      <div>
-        <form class="col-md-6" action="{{route('etudiants.show', $etudiant->id)}}" method="get">
+        <form class="col-md-2" action="{{route('etudiants.show', $etudiant->id)}}" method="get">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
       </form>
-      </div>
 
-      <form class="col-md-6" action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
+      <form class="col-md-2" action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
       </form>
       
-      <form class="col-md-6" action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
+      <form class="col-md-2" action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
             @csrf
       <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
       </form>

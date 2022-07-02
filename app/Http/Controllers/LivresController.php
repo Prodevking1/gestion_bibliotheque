@@ -51,7 +51,9 @@ class LivresController extends Controller
             'categorie_id' => 'required',
             'auteur_id' => 'required',
             'editeur_id' => 'required',
-            'status' => 'Y'
+            'status' => 'Y',
+            'exemplaire' => 'required',
+
         ]);
         $livres = Livres::create($validatedData);
         
@@ -67,7 +69,7 @@ class LivresController extends Controller
     public function show(Livres $livres, int $id)
     {  
         $livre = Livres::find($id);
-        return view('livres.show', [
+        return redirect('livres.index', [
             'livre' => $livre,
             'auteurs' => Auteurs::latest()->get(),
             'categories' => Categories::latest()->get(),

@@ -1,14 +1,17 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestion des livres</h1>
+<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+			<h1 style="font-family:Lato;">Gestion des livres</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des livres</li>
 			</ol>
-          <div class="" style="">
+      <br><br>
+          <div class="">
             <a href="{{ route('livres.create') }}">
-            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 120%;color:black; margin-right:90%;">
                       {{ __('Ajouter') }}
                 </button>
             </a>
@@ -23,80 +26,119 @@
         </div>
 
 
-			<div class="card mb-4">
-<table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light">
-    <tr>
-      <th>Titre</th>
-      <th>Auteur</th>
-      <th>Categorie</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  @forelse($livres as $livre)
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $livre->titre }}</p>
-            <p class="text-muted mb-0">#{{$livre->id}}</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">{{$livre->auteur->nom_prenom}}</p>
-      </td>
-      <td>
-                <p class="fw-normal mb-1">{{$livre->categorie->titre}}</p>
+        <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
 
-      </td>
-      <td>
-        @if ($livre->status == 'Y')
-             <span class='badge badge-success'>disponible</span>
-        @else
-             <span class='badge badge-danger'>indisponible</span>
-        @endif
-      </td>
-      <td class="row g-3" style="color:blue;font-size:120%;">
 
-      <div>
-        <form class="col-md-6" action="{{route('livres.show', $livre->id)}}" method="get">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
-      </form>
-      </div>
+                <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+			            <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
+                    <table class="table align-middle mb-0 bg-white">
+                      <thead class="bg-light">
+                        <tr>
+                          <th>Titre</th>
+                          <th>No ISBN</th>
+                          <th>Auteur</th>
+                          <th>Categorie</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      @forelse($livres as $livre)
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <!-- <img
+                                  src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                                  alt=""
+                                  style="width: 45px; height: 45px"
+                                  class="rounded-circle"
+                                  /> -->
+                              <div class="ms-3">
+                                <p class="fw-bold mb-1">{{ $livre->titre }}</p>
+                                <p class="text-muted mb-0">#{{$livre->id}}</p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="fw-normal mb-1">{{$livre->isbn}}</p>
+                          </td>
+                          <td>
+                            <p class="fw-normal mb-1">{{$livre->auteur->nom_prenom}}</p>
+                          </td>
+                          <td>
+                                    <p class="fw-normal mb-1">{{$livre->categorie->titre}}</p>
 
-      <form class="col-md-6" action="{{route('livres.edit', $livre->id)}}" method="post">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
-      </form>
-      
-      <form class="col-md-6" action="{{route('livres.delete', $livre->id)}}" method="post">
-            @csrf
-      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
-      </form>
+                          </td>
+                          <td>
+                            @if ($livre->status == 'Y')
+                                <span class='badge badge-success'>disponible</span>
+                            @else
+                                <span class='badge badge-danger'>indisponible</span>
+                            @endif
+                          </td>
+                          <!-- <td class=" " style="font-size:120%;">
 
-      </td>
-    </tr>
-    @empty
-     <tr>
-         <td colspan="8">Aucun livre n'a ete trouve !</td>
-     </tr>
-  </tbody>
-  
-  @endforelse
-</table>
-			</div>
+                          
+                            <form class="col-4" action="{{route('livres.show', $livre->id)}}" method="get">
+                                @csrf
+                              <button type="submit" class="btn btn-info"> <i class="fas fa-eye"></i></button>
+                            </form>
+                          
+
+                          
+                            <form class="col-4" action="{{route('livres.edit', $livre->id)}}" method="post">
+                                  @csrf
+                              <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
+                            </form>
+                          
+
+                          
+                            <form class="col-md-4" action="{{route('livres.delete', $livre->id)}}" method="post">
+                                  @csrf
+                              <button type="submit" class="btn btn-danger"> <i class="fas fa-trash"></i></button>
+                            </form>
+                          
+
+                          </td> -->
+
+
+                          <td>
+                            <a href="{{route('livres.show', $livre->id)}}" title="View book"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+
+                            <form method="get" action="{{route('livres.edit', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                  {{ method_field('EDIT') }}
+                                  {{ csrf_field() }}
+                              <button type="submit" class="btn btn-primary btn-sm" title="edit book"><i class="fas fa-edit" aria-hidden="true"></i></button>
+                            </form>
+                            <!-- <a href="{{route('livres.edit', $livre->id)}}" title="Edit book"><button class="btn btn-primary btn-sm"><i class="fas fa-edit" aria-hidden="true"></i></button></a> -->
+                    
+                              <form method="get" action="{{route('livres.delete', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                  {{ method_field('DELETE') }}
+                                  {{ csrf_field() }}
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </form>
+                          </td>
+
+
+
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8">Aucun livre n'a ete trouve !</td>
+                        </tr>
+                      </tbody>
+                      
+                      @endforelse
+                    </table>
 		</div>
+  </div>
+</div>
+
 @endsection
+
+
 <style>
             .searchbox {
                 background: url(http://3.bp.blogspot.com/-g-zH25_DoxI/VD1BuatkgII/AAAAAAAAAgc/00hxspfvv3s/s1600/searchbar.png) no-repeat;
@@ -148,5 +190,6 @@
                 border: 0;
             }
 </style>
+
 
 

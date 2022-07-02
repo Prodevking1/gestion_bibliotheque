@@ -5,6 +5,7 @@ use App\Http\Controllers\EtudiantsController;
 use App\Http\Controllers\AuteursController;
 use App\Http\Controllers\LivresController;
 use App\Http\Controllers\EmpruntsController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EditeursController;
 use App\Http\Controllers\ReservationsController;
@@ -63,8 +64,6 @@ Route::post('/emprunts/store/', [EmpruntsController::class, 'store'])->name('emp
 
 
 
-
-
 // routes reservation
 Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservations');
 Route::get('/reservations/create', [ReservationsController::class, 'create'])->name('reservations.create');
@@ -74,6 +73,9 @@ Route::post('/reservations/update/{id}', [ReservationsController::class, 'update
 Route::post('/reservations/delete/{id}', [ReservationsController::class, 'destroy'])->name('reservations.delete');
 Route::post('/reservations/store/', [ReservationsController::class, 'store'])->name('reservations.store');
 
+// routes notifications
+Route::get('/notifications/emprunts', [NotificationsController::class, 'emprunts'])->name('notifications.emprunts');
+Route::get('/notifications/reservations', [NotificationsController::class, 'reservation'])->name('notifications.reservation');
 
 // routes ressources
 Route::resource('/auteurs', AuteursController::class);

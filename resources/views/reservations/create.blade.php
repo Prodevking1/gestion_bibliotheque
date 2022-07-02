@@ -22,7 +22,7 @@
 						<select class="form-select" name="livre_id" required>
 							<option value="" selected disabled>Selectionnez une livre </option>
                             @foreach($livres as $livre)
-							<option value="{{ $livre->id }}">{{ $livre->titre }}</option>
+							<option value="{{ $livre->id }}">{{ $livre->id }} {{ $livre->titre }}</option>
                             @endforeach
 						</select>
 					</div>
@@ -32,27 +32,24 @@
 						<select class="form-select" name="etudiant_id" required>
 							<option value="" selected disabled>Selectionnez etudiant </option>
                             @foreach($etudiants as $etudiant)
-							<option value="{{ $etudiant->id }}">{{ $etudiant->nom }}</option>
+							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} {{ $etudiant->nom }}</option>
                             @endforeach
 						</select>
 					</div>
-
+					<div></div>
                     <div class="col-md-6">
 						<label class="form-label" for="date_reservation" style="font-weight: bold;">Date de reservation</label>
 						<input type="date" name="date_reservation" id="date_reservation" class="form-control" required/>
 					</div>
 
-                    <div class="col-md-6">
-						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour</label>
-						<input type="date" name="date_retour" id="date_retour" class="form-control" required/>
-					</div>
+                 
 
                     
 					{{-- Button valider  --}}
 
 					<div class="col-md-6 mt-2">
 						<div class="text-center mt-4 pt-3">
-						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Preter ce livre" />
+						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Réserver ce livre" />
 					</div>
 					</div>
 
