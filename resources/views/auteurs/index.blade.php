@@ -3,7 +3,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4" style="min-height: 700px;" width=100%>
-			<h1>auteurs</h1>
+			<h1 style="text-align:center;">Gestion des Auteurs</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Liste des auteurs</li>
@@ -52,8 +52,8 @@
             <a href="{{ url('/auteurs/' . $auteurs->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
  
               <form method="POST" action="{{ url('/auteurs' . '/' . $auteurs->id) }}" accept-charset="UTF-8" style="display:inline">
-                  {{ method_field('DELETE') }}
-                  {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
          <button type="submit" class="btn btn-danger btn-sm" title="Delete auteur" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
      </form>
      </td>
@@ -62,7 +62,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+         <td colspan="8">Aucun Auteur n'a ete trouve !</td>
      </tr>
   </tbody>
   @endforelse

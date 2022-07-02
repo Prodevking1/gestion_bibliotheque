@@ -23,7 +23,7 @@
 							<option value="" selected disabled>Selectionnez un etudiant </option>
 
                             @foreach($etudiants as $etudiant)
-							<option value="{{ $etudiant->id }}">{{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
+							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
 						</select>
 					</div>
