@@ -44,16 +44,16 @@
           </div>
         </div>
       </td>
-        <td>
-            <div>
 
-            </div>
+      
+        <td>
+
             <a href="{{ url('/auteurs/' . $auteurs->id) }}" title="View categorie"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
             <a href="{{ url('/auteurs/' . $auteurs->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
  
               <form method="POST" action="{{ url('/auteurs' . '/' . $auteurs->id) }}" accept-charset="UTF-8" style="display:inline">
-    {{ method_field('DELETE') }}
-    {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  {{ csrf_field() }}
          <button type="submit" class="btn btn-danger btn-sm" title="Delete auteur" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
      </form>
      </td>
