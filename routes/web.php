@@ -9,6 +9,8 @@ use App\Http\Controllers\EmpruntsController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EditeursController;
+use App\Http\Controllers\ReservationsController;
+use App\Models\Editeurs;
 use App\Models\Etudiants;
 use App\Models\Emprunts;
 use App\Models\Livres;
@@ -53,6 +55,7 @@ Route::post('/livres/update/{id}', [livresController::class, 'update'])->name('l
 Route::post('/livres/delete/{id}', [livresController::class, 'destroy'])->name('livres.delete');
 Route::post('/livres/store/', [livresController::class, 'store'])->name('livres.store');
 
+
 // routes emprunts
 Route::get('/emprunts', [EmpruntsController::class, 'index'])->name('emprunts');
 Route::get('/emprunts/create', [EmpruntsController::class, 'create'])->name('emprunts.create');
@@ -61,6 +64,18 @@ Route::post('/emprunts/edit/{id}', [EmpruntsController::class, 'edit'])->name('e
 Route::post('/emprunts/update/{id}', [EmpruntsController::class, 'update'])->name('emprunts.update');
 Route::post('/emprunts/delete/{id}', [EmpruntsController::class, 'destroy'])->name('emprunts.delete');
 Route::post('/emprunts/store/', [EmpruntsController::class, 'store'])->name('emprunts.store');
+
+
+
+
+// routes reservation
+Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservations');
+Route::get('/reservations/create', [ReservationsController::class, 'create'])->name('reservations.create');
+Route::get('/reservations/show/{id}', [ReservationsController::class, 'show'])->name('reservations.show');
+Route::post('/reservations/edit/{id}', [ReservationsController::class, 'edit'])->name('reservations.edit');
+Route::post('/reservations/update/{id}', [ReservationsController::class, 'update'])->name('reservations.update');
+Route::post('/reservations/delete/{id}', [ReservationsController::class, 'destroy'])->name('reservations.delete');
+Route::post('/reservations/store/', [ReservationsController::class, 'store'])->name('reservations.store');
 
 // routes notifications
 Route::get('/notifications/emprunts', [NotificationsController::class, 'emprunts'])->name('notifications.emprunts');

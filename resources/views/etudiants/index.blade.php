@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+<div class="container" style="margin-top: 2%; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-			<h1 style="font-family: Lato;">Gestion des Etudiants</h1>
+			<h1 style="font-family: Lato;text-align:center;">Gestion des Etudiants</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des Etudiants</li>
@@ -11,8 +11,8 @@
       <br><br>
           <div class="">
             <a href="{{ route('etudiants.create') }}">
-            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 120%;border-color:none;color:black; margin-right:90%;">
-                      {{ __('Ajouter') }}
+            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+                      {{ __('Ajouter Etudiant') }}
                 </button>
             </a>
           </div>
@@ -33,7 +33,7 @@
       <th>Nom complet</th>
       <th>E-mail</th>
       <th>Telephone</th>
-      <th>Status</th>
+      <th>Statuts</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -62,24 +62,18 @@
 
       </td>
       <td>Neant</td>
-      <td class="row" style="color:blue;font-size:120%;">
 
-        <form class="col-md-2" action="{{route('etudiants.show', $etudiant->id)}}" method="get">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
-      </form>
+      <td>
 
-      <form class="col-md-2" action="{{route('etudiants.edit', $etudiant->id)}}" method="post">
-            @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
-      </form>
-      
-      <form class="col-md-2" action="{{route('etudiants.delete', $etudiant->id)}}" method="post">
-            @csrf
-      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
-      </form>
-
-      </td>
+            <a href="{{ url('/etudiants/' . $etudiant->id) }}" title="Voir etudiant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+            <a href="{{ url('/etudiants/' . $etudiant->id . '/edit') }}" title="Editer etudiant"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+ 
+              <form method="POST" action="{{ url('/etudiants' . '/' . $etudiant->id) }}" accept-charset="UTF-8" style="display:inline">
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+         <button type="submit" class="btn btn-danger btn-sm" title="Delete etudiant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
+     </form>
+     </td>
     </tr>
     @empty
      <tr>
@@ -143,5 +137,4 @@
                 border: 0;
             }
 </style>
-
 

@@ -41,3 +41,4 @@ class Livres extends Model
         return $this->belongsTo(Editeurs::class);
     }
 }
+

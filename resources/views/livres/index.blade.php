@@ -132,9 +132,13 @@
                       
                       @endforelse
                     </table>
-			</div>
 		</div>
+  </div>
+</div>
+
 @endsection
+
+
 <style>
             .searchbox {
                 background: url(http://3.bp.blogspot.com/-g-zH25_DoxI/VD1BuatkgII/AAAAAAAAAgc/00hxspfvv3s/s1600/searchbar.png) no-repeat;
@@ -186,5 +190,6 @@
                 border: 0;
             }
 </style>
+
 
 

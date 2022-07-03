@@ -1,6 +1,7 @@
-
 @extends('layouts.app')
 @section('content')
+ 
+
 
 <div class="container" style="margin-top: 2%;text-align:center;">
     <div class="row justify-content-center">
@@ -33,7 +34,7 @@
 					<!-- Date de naissance -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Date de Naissance</label>
-						<input type="text" name="age" id="age" class="form-control" value="{{$etudiants->age}}" required/>
+						<input type="date" name="age" id="age" class="form-control" value="{{$etudiants->age}}" required/>
 					</div>
 
 
@@ -117,6 +118,5 @@
 		</div>
 	</div>
 </div>
-</div>
-
+ 
 @endsection

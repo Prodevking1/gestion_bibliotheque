@@ -68,7 +68,6 @@ class EtudiantsController extends Controller
      */
     public function show(Etudiants $etudiants, $id)
     {
-
         $etudiants = Etudiants::find($id);
         return view('etudiants.show')->with('etudiants', $etudiants);
     }

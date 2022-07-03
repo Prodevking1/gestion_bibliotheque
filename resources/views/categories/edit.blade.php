@@ -8,7 +8,7 @@
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$categories->id}}" id="id" />
-        <label>Name</label></br>
+        <label>titre</label></br>
         <input type="text" name="titre" id="id" value="{{$categories->titre}}" class="form-control"></br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form>

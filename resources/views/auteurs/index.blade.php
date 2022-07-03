@@ -18,13 +18,12 @@
           <br>
 			<div class="card mb-4">
 				<table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light" width=100%>
-    <tr width=100%>
-    <th></th>
-      <th width=25%>ID</th>
-      <th width=40%>Nom de l'auteur</th>
-      <th>Actions</th>
-     
+                    <thead class="bg-light" width=100%>
+                        <tr width=100%>
+                        <th></th>
+                        <th width=25%>ID</th>
+                        <th width=40%>Nom de l'auteur</th>
+                        <th>Actions</th>
     </tr>
   </thead>
   @forelse($auteurs as $auteurs)
@@ -67,6 +66,7 @@
   </tbody>
   @endforelse
 </table>
+
 			</div>
 		</div>
 @endsection

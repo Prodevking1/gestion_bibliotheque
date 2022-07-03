@@ -13,6 +13,7 @@
     <br><br>
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
+
         <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
                       {{ __('Ajouter') }}
                 </button>
