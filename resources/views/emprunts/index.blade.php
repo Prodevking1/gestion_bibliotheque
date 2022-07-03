@@ -13,7 +13,7 @@
           <div class="">
             <a href="{{ route('emprunts.create') }}">
             <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
-                      {{ __('Ajouter') }}
+                      {{ __('Ajouter Emprunt') }}
                 </button>
             </a>
           </div>
@@ -77,17 +77,17 @@
 
         <form class="col-md-2" action="{{route('emprunts.show', $emprunt->id)}}" method="get">
             @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
+        <button type="submit"class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button>
       </form>
 
       <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
             @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
+        <button type="submit"class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>
       
       <form class="col-md-2" action="{{route('emprunts.delete', $emprunt->id)}}" method="post">
             @csrf
-      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
+      <button type="submit"  class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></button>
       </form>
 
       </td>
