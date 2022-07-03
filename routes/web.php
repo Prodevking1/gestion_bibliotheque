@@ -10,6 +10,8 @@ use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EditeursController;
 use App\Models\Etudiants;
+use App\Models\Emprunts;
+use App\Models\Livres;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,15 +73,20 @@ Route::resource("/editeurs", EditeursController::class);
 
 
 // route to send mail
-Route::get('notifications/send-emprunt/{id}', function () {
-   
-  $details = [
-      'title' => 'Mail from Online Web Tutor',
-      'body' => 'Test mail sent by Laravel 9 using SMTP.'
-  ];
- 
-  Mail::to('ici2sans26@gmail.com')->send(new \App\Mail\EmpruntNotificationMail($details));
- 
-  dd("Email is Sent, please check your inbox.");
+Route::get('notifications/send-emprunt/{id}', function ($id) {
+    $emprunt = Emprunts::find($id);
+    $etudiant = Etudiants::find($id);
+    $data = [
+        'etudiant' => $etudiant,
+        'emprunt' => $emprunt,
+
+    ];
+    Mail::send('notifications.message_emprunt', $data, function ($message) use ($etudiant) {
+        $message->from('rachid@micro-net.tech');
+        $message->to($etudiant->email);
+        $message->subject('[ Important ] - Retour de votre emprunt ');
+    });
+    dd($etudiant);
+  
 });
 ?>

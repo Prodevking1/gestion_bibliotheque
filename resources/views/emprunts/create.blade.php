@@ -32,7 +32,7 @@
 						<select class="form-select" name="etudiant_id" required>
 							<option value="" selected disabled>Selectionnez etudiant </option>
                             @foreach($etudiants as $etudiant)
-							<option value="{{ $etudiant->id }}">{{ $etudiant->nom }}</option>
+							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
 						</select>
 					</div>
@@ -43,8 +43,8 @@
 					</div>
 
                     <div class="col-md-6">
-						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour</label>
-						<input type="date" name="date_retour" id="date_retour" class="form-control" required/>
+						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour <span style="font-size: 10px; color:blue">(10 jours par defaut)</span></label>
+						<input type="date" name="date_retour" id="date_retour" class="form-control"/>
 					</div>
 
                     
@@ -55,8 +55,6 @@
 						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Preter ce livre" />
 					</div>
 					</div>
-
-                    
 				</form>
 			</div>
 		</div>
