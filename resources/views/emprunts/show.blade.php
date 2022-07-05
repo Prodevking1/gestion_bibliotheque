@@ -1,17 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<div class="container" style="margin-top: 2%; font-family:Lato;">
+<div class="container" style="margin-top: 2%;font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-			<h1 style="font-family: Lato;text-align:center;">Gestion des Etudiants</h1>
+			<h1 style="font-family:Lato;text-align:center;">Gestionnaire des emprunts</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Gestion des Etudiants</li>
+				<li class="breadcrumb-item active">emprunteurs</li>
+
 			</ol>
       <br><br>
           <div class="">
-            <a href="{{ route('etudiants.create') }}">
-            <button type="submit" class="btn btn-outline-primary" style="margin-left:5px;font-family: Lato; font-size: 120%;border-color:none;color:black;">
+            <a href="{{ route('emprunts.create') }}">
+            <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
                       {{ __('Ajouter') }}
                 </button>
             </a>
@@ -19,30 +20,24 @@
                         
         <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
-                  <input name="q" type= "text" size="15" placeholder="Rechercher un Etudiant" />
+                  <input name="q" type= "text" size="15" placeholder="Rechercher un emprunt" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
            
         </div>
 
 
-        <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-
-
-                <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-			            <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-                    <table class="table align-middle mb-0 bg-white">
+			<div class="card mb-4">
+<table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
-      <th>Nom complet</th>
-      <th>E-mail</th>
-      <th>Telephone</th>
-      <th>Actions</th>
+      <th>Emprunteur</th>
+      <th>Titre du livre</th>
+      <th>Date d'emprunt</th>
+      <th>Date de retour</th>
+      <th>Statut</th>
     </tr>
   </thead>
-  @forelse($etudiants as $etudiant)
   <tbody>
     <tr>
       <td>
@@ -54,37 +49,33 @@
               class="rounded-circle"
               />
           <div class="ms-3">
-            <p class="fw-bold mb-1">{{ $etudiant->nom }} {{ $etudiant->prenom }}</p>
-            <p class="text-muted mb-0">#{{$etudiant->id}}</p>
+            <p class="fw-bold mb-1">{{ $emprunt->etudiant->nom }} {{ $emprunt->etudiant->nom }}</p>
+            <p class="text-muted mb-0">#{{$emprunt->etudiant->id}}</p>
           </div>
         </div>
       </td>
       <td>
-        <p class="fw-bold m-2">{{$etudiant->email}}</p>
+        <p class="fw-normal mb-1">{{$emprunt->livre->titre}}</p>
       </td>
       <td>
-                <p class="fw-bold mb-1">{{$etudiant->tel}}</p>
+                <p class="fw-normal mb-1">{{$emprunt->date_emprunt}}</p>
 
       </td>
       <td>
+                <p class="fw-normal mb-1">{{$emprunt->date_retour}}</p>
 
-            <a href="{{ url('/etudiants/show/' . $etudiant->id) }}" title="Voir etudiant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-            <a href="{{ url('/etudiants/' . $etudiant->id . '/edit')  }}" title="Editer etudiant"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
- 
-              <form method="POST" action="{{ url('/etudiants' . '/destroy' . $etudiant->id) }}" accept-charset="UTF-8" style="display:inline">
-                {{ method_field('DELETE') }}
-                {{ csrf_field() }}
-         <button type="submit" class="btn btn-danger btn-sm" title="Delete etudiant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
-     </form>
-     </td>
+      </td>
+      <td>
+        @if ($emprunt->status == 'N')
+             <span class='badge badge-success'>emprunté</span>
+        @else
+             <span class='badge badge-danger'>non retourné</span>
+        @endif
+      </td>
     </tr>
-    @empty
-     <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
-     </tr>
+
   </tbody>
   
-  @endforelse
 </table>
 			</div>
 		</div>
@@ -140,4 +131,5 @@
                 border: 0;
             }
 </style>
+
 

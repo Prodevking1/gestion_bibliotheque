@@ -12,8 +12,10 @@
 				{{ __('Notification emprunteur') }}
 			</div>
 			<br>
+                            
+
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="POST" class="row g-3" {{-- action="{{ route('livres.store')}}" --}} enctype="multipart/form-data">
+				<form method="POST" class="row g-3" action="{{ route('notifications/send-emprunt', $etudiants->id)}}" enctype="multipart/form-data">
 					@csrf
 
 					<!-- Catégorie with select option -->
@@ -21,8 +23,7 @@
 						<label class="form-label" style="font-weight: bold;">Etudiant</label>
 						<select class="form-select" name="etudiant_id" required>
 							<option value="" selected disabled>Selectionnez un etudiant </option>
-
-                            @foreach($etudiants as $etudiant)
+							@foreach($etudiants as $etudiant)
 							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
 						</select>

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->foreignId('etudiant_id')->constrained()->onDelete('cascade');
             $table->foreignId('livre_id')->constrained();
             $table->string('date_emprunt');
-            $table->string('date_retour');
+            $table->string('date_retour')->default('2022-07-15');
             $table->string('status')->default('N');
             $table->timestamps();
-            
+
         });
     }
 
