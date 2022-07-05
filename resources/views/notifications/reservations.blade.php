@@ -21,10 +21,17 @@
 						<label class="form-label" style="font-weight: bold;">Etudiant</label>
 						<select class="form-select" name="etudiant_id" required>
 							<option value="" selected disabled>Selectionnez un etudiant </option>
-
                             @foreach($etudiants as $etudiant)
 							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
+						</select>
+					</div>
+
+					<div class="col-md-6">
+						<label class="form-label" style="font-weight: bold;">Avis</label>
+						<select class="form-select" name="avis" required>
+							<option value="Favorable">Favorable</option>
+							<option value="Non favorable">Non favorable</option>
 						</select>
 					</div>
 

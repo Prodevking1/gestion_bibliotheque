@@ -14,6 +14,7 @@ use App\Models\Editeurs;
 use App\Models\Etudiants;
 use App\Models\Emprunts;
 use App\Models\Livres;
+use App\Models\Reservations;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +80,7 @@ Route::post('/reservations/store/', [ReservationsController::class, 'store'])->n
 
 // routes notifications
 Route::get('/notifications/emprunts', [NotificationsController::class, 'emprunts'])->name('notifications.emprunts');
-Route::get('/notifications/reservations', [NotificationsController::class, 'reservation'])->name('notifications.reservation');
+Route::get('/notifications/reservations', [NotificationsController::class, 'reservations'])->name('notifications.reservations');
 
 // routes ressources
 Route::resource('/auteurs', AuteursController::class);
@@ -90,7 +91,7 @@ Route::resource("/editeurs", EditeursController::class);
 // route to send mail
 Route::get('notifications/send-emprunt/{id}', function ($id) {
     $emprunt = Emprunts::find($id);
-    $etudiant = Etudiants::find($id);
+    $etudiant = Etudiants::find($emprunt->etudiant->id);
     $data = [
         'etudiant' => $etudiant,
         'emprunt' => $emprunt,
@@ -101,7 +102,22 @@ Route::get('notifications/send-emprunt/{id}', function ($id) {
         $message->to($etudiant->email);
         $message->subject('[ Important ] - Retour de votre emprunt ');
     });
-    dd($etudiant);
+  
+})->name('notifications/send-emprunt');
+Route::get('notifications/send-reservation/{id}', function ($id) {
+    $reservation = Reservations::find($id);
+    $etudiant = Etudiants::find($reservation->etudiant->id);
+    $data = [
+        'etudiant' => $etudiant,
+        'reservation' => $reservation,
+
+    ];
+    Mail::send('notifications.message_reservation', $data, function ($message) use ($etudiant) {
+        $message->from('rachid@micro-net.tech');
+        $message->to($etudiant->email);
+        $message->subject('[ Important ] - Statut de votre reservation');
+    })->name('notifications/send-reservation');
+    dd($reservation);
   
 });
 ?>
