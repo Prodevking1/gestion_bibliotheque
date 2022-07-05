@@ -14,7 +14,7 @@
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
 
-        <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
+        <button type="submit" class="btn btn-outline-primary" style="font-size: 120%; margin-left:5px; font-family: Lato; color:black;">
                       {{ __('Ajouter') }}
                 </button>
         </a>

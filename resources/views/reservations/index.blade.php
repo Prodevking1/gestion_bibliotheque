@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des reservations</h1>
+			<h1 style="font-family: Lato;">Gestionnaire des reservations</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Lecteurs</li>
 
 			</ol>
-          <div class="" style="">
+          <div>
             <a href="{{ route('reservations.create') }}">
-            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 100%;border-color:none;color:black;">
                       {{ __('Ajouter') }}
                 </button>
             </a>

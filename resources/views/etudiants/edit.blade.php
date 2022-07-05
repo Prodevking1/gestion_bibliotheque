@@ -8,12 +8,12 @@
 	<div class="col-md-8">
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Stencil Std, fantasy; font-weight: bold; font-size: 200%;">
+			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
 				{{ __('Modification de ') }}
 			</div>
 
 			<br>
-			<div class="card-body"  style="text-transform : uppercase; font-family: Stencil Std, fantasy;">
+			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
 				<form method="POST" class="row g-3" action="{{ route('etudiants.update', $etudiants->id)}}" enctype="multipart/form-data">
 					@csrf
 
@@ -111,7 +111,7 @@
 					<br>
 
 					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="save" class="btn btn-outline-primary btn-lg" value="Enregistrer" />
+						<input type="submit" name="save" class="btn btn-outline-primary btn-lg" value="Enregistrer" style="font-size: 120%;color:black;" />
 					</div>
 				</form>
 			</div>

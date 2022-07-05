@@ -9,7 +9,7 @@
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
 			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-				{{ __('Emprunt de livre') }}
+				{{ __('Emprunt') }}
 			</div>
 
 			<br>
@@ -50,10 +50,8 @@
                     
 					{{-- Button valider  --}}
 
-					<div class="col-md-6 mt-2">
-						<div class="text-center mt-4 pt-3">
-						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Preter ce livre" />
-					</div>
+						<div class="text-center mt-4 mb-2">
+						<input type="submit" name="savw" class="btn btn-outline-primary " value="Emprunter" style="color: black;font-size:120%;"/>
 					</div>
 
                     

@@ -12,8 +12,8 @@
       <br><br>
           <div class="">
             <a href="{{ route('emprunts.create') }}">
-            <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
-                      {{ __('Ajouter Emprunt') }}
+            <button type="submit" class="btn btn-outline-primary" style="font-size: 120%; font-family: Lato; color:black;">
+                      {{ __('Ajouter') }}
                 </button>
             </a>
           </div>
@@ -27,8 +27,14 @@
         </div>
 
 
-			<div class="card mb-4">
-<table class="table align-middle mb-0 bg-white">
+        <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+
+
+                <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+			            <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
+                    <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
       <th>Emprunteur</th>

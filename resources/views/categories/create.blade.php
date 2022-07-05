@@ -1,25 +1,12 @@
 @extends('layouts.app')
 @section('content')
- 
-<<<<<<< HEAD
-<div class="card">
-  <div class="card-header">Ajouter une Categorie</div>
-  <div class="card-body">
-      
-      <form action="{{ url('categories') }}" method="post">
-        {!! csrf_field() !!}
-        <label>Titre</label></br>
-        <input type="text" name="titre" id="titre" class="form-control"></br>
-        <input type="submit" value="Save" class="btn btn-success"></br>
-    </form>
-   
-=======
+
 
 <div class="container" style="margin-top: 2%; text-align:center; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-        Ajouter une categoirie
+        Ajouter une catégorie
       </div>
       <br><br>
 
@@ -58,7 +45,7 @@
 
 
     </div>
->>>>>>> 254acb9435145d50dee031e38e4a735768e1b24a
+
   </div>
 </div>
 
