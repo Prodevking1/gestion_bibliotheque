@@ -33,7 +33,6 @@
       <th>Nom complet</th>
       <th>E-mail</th>
       <th>Telephone</th>
-      <th>Statuts</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -61,14 +60,12 @@
                 <p class="fw-bold mb-1">{{$etudiant->tel}}</p>
 
       </td>
-      <td>Neant</td>
-
       <td>
 
-            <a href="{{ url('/etudiants/' . $etudiant->id) }}" title="Voir etudiant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-            <a href="{{ url('/etudiants/' . $etudiant->id . '/edit') }}" title="Editer etudiant"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
+            <a href="{{ url('/etudiants/show/' . $etudiant->id) }}" title="Voir etudiant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+            <a href="{{ url('/etudiants/' . $etudiant->id . '/edit')  }}" title="Editer etudiant"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
  
-              <form method="POST" action="{{ url('/etudiants' . '/' . $etudiant->id) }}" accept-charset="UTF-8" style="display:inline">
+              <form method="POST" action="{{ url('/etudiants' . '/destroy' . $etudiant->id) }}" accept-charset="UTF-8" style="display:inline">
                 {{ method_field('DELETE') }}
                 {{ csrf_field() }}
          <button type="submit" class="btn btn-danger btn-sm" title="Delete etudiant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>

@@ -26,6 +26,13 @@ class NotificationsController extends Controller
         ]);
     }
 
+    public function reservations (){
+        return view('notifications.reservations', 
+        [
+            'etudiants' => Etudiants::latest()->get(),
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

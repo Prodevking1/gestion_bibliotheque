@@ -19,8 +19,8 @@
 
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Livre</label>
-						<select class="form-select" name="livre_id" >
-							<option value="" selected disabled>{{ $livre->titre }}</option>
+						<select class="form-select" name="livre_id" required>
+							<option value="" selected disabled>Selectionnez une livre </option>
                             @foreach($livres as $livre)
 							<option value="{{ $livre->id }}">{{ $livre->titre }}</option>
                             @endforeach
@@ -29,8 +29,8 @@
 
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Etudiant</label>
-						<select class="form-select" name="etudiant_id" >
-							<option value="" selected disabled>{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
+						<select class="form-select" name="etudiant_id" required>
+							<option value="" selected disabled>Selectionnez etudiant </option>
                             @foreach($etudiants as $etudiant)
 							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
@@ -39,11 +39,11 @@
 
                     <div class="col-md-6">
 						<label class="form-label" for="date_emprunt" style="font-weight: bold;">Date d'emprunt</label>
-						<input type="date" name="date_emprunt" id="date_emprunt" class="form-control" value="{{$emprunt->date_emprunt}}"/>
+						<input type="date" name="date_emprunt" id="date_emprunt" class="form-control" required/>
 					</div>
 
                     <div class="col-md-6">
-						<label class="form-label" for="date_retour"  value="{{$emprunt->date_retour}} style="font-weight: bold;">Date de retour <span style="font-size: 10px; color:blue">(10 jours par defaut)</span></label>
+						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour <span style="font-size: 10px; color:blue">(10 jours par defaut)</span></label>
 						<input type="date" name="date_retour" id="date_retour" class="form-control"/>
 					</div>
 
