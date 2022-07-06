@@ -85,9 +85,12 @@
 
         <!-- Alerte icone -->
         <li class="nav-item dropdown" style="margin-left: -70%;">
-          <a class="nav-link" data-toggle="dropdown" href="#" style="color: black;">
+          <a class="nav-link dropdown-item" data-toggle="dropdown" href="#" style="color: black;">
             <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge"></span>
+                <span class="position-absolute top-7 start-90 translate-middle badge rounded-pill bg-danger">
+                        1
+                    <span class="visually-hidden">unread messages</span>
+                </span>
           </a>
           <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-item dropdown-header"> alerte de stock</span>
