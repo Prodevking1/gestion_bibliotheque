@@ -81,10 +81,10 @@
         </ul>
         
         <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" style="color: black; font-size:15px">
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 justify-content-between" style="color: black; font-size:15px">
 
         <!-- Alerte icone -->
-        <li class="nav-item dropdown" style="margin-left: -70%;">
+        <li class="nav-item dropdown" style="margin-left: -100%;">
           <a class="nav-link dropdown-item" data-toggle="dropdown" href="#" style="color: black;">
             <i class="far fa-bell"></i>
                 <span class="position-absolute top-7 start-90 translate-middle badge rounded-pill bg-danger">
@@ -111,15 +111,15 @@
 
         <!-- Deconnexion icone -->
             <li class="nav-item">
-                <a class="nav-link" href="pages/tables/logout.php" role="button" style="color: black;">
+                <a class="nav-link dropdown-item" href="pages/tables/logout.php" role="button" style="color: black;">
                 <i class="fas fa-power-off"></i>
                 </a>
             </li>
 
 
             <!-- Profile icone -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button"
+            <li class="nav-item dropdown" style="margin-right: 60%;">
+                <a class="nav-link dropdown-toggle dropdown-item" data-toggle="dropdown" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false" style="color: black;"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="profile.php"><i class="fa fa-user" aria-hidden="true"></i> Profil</a></li>
