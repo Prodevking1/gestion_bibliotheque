@@ -13,15 +13,10 @@
     <br><br>
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
-<<<<<<< HEAD
-          <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 120%;border-color:none; color:black; margin-right:90%;">
-            {{ __('Ajouter') }}
-          </button>
-=======
+          
         <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
                       {{ __('Ajouter') }}
                 </button>
->>>>>>> a8db4b88b802cb0a55fc28a02d94ae40eb004d3f
         </a>
       </div>
       <div class="search"style="margin-left:80%;">
