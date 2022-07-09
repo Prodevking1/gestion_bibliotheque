@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\reservations;
+use App\Models\Reservations;
 use App\Models\Livres;
 use App\Models\Etudiants;
 
@@ -50,7 +50,6 @@ class reservationsController extends Controller
             'etudiant_id' => 'required',
             'livre_id' => 'required',
             'date_reservation' => 'required',
-            'date_retour' => 'required',
             'status' => 'N',
         ]);
         $reservations = Reservations::create($validatedData);

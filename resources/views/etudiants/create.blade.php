@@ -5,14 +5,12 @@
 <div class="container" style="margin-top: 2%;text-align:center;">
     <div class="row justify-content-center">
 	<div class="col-md-8">
-		
-		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-			<br>
-			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
+		<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
 				{{ __('Inscription') }}
-			</div>
-
+		</div>
+		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; height:93%;">
 			<br>
+			
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
 				<form method="POST" class="row g-3" action="{{ route('etudiants.store')}}" enctype="multipart/form-data">
 					@csrf
@@ -118,7 +116,7 @@
 						<span class="text-muted">Seules les images .jpg & .png sont autorisées. La taille doit être égale à 225 x 225</span>
 					</div>
 					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="savw" class="btn btn-outline-primary" value="Inscription" />
+						<input type="submit" name="savw" class="btn btn-outline-primary" value="Inscription" style="font-size: 120%;color:black;"/>
 					</div>
 				</form>
 			</div>

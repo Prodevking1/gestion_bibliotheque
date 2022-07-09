@@ -1,13 +1,21 @@
 
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid py-4">
+
+
+<div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des Etudiants</li>
 			</ol>
 
-<div class="card mb-4">
+      <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; margin-top:10%;">
+			            <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
+                  
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>

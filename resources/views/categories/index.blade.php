@@ -13,13 +13,8 @@
     <br><br>
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
-          
-        <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
-                      {{ __('Ajouter') }}
-                </button>
         </a>
       </div>
-      <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
                   <input name="q" type= "text" size="15" placeholder="Rechercher une categorie" />
                   <input class="button-submit" type= "submit" value="" />

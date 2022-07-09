@@ -2,29 +2,24 @@
 
 namespace App\Mail;
 
+use App\Models\Etudiants;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Etudiants;
 
-class EmpruntNotificationMail extends Mailable
+class ReservationNotificationMail extends Mailable
 {
     use Queueable, SerializesModels;
-   
-    public $details;
-
-
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct()
     {
-        $this->details = $details;
-
+        //
     }
 
     /**
@@ -37,7 +32,7 @@ class EmpruntNotificationMail extends Mailable
     {
         $etudiant = Etudiants::find($id);
 
-        return $this->subject('Rappel retour livre')->view('notifications.message_emprunt',
+        return $this->subject('Statut reservation')->view('notifications.message_reservation',
         [
             'etudiant' => $etudiant,
             'details' => $this->details,

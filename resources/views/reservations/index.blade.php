@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Stencil Std, fantasy;">Gestionnaire des reservations</h1>
+			<h1 style="font-family: Lato;">Gestionnaire des reservations</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Lecteurs</li>
 
 			</ol>
-          <div class="" style="">
+          <div>
             <a href="{{ route('reservations.create') }}">
-            <button type="submit" class="btn btn-outline-info" style=" font-family: Stencil Std, fantasy; font-size: 100%;border-color:none;color:;">
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 100%;border-color:none;color:black;">
                       {{ __('Ajouter') }}
                 </button>
             </a>
@@ -78,19 +78,19 @@
       
         <form class="col-md-6" action="{{route('reservations.show', $reservation->id)}}" method="get">
             @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-eye"></i></button>
+        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button>
       </form>
       </div>
       <div>
       <form class="col-md-6" action="{{route('reservations.edit', $reservation->id)}}" method="post">
             @csrf
-        <button type="submit" class="btn btn-primary"> <i class="fas fa-edit"></i></button>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>
       </div>
       <div>
       <form class="col-md-6" action="{{route('reservations.delete', $reservation->id)}}" method="post">
             @csrf
-      <button type="submit" class="btn btn-primary"> <i class="fas fa-trash"></i></button>
+      <button type="submit" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></button>
       </form></div>
         </div>
       </td>
