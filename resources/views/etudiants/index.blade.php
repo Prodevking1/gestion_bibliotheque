@@ -4,9 +4,7 @@
 <div class="container" style="margin-top: 2%; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-      <div class="twelve">
-			<h1 style="font-family: Lato;text-align:center;">Gestion des Etudiants</h1>
-      </div>
+			<h1 style="font-family: Lato;text-align:center; text-transform:uppercase;">Etudiants</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des Etudiants</li>

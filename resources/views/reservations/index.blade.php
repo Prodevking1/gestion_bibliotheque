@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid py-4">
-  <div class="twelve">
-			<h1 style="font-family: Lato;">Gestionnaire Des Reservations</h1>
-  </div>
+<div class="container" style="margin-top: 2%; font-family:Lato;">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+			<h1 style="font-family: Lato; text-transform:uppercase;text-align:center;">reservations</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Reservationneurs</li>
@@ -26,8 +26,14 @@
         </div>
 
 
-			<div class="card mb-4">
-<table class="table align-middle mb-0 bg-white">
+        <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+
+
+                <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+			            <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
+                    <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>
       <th>Lecteurs</th>
