@@ -69,7 +69,7 @@
                           
                         @empty
                         <tr>
-                            <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+                            < colspan="8">Aucune categories n'a ete trouvee !</td>
                         </tr>
                       </tbody>
                         @endforelse

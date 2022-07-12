@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container" style=" font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -18,7 +19,7 @@
           </div>
                         
         <div class="search"style="margin-left:80%;">
-            <form class="searchbox" method="get" action="search" autocomplete="off">
+            <form class="searchbox" method="post" action="search" autocomplete="off">
                   <input name="q" type= "text" size="15" placeholder="Rechercher un livre" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
@@ -41,7 +42,10 @@
                           <th>Auteur</th>
                           <th>Categorie</th>
                           <th>Status</th>
-                          <th>Actions</th>
+                          <th>Actions <span style="margin-left:0px"><form method="post"action="{{ route('deleteAll') }}"  accept-charset="UTF-8" style="display:inline">
+                                  @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete all" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </form></span></th>
                         </tr>
                       </thead>
                       @forelse($livres as $livre)
@@ -81,7 +85,7 @@
                           <!-- <td class=" " style="font-size:120%;">
 
                           
-                            <form class="col-4" action="{{route('livres.show', $livre->id)}}" method="get">
+                            <form class="col-4" action="{{route('livres.show', $livre->id)}}" method="post">
                                 @csrf
                               <button type="submit" class="btn btn-info"> <i class="fas fa-eye"></i></button>
                             </form>
@@ -105,18 +109,17 @@
 
 
                           <td>
+                            @csrf
                             <a href="{{route('livres.show', $livre->id)}}" title="View book"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
 
-                            <form method="get" action="{{route('livres.edit', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
-                                  {{ method_field('EDIT') }}
-                                  {{ csrf_field() }}
+                            <form method="post" action="{{route('livres.edit', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                 @csrf
                               <button type="submit" class="btn btn-primary btn-sm" title="edit book"><i class="fas fa-edit" aria-hidden="true"></i></button>
                             </form>
                             <!-- <a href="{{route('livres.edit', $livre->id)}}" title="Edit book"><button class="btn btn-primary btn-sm"><i class="fas fa-edit" aria-hidden="true"></i></button></a> -->
-                    
-                              <form method="get" action="{{route('livres.delete', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
-                                  {{ method_field('DELETE') }}
-                                  {{ csrf_field() }}
+                              @csrf
+                              <form method="post" action="{{route('livres.delete', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                  @csrf
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                               </form>
                           </td>

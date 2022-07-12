@@ -82,7 +82,7 @@
       </form>
       </div>
       <div>
-      <form class="col-md-6" action="{{route('reservations.edit', $reservation->id)}}" method="post">
+      <form class="col-md-6" action="{{route('reservations.show', $reservation->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>

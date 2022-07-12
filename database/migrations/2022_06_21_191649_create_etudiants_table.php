@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('tel');
             $table->string('genre');
-            $table->string('filiere');
+            $table->string('filiere')->nullable();
             $table->string('niveau');
             $table->string('adresse');
             $table->timestamps();

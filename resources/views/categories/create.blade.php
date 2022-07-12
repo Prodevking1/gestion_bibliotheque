@@ -1,19 +1,6 @@
 @extends('layouts.app')
 @section('content')
  
-<<<<<<< HEAD
-<div class="card">
-  <div class="card-header">Ajouter une Categorie</div>
-  <div class="card-body">
-      
-      <form action="{{ url('categories') }}" method="post">
-        {!! csrf_field() !!}
-        <label>Titre</label></br>
-        <input type="text" name="titre" id="titre" class="form-control"></br>
-        <input type="submit" value="Save" class="btn btn-success"></br>
-    </form>
-   
-=======
 
 <div class="container" style="margin-top: 2%; text-align:center; font-family:Lato;">
   <div class="row justify-content-center">
@@ -33,13 +20,13 @@
             <!-- Input nom catégorie -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Titre</label>
-						<input type="text" name="titre" id="titre" class="form-control" placeholder="Anglais technique" required/>
+						<input type="text" name="titre" id="titre" class="form-control" placeholder="Finance" required/>
 					</div>
           <!-- Input emplacement -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Emplacement</label>
 						<select class="form-select" name="emplacement" aria-label="Default select example" required>
-							<option value="" selected disabled>Selectionnez votre filière</option>
+							<option value="" selected disabled>Selectionnez l'emplacement</option>
 							<option value="MIAGE">Programmation</option>
 							<option value="ADB">Romantique</option>
 							<option value="CCA">Thriller</option>
@@ -58,7 +45,6 @@
 
 
     </div>
->>>>>>> 254acb9435145d50dee031e38e4a735768e1b24a
   </div>
 </div>
 

@@ -51,8 +51,7 @@
 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                    
 
                         
 
@@ -102,20 +101,25 @@
                         </div>
 
                         <div class="row mb-0">
+                            <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ route('register') }}">
-                                    <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
-                                    {{ __('S\'inscrire') }}
-                                </button>
-                                </a>
+                                
                                 <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%; margin-left:10%;">
                                     {{ __('Se connecter') }}
                                 </button>
+                    </form>
+                    <a href="{{ route('register') }}"
+                                    class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                                    {{ __('S\'inscrire') }}
+                                </a>
 
                                 
                             </div>
                         </div>
-                    </form>
+
+                    
                     <br><br>
                 </div>
             </div>

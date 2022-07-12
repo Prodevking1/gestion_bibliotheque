@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@inject('provider', 'App\Http\Controllers\EtudiantsController')
 <div class="container" style="margin-top: 2%; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -33,7 +34,12 @@
       <th>Nom complet</th>
       <th>E-mail</th>
       <th>Telephone</th>
-      <th>Actions</th>
+      <th>Filière</th>
+      <th>Actions </th>
+      <th><form method="post" action="{{route('deleteAll')}}"  accept-charset="UTF-8" style="display:inline">
+                                  @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete all" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </form></th>
     </tr>
   </thead>
   @forelse($etudiants as $etudiant)
@@ -61,15 +67,25 @@
 
       </td>
       <td>
+                <p class="fw-bold mb-1">{{$etudiant->filiere}}</p>
 
-            <a href="{{ url('/etudiants/show/' . $etudiant->id) }}" title="Voir etudiant"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
-            <a href="{{ url('/etudiants/' . $etudiant->id . '/edit')  }}" title="Editer etudiant"><button class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button></a>
- 
-              <form method="POST" action="{{ url('/etudiants' . '/destroy' . $etudiant->id) }}" accept-charset="UTF-8" style="display:inline">
-                {{ method_field('DELETE') }}
-                {{ csrf_field() }}
-         <button type="submit" class="btn btn-danger btn-sm" title="Delete etudiant" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i> </button>
-     </form>
+      </td>
+      
+    <td>
+                            @csrf
+                            <a href="{{route('etudiants.show', $etudiant->id)}}" title="View student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
+
+                            <form method="post" action="{{route('etudiants.edit', $etudiant->id)}}" accept-charset="UTF-8" style="display:inline">
+                                 @csrf
+                              <button type="submit" class="btn btn-primary btn-sm" title="edit student"><i class="fas fa-edit" aria-hidden="true"></i></button>
+                            </form>
+                            <!-- <a href="{{route('etudiants.edit', $etudiant->id)}}" title="Edit student"><button class="btn btn-primary btn-sm"><i class="fas fa-edit" aria-hidden="true"></i></button></a> -->
+                              @csrf
+                              <form method="post" action="{{route('etudiants.delete', $etudiant->id)}}" accept-charset="UTF-8" style="display:inline">
+                                  @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </form>
+                          </td>
      </td>
     </tr>
     @empty

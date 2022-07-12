@@ -88,6 +88,17 @@ Route::resource("/categories", CategoriesController::class);
 Route::resource("/editeurs", EditeursController::class);
 
 
+//delete all
+Route::post('deleteAll', [EtudiantsController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [LivresController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [EmpruntsController::class, 'deleteAll'])->name('deleteAll'); 
+Route::post('deleteAll', [ReservationsController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [AuteursController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [CategoriesController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [EditeursController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [ReservationsController::class, 'deleteAll'])->name('deleteAll');
+
+
 // route to send mail
 Route::get('notifications/send-emprunt/{id}', function ($id) {
     $emprunt = Emprunts::find($id);

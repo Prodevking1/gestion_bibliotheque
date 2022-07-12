@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('emprunts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('etudiant_id')->constrained()->onDelete('cascade');
-            $table->foreignId('livre_id')->constrained();
+            $table->foreignId('livre_id')->constrained()->onDelete('cascade');
             $table->string('date_emprunt');
             $table->string('date_retour')->default('2022-07-15');
             $table->string('status')->default('N');

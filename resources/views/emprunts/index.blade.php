@@ -80,7 +80,7 @@
         <button type="submit"class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button>
       </form>
 
-      <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
+      <form class="col-md-2" action="{{route('emprunts.show', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit"class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>
