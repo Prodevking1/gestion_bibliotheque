@@ -100,7 +100,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun reservationeur n'a ete trouve !</td>
+         <td colspan="8">Aucun reservationneur n'a ete trouve !</td>
      </tr>
   </tbody>
   

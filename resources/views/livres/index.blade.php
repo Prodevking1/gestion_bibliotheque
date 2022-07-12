@@ -105,7 +105,6 @@
 
                           </td> -->
 
-
                           <td>
                             <a href="{{route('livres.show', $livre->id)}}" title="View book"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
 
