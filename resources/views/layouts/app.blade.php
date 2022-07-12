@@ -46,6 +46,7 @@
                 font-size: 3.5rem;
             }
         }
+
     </style>
 </head>
 
@@ -143,6 +144,11 @@
                         <a class="nav-link ho" href="categories" style="color: black;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
                         <a class="nav-link ho" href="emplacements" style="color: black;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
                         <a class="nav-link ho" href="utilisateurs" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Utilisateurs</a>
+
+
+                        
+
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
