@@ -6,7 +6,7 @@
   </div>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Lecteurs</li>
+				<li class="breadcrumb-item active">Reservationneurs</li>
 
 			</ol>
           <div>
@@ -74,7 +74,7 @@
              <span class='badge badge-danger'>non retourné</span>
         @endif
       </td>
-      <td class="row" style="color:blue;font-size:120%;">
+      <td class="row" style="color:blue;font-size:10%;">
         <div class="bg">
             <div>
       
