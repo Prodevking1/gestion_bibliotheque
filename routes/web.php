@@ -12,6 +12,9 @@ use App\Http\Controllers\EditeursController;
 use App\Http\Controllers\ReservationsController;
 use App\Models\Editeurs;
 use App\Models\Etudiants;
+use App\Models\Emprunts;
+use App\Models\Livres;
+use App\Models\Reservations;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +68,24 @@ Route::post('/emprunts/store/', [EmpruntsController::class, 'store'])->name('emp
 
 
 
+//routes editeurs
+Route::get('/editeurs', [EditeursController::class, 'index'])->name('editeurs');
+Route::get('/editeurs/create', [EditeursController::class, 'create'])->name('editeurs.create');
+Route::get('/editeurs/show/{id}', [EditeursController::class, 'show'])->name('editeurs.show');
+Route::post('/editeurs/edit/{id}', [EditeursController::class, 'edit'])->name('editeurs.edit');
+Route::post('/editeurs/update/{id}', [EditeursController::class, 'update'])->name('editeurs.update');
+Route::post('/editeurs/delete/{id}', [EditeursController::class, 'destroy'])->name('editeurs.delete');
+Route::post('/editeurs/store/', [EditeursController::class, 'store'])->name('editeurs.store');
+
+
+
+
+
+
+
+
+
+
 
 // routes reservation
 Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservations');
@@ -77,7 +98,7 @@ Route::post('/reservations/store/', [ReservationsController::class, 'store'])->n
 
 // routes notifications
 Route::get('/notifications/emprunts', [NotificationsController::class, 'emprunts'])->name('notifications.emprunts');
-Route::get('/notifications/reservations', [NotificationsController::class, 'reservation'])->name('notifications.reservation');
+Route::get('/notifications/reservations', [NotificationsController::class, 'reservations'])->name('notifications.reservations');
 
 // routes ressources
 Route::resource('/auteurs', AuteursController::class);
@@ -86,15 +107,35 @@ Route::resource("/editeurs", EditeursController::class);
 
 
 // route to send mail
-Route::get('notifications/send-emprunt/{id}', function () {
-   
-  $details = [
-      'title' => 'Mail from Online Web Tutor',
-      'body' => 'Test mail sent by Laravel 9 using SMTP.'
-  ];
- 
-  Mail::to('ici2sans26@gmail.com')->send(new \App\Mail\EmpruntNotificationMail($details));
- 
-  dd("Email is Sent, please check your inbox.");
+Route::get('notifications/send-emprunt/{id}', function ($id) {
+    $emprunt = Emprunts::find($id);
+    $etudiant = Etudiants::find($emprunt->etudiant->id);
+    $data = [
+        'etudiant' => $etudiant,
+        'emprunt' => $emprunt,
+
+    ];
+    Mail::send('notifications.message_emprunt', $data, function ($message) use ($etudiant) {
+        $message->from('rachid@micro-net.tech');
+        $message->to($etudiant->email);
+        $message->subject('[ Important ] - Retour de votre emprunt ');
+    });
+  
+})->name('notifications/send-emprunt');
+Route::get('notifications/send-reservation/{id}', function ($id) {
+    $reservation = Reservations::find($id);
+    $etudiant = Etudiants::find($reservation->etudiant->id);
+    $data = [
+        'etudiant' => $etudiant,
+        'reservation' => $reservation,
+
+    ];
+    Mail::send('notifications.message_reservation', $data, function ($message) use ($etudiant) {
+        $message->from('rachid@micro-net.tech');
+        $message->to($etudiant->email);
+        $message->subject('[ Important ] - Statut de votre reservation');
+    })->name('notifications/send-reservation');
+    dd($reservation);
+  
 });
 ?>

@@ -9,7 +9,7 @@
 		<div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 			<br>
 			<div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-				{{ __('Emprunt de livre') }}
+				{{ __('Emprunt') }}
 			</div>
 
 			<br>
@@ -32,7 +32,7 @@
 						<select class="form-select" name="etudiant_id" required>
 							<option value="" selected disabled>Selectionnez etudiant </option>
                             @foreach($etudiants as $etudiant)
-							<option value="{{ $etudiant->id }}">{{ $etudiant->nom }}</option>
+							<option value="{{ $etudiant->id }}">{{ $etudiant->id }} - {{ $etudiant->nom }} {{ $etudiant->prenom }}</option>
                             @endforeach
 						</select>
 					</div>
@@ -43,20 +43,16 @@
 					</div>
 
                     <div class="col-md-6">
-						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour</label>
-						<input type="date" name="date_retour" id="date_retour" class="form-control" required/>
+						<label class="form-label" for="date_retour" style="font-weight: bold;">Date de retour <span style="font-size: 10px; color:blue">(10 jours par defaut)</span></label>
+						<input type="date" name="date_retour" id="date_retour" class="form-control"/>
 					</div>
 
                     
 					{{-- Button valider  --}}
 
-					<div class="col-md-6 mt-2">
-						<div class="text-center mt-4 pt-3">
-						<input type="submit" name="savw" class="btn btn-outline-primary btn-block" value="Preter ce livre" />
+						<div class="text-center mt-4 mb-2">
+						<input type="submit" name="savw" class="btn btn-outline-primary " value="Emprunter" style="color: black;font-size:120%;"/>
 					</div>
-					</div>
-
-                    
 				</form>
 			</div>
 		</div>

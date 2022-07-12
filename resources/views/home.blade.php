@@ -145,7 +145,9 @@
 
 
 <div class="container-fluid py-4" style="min-height: 700px; margin-top:0; font-family:Lato;" width=100%>
-	<h1>Acceuil</h1>
+<div class="twelve">
+    <h1>Acceuil</h1>
+</div>
 <div class="container" style="margin-top: 5%;">
 <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
        <div class="col">
@@ -280,3 +282,27 @@
 
 
 @endsection
+<style>
+.twelve h1 {
+  font-size:30px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin-left:35%; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 65px;
+    margin-bottom: 5px;
+    margin-left:12px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 69px;
+    margin-bottom: 5px;
+    margin-left:50%;
+}
+</style>
+

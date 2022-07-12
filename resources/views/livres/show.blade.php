@@ -8,7 +8,10 @@
 				<li class="breadcrumb-item active">Gestion des livres</li>
 			</ol>
 
-<div class="card mb-4">
+      <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; margin-top:10%;">
+			  <div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
+
+
 <table class="table align-middle mb-0 bg-white">
   <thead class="bg-light">
     <tr>

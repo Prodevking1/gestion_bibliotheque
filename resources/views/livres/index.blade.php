@@ -3,7 +3,9 @@
 <div class="container" style=" font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
+      <div class="twelve">
 			<h1 style="font-family:Lato;text-align:center;">Gestion des livres</h1>
+      </div>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des livres</li>
@@ -11,8 +13,8 @@
       <br><br>
           <div class="">
             <a href="{{ route('livres.create') }}">
-            <button type="submit" class="btn btn-outline-info" style="font-size: 100%; font-family: Stencil Std, fantasy;">
-                      {{ __('Ajouter Livre') }}
+            <button type="submit" class="btn btn-outline-primary" style="font-size: 120%; font-family: Lato;color:black;">
+                      {{ __('Ajouter') }}
                 </button>
             </a>
           </div>
@@ -189,6 +191,28 @@
             .button-submit::-moz-focus-inner {
                 border: 0;
             }
+</style>
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 155px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 160px;
+    margin-bottom: 5px;
+    margin-left:140px;
+}
 </style>
 
 

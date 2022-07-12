@@ -22,6 +22,13 @@ class NotificationsController extends Controller
     public function emprunts (){
         return view('notifications.emprunts', 
         [
+            'etudiants' => Etudiants::latest()->first(),
+        ]);
+    }
+
+    public function reservations (){
+        return view('notifications.reservations', 
+        [
             'etudiants' => Etudiants::latest()->get(),
         ]);
     }

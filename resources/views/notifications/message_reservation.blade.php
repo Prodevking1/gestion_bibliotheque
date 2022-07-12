@@ -79,9 +79,9 @@ h3 {
         <div class="notice-card-shadow">
             <div class="notice-card card-information">
                 <div class="content">
-                    <div class="main-cat">#{{$emprunt->id}}</div>
+                    <div class="main-cat">#{{$reservations->id}}</div>
                     <h3>{{ $etudiant->nom }} {{ $etudiant->nom }}, </h3>
-                    <p class="description">Ce present e-mail vous informe que le livre intitulé <strong>{{ $emprunt->livre->titre }}</strong> doit etre retouré au plus tard le  <strong>{{ $emprunt->date_retour }}.</strong></p>
+                    <p class="description">Ce present e-mail vous informe que votre reservation pour le livre intitule  a ete effective.</strong></p>
                 </div>
             </div>
         </div>

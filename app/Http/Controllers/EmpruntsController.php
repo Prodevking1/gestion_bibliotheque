@@ -66,9 +66,14 @@ class EmpruntsController extends Controller
      * @param  \App\Models\Emprunts  $emprunts
      * @return \Illuminate\Http\Response
      */
-    public function show(Emprunts $emprunts)
+    public function show($id)
     {
-        //
+        // show the specified resource
+        $emprunt = Emprunts::find($id);
+        return view('emprunts.show', [
+            'emprunt' => $emprunt,
+        ]);
+
     }
 
     /**
