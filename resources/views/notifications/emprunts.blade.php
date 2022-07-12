@@ -15,7 +15,7 @@
                             
 
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="GET" class="row g-3" action="{{ route('notifications/send-emprunt', $etudiants->id)}}" enctype="multipart/form-data">
+				<form method="GET" class="row g-3" action="{{ route('notifications/send-emprunt', $emprunt->id)}}" enctype="multipart/form-data">
 					@csrf
 
 					<!-- Catégorie with select option -->
