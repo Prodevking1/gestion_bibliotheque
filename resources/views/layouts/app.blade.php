@@ -111,8 +111,9 @@
 
         <!-- Deconnexion icone -->
             <li class="nav-item">
-                <a class="nav-link dropdown-item" href="pages/tables/logout.php" role="button" style="color: black;">
-                <i class="fas fa-power-off"></i>
+                <form action="{{ route('logout') }}">
+                <a class="nav-link dropdown-item" role="button" style="color: black;">
+                <i class="fas fa-power-off"></i></form>
                 </a>
             </li>
 

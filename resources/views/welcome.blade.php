@@ -106,21 +106,10 @@
 
                             <div class="col-md-8 offset-md-4">
                                 
-<<<<<<< HEAD
                                 <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%; margin-left:10%;">
-=======
-                                    <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%;">
-                                        <a href="{{ route('register') }}">
-                                            {{ __('S\'inscrire') }}
-                                        </a>
-                                </button>
-                                
-                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; margin-left:10%;">
->>>>>>> a3e27d5bc53086420139d32d0c39c0933f4b6919
                                     {{ __('Se connecter') }}
                                 </button>
                     </form>
-                    <a href="{{ route('register') }}"
                                     class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
                                     {{ __('S\'inscrire') }}
                                 </a>

@@ -10,6 +10,7 @@ use App\Models\Livres;
 use App\Models\Emprunts;
 use App\Models\Reservations;
 use App\Models\Auteurs;
+use App\Models\Categories;
 
 class HomeController extends Controller
 {
@@ -38,6 +39,7 @@ class HomeController extends Controller
         'etudiants' => Etudiants::count(),
         'emprunts' => Emprunts::count(),
         'auteurs' => Auteurs::count(),
+        'categories' => Categories::count(),
         ]);
     }
 }
