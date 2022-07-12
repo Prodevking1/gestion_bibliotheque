@@ -110,6 +110,7 @@
                                     {{ __('Se connecter') }}
                                 </button>
                     </form>
+                    <a href="{{ route('register') }}"
                                     class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
                                     {{ __('S\'inscrire') }}
                                 </a>
