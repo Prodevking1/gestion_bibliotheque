@@ -2,7 +2,7 @@
 @section('content')
 <div class="container" style="margin-top: 2%;text-align:center; font-family:Lato;">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des livres</li>
