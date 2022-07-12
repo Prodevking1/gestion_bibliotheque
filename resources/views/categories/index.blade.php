@@ -4,10 +4,8 @@
 @section('content')
 <div class="container" style="margin-top: 2%;font-family:Lato;">
   <div class="row justify-content-center">
-    <div class="col-md-11">
-      <div class="twelve">
-	      <h1 >Catégories</h1>
-      </div>
+    <div class="col-md-12">
+	<h1 style="text-align:center; text-transform:uppercase; ">catégories</h1>
 		<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 			<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 			<li class="breadcrumb-item active">Catégories</li>
@@ -15,13 +13,8 @@
     <br><br>
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
-
-        <button type="submit" class="btn btn-outline-primary" style="font-size: 120%; margin-left:5px; font-family: Lato; color:black;">
-                      {{ __('Ajouter') }}
-                </button>
         </a>
       </div>
-      <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
                   <input name="q" type= "text" size="15" placeholder="Rechercher une categorie" />
                   <input class="button-submit" type= "submit" value="" />
