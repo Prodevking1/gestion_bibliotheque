@@ -107,7 +107,7 @@ Route::resource("/editeurs", EditeursController::class);
 
 
 //delete all
-Route::post('deleteAll', [EtudiantsController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [EtudiantsController::class, 'deleteAll'])->name('etudiant.deleteAll');
 Route::post('deleteAll', [LivresController::class, 'deleteAll'])->name('deleteAll');
 Route::post('deleteAll', [EmpruntsController::class, 'deleteAll'])->name('deleteAll'); 
 Route::post('deleteAll', [ReservationsController::class, 'deleteAll'])->name('deleteAll');
