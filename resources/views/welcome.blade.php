@@ -51,9 +51,9 @@
 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    
+<form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         
 
                         <div class="row mb-4" style=" font-family: Lato; font-size: 150%;">
@@ -102,6 +102,8 @@
                         </div>
 
                         <div class="row mb-0">
+                            
+
                             <div class="col-md-8 offset-md-4">
                                 
                                     <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%;">
@@ -113,11 +115,17 @@
                                 <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; margin-left:10%; color:black;">
                                     {{ __('Se connecter') }}
                                 </button>
+                    </form>
+                    <a href="{{ route('register') }}"
+                                    class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                                    {{ __('S\'inscrire') }}
+                                </a>
 
                                 
                             </div>
                         </div>
-                    </form>
+
+                    
                     <br><br>
                 </div>
             </div>

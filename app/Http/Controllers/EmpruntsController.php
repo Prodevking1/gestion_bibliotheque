@@ -105,8 +105,13 @@ class EmpruntsController extends Controller
      * @param  \App\Models\Emprunts  $emprunts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Emprunts $emprunts)
+    public function destroy(Emprunts $emprunts, $id)
     {
-        //
+        $emprunt = Emprunts::find($id);
+        $emprunt->delete();
+        $livre = Livres::find($emprunt->livre_id);
+        $livre->status = 'Y';
+        $livre->save();
+        return redirect('/emprunts');
     }
 }

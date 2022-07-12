@@ -86,7 +86,7 @@
         <button type="submit"class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button>
       </form>
 
-      <form class="col-md-2" action="{{route('emprunts.edit', $emprunt->id)}}" method="post">
+      <form class="col-md-2" action="{{route('emprunts.show', $emprunt->id)}}" method="post">
             @csrf
         <button type="submit"class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>
@@ -162,3 +162,25 @@
 </style>
 
 
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 215px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 220px;
+    margin-bottom: 5px;
+    margin-left:215px;
+}
+</style>

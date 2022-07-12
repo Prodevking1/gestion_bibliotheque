@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="container" style="margin-top: 2%; text-align:center; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-8">
@@ -20,13 +19,13 @@
             <!-- Input nom catégorie -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Titre</label>
-						<input type="text" name="titre" id="titre" class="form-control" placeholder="Anglais technique" required/>
+						<input type="text" name="titre" id="titre" class="form-control" placeholder="Finance" required/>
 					</div>
           <!-- Input emplacement -->
 					<div class="col-md-6">
 						<label class="form-label" style="font-weight: bold;">Emplacement</label>
 						<select class="form-select" name="emplacement" aria-label="Default select example" required>
-							<option value="" selected disabled>Selectionnez votre filière</option>
+							<option value="" selected disabled>Selectionnez l'emplacement</option>
 							<option value="MIAGE">Programmation</option>
 							<option value="ADB">Romantique</option>
 							<option value="CCA">Thriller</option>
@@ -45,7 +44,6 @@
 
 
     </div>
-
   </div>
 </div>
 

@@ -18,7 +18,7 @@
           </div>
                         
         <div class="search"style="margin-left:80%;">
-            <form class="searchbox" method="get" action="search" autocomplete="off">
+            <form class="searchbox" method="post" action="search" autocomplete="off">
                   <input name="q" type= "text" size="15" placeholder="Rechercher un livre" />
                   <input class="button-submit" type= "submit" value="" />
             </form>
@@ -41,7 +41,10 @@
                           <th>Auteur</th>
                           <th>Categorie</th>
                           <th>Status</th>
-                          <th>Actions</th>
+                          <th>Actions <span style="margin-left:0px"><form method="post"action="{{ route('deleteAll') }}"  accept-charset="UTF-8" style="display:inline">
+                                  @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete all" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                              </form></span></th>
                         </tr>
                       </thead>
                       @forelse($livres as $livre)
@@ -81,7 +84,7 @@
                           <!-- <td class=" " style="font-size:120%;">
 
                           
-                            <form class="col-4" action="{{route('livres.show', $livre->id)}}" method="get">
+                            <form class="col-4" action="{{route('livres.show', $livre->id)}}" method="post">
                                 @csrf
                               <button type="submit" class="btn btn-info"> <i class="fas fa-eye"></i></button>
                             </form>
@@ -103,20 +106,18 @@
 
                           </td> -->
 
-
                           <td>
+                            @csrf
                             <a href="{{route('livres.show', $livre->id)}}" title="View book"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
 
-                            <form method="get" action="{{route('livres.edit', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
-                                  {{ method_field('EDIT') }}
-                                  {{ csrf_field() }}
+                            <form method="post" action="{{route('livres.edit', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                 @csrf
                               <button type="submit" class="btn btn-primary btn-sm" title="edit book"><i class="fas fa-edit" aria-hidden="true"></i></button>
                             </form>
                             <!-- <a href="{{route('livres.edit', $livre->id)}}" title="Edit book"><button class="btn btn-primary btn-sm"><i class="fas fa-edit" aria-hidden="true"></i></button></a> -->
-                    
-                              <form method="get" action="{{route('livres.delete', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
-                                  {{ method_field('DELETE') }}
-                                  {{ csrf_field() }}
+                              @csrf
+                              <form method="post" action="{{route('livres.delete', $livre->id)}}" accept-charset="UTF-8" style="display:inline">
+                                  @csrf
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete categories" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                               </form>
                           </td>
@@ -189,6 +190,28 @@
             .button-submit::-moz-focus-inner {
                 border: 0;
             }
+</style>
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 155px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 160px;
+    margin-bottom: 5px;
+    margin-left:140px;
+}
 </style>
 
 

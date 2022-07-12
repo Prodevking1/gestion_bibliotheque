@@ -13,13 +13,8 @@
     <br><br>
       <div class="form-group">
         <a href="{{ route('categories.create') }}">
-
-        <button type="submit" class="btn btn-outline-primary" style="font-size: 120%; margin-left:5px; font-family: Lato; color:black;">
-                      {{ __('Ajouter') }}
-                </button>
         </a>
       </div>
-      <div class="search"style="margin-left:80%;">
             <form class="searchbox" method="get" action="search" autocomplete="off">
                   <input name="q" type= "text" size="15" placeholder="Rechercher une categorie" />
                   <input class="button-submit" type= "submit" value="" />
@@ -37,8 +32,8 @@
                       <thead class="bg-light">
                         <tr>
                         
-                          <th scope="col">ID</th>
-                          <th scope="col">Titre</th>
+                          <th scope="col" width=40%>ID</th>
+                          <th scope="col"width=45%>Titre</th>
                           <th scope="col">Actions</th>
                         
                         </tr>
@@ -69,7 +64,7 @@
                           
                         @empty
                         <tr>
-                            <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+                            < colspan="8">Aucune categories n'a ete trouvee !</td>
                         </tr>
                       </tbody>
                         @endforelse
@@ -127,4 +122,26 @@
             .button-submit::-moz-focus-inner {
                 border: 0;
             }
+</style>
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px; text-transform:uppercase; width:160px; text-align:center; margin:auto; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 95px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 95px;
+    margin-bottom: 5px;
+    margin-left:55%;
+}
 </style>

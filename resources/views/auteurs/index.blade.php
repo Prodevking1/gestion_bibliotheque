@@ -78,3 +78,25 @@
 			</div>
 		</div>
 @endsection
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 175px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 170px;
+    margin-bottom: 5px;
+    margin-left:160px;
+}
+</style>
