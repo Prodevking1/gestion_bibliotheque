@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Etudiants;
+use App\Models\Reservations;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -31,10 +32,12 @@ class ReservationNotificationMail extends Mailable
 
     {
         $etudiant = Etudiants::find($id);
+        $reservation = Reservations::find($id);
 
         return $this->subject('Statut reservation')->view('notifications.message_reservation',
         [
             'etudiant' => $etudiant,
+            'reservation' => $reservation,
             'details' => $this->details,
         ]);
     }

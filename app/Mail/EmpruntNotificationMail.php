@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Etudiants;
+use App\Models\Reservations;
 
 class EmpruntNotificationMail extends Mailable
 {
@@ -36,10 +37,13 @@ class EmpruntNotificationMail extends Mailable
 
     {
         $etudiant = Etudiants::find($id);
+        $emprunts = Reservations::find($id);
 
         return $this->subject('Rappel retour livre')->view('notifications.message_emprunt',
         [
+            
             'etudiant' => $etudiant,
+            'emprunt' => $emprunts,
             'details' => $this->details,
         ]);
     }

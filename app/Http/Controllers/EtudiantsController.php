@@ -105,7 +105,7 @@ class EtudiantsController extends Controller
         $etudiants = Etudiants::find($id);
         $input = $request->all();
         $etudiants->update($input);
-        return redirect('etudiants')->with('flash_message', 'etudiants Updated!');  
+        return redirect('etudiants')->with('flash_message', 'etudiants Updated!'); 
     }
 
     /**

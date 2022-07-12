@@ -9,6 +9,7 @@ use App\Models\Reservations;
 use App\Models\Editeurs;
 use App\Models\Livres;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LivresController extends Controller
 {
@@ -104,12 +105,16 @@ class LivresController extends Controller
     public function destroy($id)
     {
         $livres = Livres::find($id);
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $livres->delete();
         return redirect('/livres')->with('success', 'Livre supprimé avec succès');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }//delete all rows
     public static  function deleteAll(){
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         Livres::truncate();
         return redirect('/livres')->with('success', 'Tous les livres ont été supprimés');
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
 

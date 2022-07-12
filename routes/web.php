@@ -107,7 +107,7 @@ Route::resource("/editeurs", EditeursController::class);
 
 
 //delete all
-Route::post('deleteAll', [EtudiantsController::class, 'deleteAll'])->name('deleteAll');
+Route::post('deleteAll', [EtudiantsController::class, 'deleteAll'])->name('etudiant.deleteAll');
 Route::post('deleteAll', [LivresController::class, 'deleteAll'])->name('deleteAll');
 Route::post('deleteAll', [EmpruntsController::class, 'deleteAll'])->name('deleteAll'); 
 Route::post('deleteAll', [ReservationsController::class, 'deleteAll'])->name('deleteAll');
@@ -120,7 +120,7 @@ Route::post('deleteAll', [ReservationsController::class, 'deleteAll'])->name('de
 // route to send mail
 Route::get('notifications/send-emprunt/{id}', function ($id) {
     $emprunt = Emprunts::find($id);
-    $etudiant = Etudiants::find($emprunt->etudiant->id);
+    $etudiant = Etudiants::find($emprunt->etudiant_id);
     $data = [
         'etudiant' => $etudiant,
         'emprunt' => $emprunt,
@@ -131,11 +131,11 @@ Route::get('notifications/send-emprunt/{id}', function ($id) {
         $message->to($etudiant->email);
         $message->subject('[ Important ] - Retour de votre emprunt ');
     });
-  
+    return redirect()->route('emprunts');
 })->name('notifications/send-emprunt');
 Route::get('notifications/send-reservation/{id}', function ($id) {
     $reservation = Reservations::find($id);
-    $etudiant = Etudiants::find($reservation->etudiant->id);
+    $etudiant = Etudiants::find($reservation->etudiant_id);
     $data = [
         'etudiant' => $etudiant,
         'reservation' => $reservation,
@@ -145,8 +145,8 @@ Route::get('notifications/send-reservation/{id}', function ($id) {
         $message->from('rachid@micro-net.tech');
         $message->to($etudiant->email);
         $message->subject('[ Important ] - Statut de votre reservation');
-    })->name('notifications/send-reservation');
-    dd($reservation);
+    });
+    return redirect()->route('reservations');
   
-});
+})->name('notifications.send-reservation');;
 ?>
