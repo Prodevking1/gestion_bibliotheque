@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid py-4">
-			<h1 style="font-family: Lato;">Gestionnaire des reservations</h1>
+  <div class="twelve">
+			<h1 style="font-family: Lato;">Gestionnaire Des Reservations</h1>
+  </div>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Lecteurs</li>
+				<li class="breadcrumb-item active">Reservationneurs</li>
 
 			</ol>
           <div>
@@ -72,7 +74,7 @@
              <span class='badge badge-danger'>non retourné</span>
         @endif
       </td>
-      <td class="row" style="color:blue;font-size:120%;">
+      <td class="row" style="color:blue;font-size:10%;">
         <div class="bg">
             <div>
       
@@ -82,7 +84,7 @@
       </form>
       </div>
       <div>
-      <form class="col-md-6" action="{{route('reservations.edit', $reservation->id)}}" method="post">
+      <form class="col-md-6" action="{{route('reservations.show', $reservation->id)}}" method="post">
             @csrf
         <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
       </form>
@@ -98,7 +100,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun reservationeur n'a ete trouve !</td>
+         <td colspan="8">Aucun reservationneur n'a ete trouve !</td>
      </tr>
   </tbody>
   
@@ -166,6 +168,28 @@
                border: 0px;
             }
 
+</style>
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 250px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 250px;
+    margin-bottom: 5px;
+    margin-left:240px;
+}
 </style>
 
 

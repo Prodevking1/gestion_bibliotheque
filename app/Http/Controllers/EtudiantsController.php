@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etudiants;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EtudiantsController extends Controller
 {
@@ -59,6 +60,13 @@ class EtudiantsController extends Controller
 
     }
 
+        public static function deleteAll(){
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+            Etudiants::truncate();
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+            
+            return redirect('etudiants')->with('flash_message', 'Tous les etudiants ont été supprimés');
+        }
 
     /**
      * Display the specified resource.

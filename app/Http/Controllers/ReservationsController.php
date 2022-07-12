@@ -99,8 +99,14 @@ class reservationsController extends Controller
      * @param  \App\Models\reservations  $reservations
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservations $reservations)
+    public function destroy(Reservations $reservations, $id )
+
     {
-        //
+        $reservation = Reservations::find($id);
+        $reservation->delete();
+        $livre = Livres::find($reservation->livre_id);
+        $livre->status = 'Y';
+        $livre->save();
+        redirect('/reservations');
     }
 }

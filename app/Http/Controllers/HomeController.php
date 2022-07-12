@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//import all controllers from
+use App\Http\Controllers\Controller;
+use App\Models\Etudiants;
+use App\Models\Livres;
+use App\Models\Emprunts;
+use App\Models\Reservations;
+use App\Models\Auteurs;
+use App\Models\Categories;
 
 class HomeController extends Controller
 {
@@ -23,6 +31,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // cunt all items in the
+        return view('home', 
+        [
+        'livres' => Livres::count(),
+        'reservations' => Reservations::count(),
+        'etudiants' => Etudiants::count(),
+        'emprunts' => Emprunts::count(),
+        'auteurs' => Auteurs::count(),
+        'categories' => Categories::count(),
+        ]);
     }
 }

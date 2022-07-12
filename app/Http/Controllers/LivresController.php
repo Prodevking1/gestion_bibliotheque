@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Auteurs;
 use App\Models\Categories;
+use App\Models\Emprunts;
+use App\Models\Reservations;
 use App\Models\Editeurs;
 use App\Models\Livres;
 use Illuminate\Http\Request;
@@ -56,25 +58,24 @@ class LivresController extends Controller
 
         ]);
         $livres = Livres::create($validatedData);
-        
-        return view('livres.index', [
-         'livres' => Livres::latest()->get(),
-         'categories' => Categories::latest()->get(),
-         'auteurs' => Auteurs::latest()->get(),
-         'editeurs' => Editeurs::latest()->get()
-        ])->with('success', $livres);    
+        $categories = Categories::latest()->get();
+        $auteurs = Auteurs::latest()->get();
+        $editeurs = Editeurs::latest()->get();
+        return redirect('/livres')->with('success', 'Livre ajouté avec succès');
     }
 
 
     public function show(Livres $livres, int $id)
     {  
         $livre = Livres::find($id);
-        return redirect('livres.index', [
-            'livre' => $livre,
-            'auteurs' => Auteurs::latest()->get(),
-            'categories' => Categories::latest()->get(),
-            'editeurs' => Editeurs::latest()->get()
-        ]);
+        /* return view('livres.index', [
+            'livre' => Livres::latest()->get(),
+         'categories' => Categories::latest()->get(),
+         'auteurs' => Auteurs::latest()->get(),
+         'editeurs' => Editeurs::latest()->get()
+        ]); */
+        return view('livres.show', compact('livre'));
+       
     }
 
 
@@ -88,6 +89,8 @@ class LivresController extends Controller
             'editeurs' => Editeurs::latest()->get()
         ]);
     }
+
+    
 
 
     public function update(Request $request, Livres $livres, $id)
@@ -103,6 +106,10 @@ class LivresController extends Controller
         $livres = Livres::find($id);
         $livres->delete();
         return redirect('/livres')->with('success', 'Livre supprimé avec succès');
+    }//delete all rows
+    public static  function deleteAll(){
+        Livres::truncate();
+        return redirect('/livres')->with('success', 'Tous les livres ont été supprimés');
     }
 }
 

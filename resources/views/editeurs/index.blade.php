@@ -7,7 +7,9 @@
 <div class="container" style="margin-top: 2%;font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-			<h1 style="text-align:center; ">Editeurs</h1>
+      <div class="twelve">
+			<h1 style="text-align:center; ">Gestion des Editeurs</h1>
+      </div>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Gestion des éditeurs</li>
@@ -82,3 +84,25 @@
 			</div>
 		</div>
 @endsection
+<style>
+.twelve h1 {
+  font-size:26px; font-weight:700;  letter-spacing:1px;margin-left:35%; text-transform:uppercase; width:160px; text-align:center; white-space:nowrap; padding-bottom:13px;
+}
+.twelve h1:before {
+    background-color: blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 175px;
+    margin-bottom: 5px;
+}
+.twelve h1:after {
+    background-color:blue;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 160px;
+    margin-bottom: 5px;
+    margin-left:175px;
+}
+</style>
