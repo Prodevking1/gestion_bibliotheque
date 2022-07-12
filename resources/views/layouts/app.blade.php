@@ -68,7 +68,7 @@
         
 
         <!-- Navbar Brand-->
-        <a href="index.php" class="brand-link" style=" text-decoration:none;">
+        <a href="{{route('home')}}" class="brand-link" style=" text-decoration:none;">
             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="rounded-circle" data-holder-rendered="true" style="width: 18%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
             <span class="brand-text" style="color: black;">   GESBiblio</span>
         </a>
