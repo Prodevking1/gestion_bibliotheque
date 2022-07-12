@@ -5,11 +5,11 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="twelve">
-			<h1 style="font-family: Lato;text-align:center;">Gestion des Etudiants</h1>
+			<h1 style="font-family: Lato;text-align:center;">Gestion des Lecteurs</h1>
       </div>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
-				<li class="breadcrumb-item active">Gestion des Etudiants</li>
+				<li class="breadcrumb-item active">Gestion des Lecteurs</li>
 			</ol>
       <br><br>
           <div class="">
@@ -98,7 +98,7 @@
     </tr>
     @empty
      <tr>
-         <td colspan="8">Aucun etudiant n'a ete trouve !</td>
+         <td colspan="8">Aucun Lecteur n'a ete trouve !</td>
      </tr>
   </tbody>
   
@@ -175,7 +175,7 @@
     content: '';
     display: block;
     height: 3px;
-    width: 180px;
+    width: 170px;
     margin-bottom: 5px;
     margin-left:175px;
 }

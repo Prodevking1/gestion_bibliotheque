@@ -46,7 +46,7 @@
         <div class="col-md-8">
             <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <br>
-                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">{{ __('Connexion') }}</div>
+                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 180%;">{{ __('Connexion') }}</div>
                     <br><br><br>
 
 
@@ -56,7 +56,7 @@
                         @csrf
                         
 
-                        <div class="row mb-4" style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-4" style=" font-family: Lato; font-size: 120%;">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 120%;">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Lato; font-size: 130%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 120%;">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -104,14 +104,14 @@
                         <div class="row mb-0">
                             
 
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4"style="text-align:center;margin:auto;">
                                 
-                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%; margin-left:10%;">
+                                <button type="submit" class="btn btn-outline-primary" style="font-family: Stencil Std, fantasy; font-size: 120%; margin-right:%;">
                                     {{ __('Se connecter') }}
                                 </button>
                     </form>
                     <a href="{{ route('register') }}"
-                                    class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
+                                    class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 120%;margin-left:30%;">
                                     {{ __('S\'inscrire') }}
                                 </a>
 

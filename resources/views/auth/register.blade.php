@@ -52,7 +52,7 @@
 
             <br><br>
 
-                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">{{ __('Inscription') }}</div>
+                <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 180%;">{{ __('Inscription') }}</div>
 
                 <br><br>
 
@@ -60,7 +60,7 @@
                     <form method="POST" action="{{ route('register') }}"  style="text-align:center;">
                         @csrf
 
-                        <div class="row mb-3"style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-3"style=" font-family: Lato; font-size: 120%;">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 120%;">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse Email') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3"style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-3"style=" font-family: Lato; font-size: 120%;">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
@@ -102,7 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3" style=" font-family: Lato; font-size: 150%;">
+                        <div class="row mb-3" style=" font-family: Lato; font-size: 120%;">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmez') }} <span style="color: red;">*</span></label>
 
                             <div class="col-md-6">
@@ -114,7 +114,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4 mx-auto">
-                                <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 150%; text-align:center; color:black;">
+                                <button type="submit"  class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 120%;margin-left:20%;">
                                     {{ __("S'Inscrire") }}
                                 </button>
                             </div>
@@ -122,7 +122,7 @@
 
                         <br>
 
-                        <div class="row mb-0" style="display: flex; font-family: Lato; font-size: 130%; text-align:center; color:black;">
+                        <div class="row mb-0" style="display: flex; font-family: Lato; font-size: 110%; text-align:center; color:black;">
                             <div class="col-md-6 offset-md-4 mx-auto">
                                 <p>Vous avez déjà un compte? <a href="{{ route('login') }}" style="text-decoration:none;">{{ __("Connectez-vous ici") }}</a></p>
                                 

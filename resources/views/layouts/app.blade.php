@@ -68,7 +68,7 @@
         
 
         <!-- Navbar Brand-->
-        <a href="{{route('home')}}" class="brand-link" style=" text-decoration:none;">
+        <a href="index.php" class="brand-link" style=" text-decoration:none;">
             <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="rounded-circle" data-holder-rendered="true" style="width: 18%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
             <span class="brand-text" style="color: black;">   GESBiblio</span>
         </a>
@@ -111,9 +111,8 @@
 
         <!-- Deconnexion icone -->
             <li class="nav-item">
-                <form action="{{ route('logout') }}">
-                <a class="nav-link dropdown-item" role="button" style="color: black;">
-                <i class="fas fa-power-off"></i></form>
+                <a class="nav-link dropdown-item" href="pages/tables/logout.php" role="button" style="color: black;">
+                <i class="fas fa-power-off"></i>
                 </a>
             </li>
 
@@ -136,11 +135,9 @@
                 <div class="sb-sidenav-menu" style="font-size: 20px; margin-top: 20px;">
                     <div class="nav">
                         <a class="nav-link ho" href="{{ route('home') }}" style="color: black;"><i class="fa fa-home" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Acceuil</a>
-                        <a class="nav-link ho" href="{{route('etudiants')}}" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Etudiants</a>
-                        <a class="nav-link ho" href="" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Lecteurs</a>
+                        <a class="nav-link ho" href="{{route('etudiants')}}" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Lecteurs</a>
                         <a class="nav-link ho" href="{{ route('livres') }}" style="color: black;" ><i class="fa fa-book" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Livres</a>
                         <a class="nav-link ho" href="{{ route('categories.index') }}" style="color: black;"><i class="fa fa-list-alt" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i></i> Categories</a>
-                        <a class="nav-link ho" href="" style="color: black;" > <i class="fa fa-map-marker" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Emplacements</a>
                         <a class="nav-link ho" href="{{ route('auteurs.index') }}" style="color: black;" ><i class="fas fa-user" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Auteurs</a>
                         <a class="nav-link ho" href="{{route('editeurs.index')}}" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Editeurs</a>
                         <a class="nav-link ho" href="{{ route('emprunts') }}" style="color: black;" ><i class="fas fa-exchange-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Emprunts</a>
