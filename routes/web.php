@@ -68,6 +68,24 @@ Route::post('/emprunts/store/', [EmpruntsController::class, 'store'])->name('emp
 
 
 
+//routes editeurs
+Route::get('/editeurs', [EditeursController::class, 'index'])->name('editeurs');
+Route::get('/editeurs/create', [EditeursController::class, 'create'])->name('editeurs.create');
+Route::get('/editeurs/show/{id}', [EditeursController::class, 'show'])->name('editeurs.show');
+Route::post('/editeurs/edit/{id}', [EditeursController::class, 'edit'])->name('editeurs.edit');
+Route::post('/editeurs/update/{id}', [EditeursController::class, 'update'])->name('editeurs.update');
+Route::post('/editeurs/delete/{id}', [EditeursController::class, 'destroy'])->name('editeurs.delete');
+Route::post('/editeurs/store/', [EditeursController::class, 'store'])->name('editeurs.store');
+
+
+
+
+
+
+
+
+
+
 
 // routes reservation
 Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservations');

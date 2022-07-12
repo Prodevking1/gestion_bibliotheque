@@ -1,12 +1,11 @@
 @extends('layouts.app')
 @section('content')
- 
 
 <div class="container" style="margin-top: 2%; text-align:center; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card-title" style="text-align: center;text-transform : uppercase; font-family: Lato; font-weight: bold; font-size: 200%;">
-        Ajouter une categoirie
+        Ajouter une catégorie
       </div>
       <br><br>
 
