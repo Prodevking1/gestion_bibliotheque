@@ -33,8 +33,7 @@ class NotificationsController extends Controller
         return view('notifications.reservations', 
         [
             'etudiantss' => Etudiants::latest()->get(),
-            'etudiants' => Etudiants::latest()->first(),
-            'reservation' => Reservations::latest()->get(),
+            'reservation' => Emprunts::latest()->first(),
 
         ]);
     }

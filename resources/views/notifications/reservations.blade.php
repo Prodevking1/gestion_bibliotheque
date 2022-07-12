@@ -13,7 +13,7 @@
 			</div>
 			<br>
 			<div class="card-body"  style="text-transform : uppercase; font-family: Lato;">
-				<form method="GET" class="row g-3" action="{{ route('notifications.send-reservation', $emprunt->id)}}" enctype="multipart/form-data">
+				<form method="GET" class="row g-3" action="{{ route('notifications.send-reservation', $reservation->id)}}" enctype="multipart/form-data">
 					@csrf
 
 					<!-- Catégorie with select option -->
