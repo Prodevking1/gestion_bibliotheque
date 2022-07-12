@@ -52,7 +52,8 @@
 
                 <div class="card-body">
                     
-
+<form method="POST" action="{{ route('login') }}">
+                        @csrf
                         
 
                         <div class="row mb-4" style=" font-family: Stencil Std, fantasy; font-size: 150%;">
@@ -101,8 +102,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                            
 
                             <div class="col-md-8 offset-md-4">
                                 
