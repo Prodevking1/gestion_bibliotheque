@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Etudiants;
+use \App\Models\Emprunts;
+use \App\Models\Reservations;
 
 class NotificationsController extends Controller
 {
@@ -23,14 +25,16 @@ class NotificationsController extends Controller
         return view('notifications.emprunts', 
         [
             'etudiantss' => Etudiants::latest()->get(),
-            'etudiants' => Etudiants::latest()->first(),
+            'emprunt' => Emprunts::latest()->first(),
         ]);
     }
 
     public function reservations (){
         return view('notifications.reservations', 
         [
-            'etudiants' => Etudiants::latest()->get(),
+            'etudiantss' => Etudiants::latest()->get(),
+            'reservation' => Emprunts::latest()->first(),
+
         ]);
     }
 

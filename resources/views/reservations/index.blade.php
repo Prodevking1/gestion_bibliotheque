@@ -3,7 +3,7 @@
 <div class="container" style="margin-top: 2%; font-family:Lato;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-			<h1 style="font-family: Lato; text-transform:uppercase;text-align:center;">reservations</h1>
+			<h1 class="twelve" style="font-family: Lato; text-transform:uppercase;text-align:center;">reservations</h1>
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border" >
 				<li class="breadcrumb-item"><a href="index.php">Tableau de bord</a></li>
 				<li class="breadcrumb-item active">Reservationneurs</li>
@@ -11,7 +11,7 @@
 			</ol>
           <div>
             <a href="{{ route('reservations.create') }}">
-            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 100%;border-color:none;color:black;">
+            <button type="submit" class="btn btn-outline-primary" style=" font-family: Lato; font-size: 120%;border-color:none;color:black;">
                       {{ __('Ajouter') }}
                 </button>
             </a>

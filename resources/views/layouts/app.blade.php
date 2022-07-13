@@ -59,7 +59,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- Noyau JavaScript de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     
 
 
@@ -112,9 +112,19 @@
 
         <!-- Deconnexion icone -->
             <li class="nav-item">
+
                 <a class="nav-link dropdown-item" href="pages/tables/logout.php" role="button" style="color: black;">
                 <i class="fas fa-power-off"></i>
                 </a>
+
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button href="{{ route('logout') }}" class="nav-link dropdown-item" role="button" style="color: black;">
+                <i class="fas fa-power-off"></i>
+                    </button>
+                    </form>
+                
+
             </li>
 
 
@@ -143,7 +153,15 @@
                         <a class="nav-link ho" href="{{route('editeurs.index')}}" style="color: black;" > <i class="fa fa-users" aria-hidden="true" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Editeurs</a>
                         <a class="nav-link ho" href="{{ route('emprunts') }}" style="color: black;" ><i class="fas fa-exchange-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Emprunts</a>
                         <a class="nav-link ho" href="{{ route('reservations') }}" style="color: black;" ><i class="fas fa-ticket-alt" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Réservations</a>
-                        <a class="nav-link ho" href="" style="color: black;" ><i class="fa fa-history" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Rappels</a>
+                        {{-- <a class="nav-link ho" href="" style="color: black;" ><i class="fa fa-history" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i> Rappels</a> --}}
+                        <li class="nav-item dropdown" style="margin-right: 60%;">
+                <a class="nav-link dropdown-toggle dropdown-item" data-toggle="dropdown" id="navbarDropdown" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="color: black;"><i class="fa fa-history" style="margin-left: 7%;margin-right: 17px; margin-bottom: 4px;"></i>Rappels</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('notifications.reservations') }}"><i class="fa fa-ticket-alt" aria-hidden="true"></i> Reservations</a></li>
+                    <li><a class="dropdown-item" href="{{ route('notifications.emprunts') }}"><i class="fa fa-exchange-alt" aria-hidden="true"></i> Emprunts</a></li>
+                </ul>
+            </li>
 
                     </div>
                 </div>

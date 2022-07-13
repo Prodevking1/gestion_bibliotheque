@@ -120,10 +120,13 @@
                                     {{ __('Se connecter') }}
                                 </button>
                     </form>
+<<<<<<< HEAD
                     <a href="{{ route('register') }}"
                                     class="btn btn-outline-primary" style=" font-family: Stencil Std, fantasy; font-size: 120%;margin-left:30%;">
                                     {{ __('S\'inscrire') }}
                                 </a>
+=======
+>>>>>>> 814692fcb18f5409271299bbe0e627b0bfa704d5
 
                                 
                             </div>

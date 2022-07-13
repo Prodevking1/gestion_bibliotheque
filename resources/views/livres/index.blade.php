@@ -41,10 +41,11 @@
                           <th>Auteur</th>
                           <th>Categorie</th>
                           <th>Status</th>
-                          <th>Actions <span style="margin-left:0px"><form method="post"action="{{ route('deleteAll') }}"  accept-charset="UTF-8" style="display:inline">
+                          <th>Actions </th>
+                          <th><form method="post" action="{{route('deleteAll')}}"  accept-charset="UTF-8" style="display:inline">
                                   @csrf
                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete all" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                              </form></span></th>
+                              </form></th>
                         </tr>
                       </thead>
                       @forelse($livres as $livre)
